@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8F7D62E21F7566FA00012921 /* DateAndEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7D62E11F7566FA00012921 /* DateAndEvent.swift */; };
+		8F9FCD981F7521A2000BD163 /* Events.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F9FCD971F7521A2000BD163 /* Events.swift */; };
+		8F9FCD9A1F7521B4000BD163 /* ComputedSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F9FCD991F7521B4000BD163 /* ComputedSchedule.swift */; };
+		8F9FCD9C1F7521C7000BD163 /* Calendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F9FCD9B1F7521C7000BD163 /* Calendar.swift */; };
+		8F9FCD9E1F75228C000BD163 /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F9FCD9D1F75228C000BD163 /* Schedule.swift */; };
+		8F9FCDA11F752F21000BD163 /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F9FCD9F1F752F21000BD163 /* EventTableViewCell.swift */; };
+		8F9FCDA21F752F21000BD163 /* EventTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F9FCDA01F752F21000BD163 /* EventTableViewCell.xib */; };
 		8FA0EC451F73F4E800B72943 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA0EC441F73F4E800B72943 /* LoginViewController.swift */; };
 		8FA0EC471F73F9EA00B72943 /* VerifyPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA0EC461F73F9EA00B72943 /* VerifyPasswordViewController.swift */; };
 		8FBA99F71F7281A4003A959F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FBA99F61F7281A4003A959F /* AppDelegate.swift */; };
@@ -25,6 +32,13 @@
 /* Begin PBXFileReference section */
 		1333E351AC4DDEF0CFE96D03 /* Pods-Sangha Teacher.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sangha Teacher.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Sangha Teacher/Pods-Sangha Teacher.debug.xcconfig"; sourceTree = "<group>"; };
 		3EC29D575624891BBEDA21BC /* Pods_Sangha_Teacher.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sangha_Teacher.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8F7D62E11F7566FA00012921 /* DateAndEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateAndEvent.swift; sourceTree = "<group>"; };
+		8F9FCD971F7521A2000BD163 /* Events.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Events.swift; sourceTree = "<group>"; };
+		8F9FCD991F7521B4000BD163 /* ComputedSchedule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComputedSchedule.swift; sourceTree = "<group>"; };
+		8F9FCD9B1F7521C7000BD163 /* Calendar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Calendar.swift; sourceTree = "<group>"; };
+		8F9FCD9D1F75228C000BD163 /* Schedule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
+		8F9FCD9F1F752F21000BD163 /* EventTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventTableViewCell.swift; sourceTree = "<group>"; };
+		8F9FCDA01F752F21000BD163 /* EventTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventTableViewCell.xib; sourceTree = "<group>"; };
 		8FA0EC441F73F4E800B72943 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		8FA0EC461F73F9EA00B72943 /* VerifyPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerifyPasswordViewController.swift; sourceTree = "<group>"; };
 		8FBA99F31F7281A4003A959F /* Sangha Teacher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sangha Teacher.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -62,6 +76,63 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		8F9FCD8B1F7503A8000BD163 /* Reachability */ = {
+			isa = PBXGroup;
+			children = (
+				8FBA9A0E1F72827D003A959F /* Reachability.swift */,
+			);
+			name = Reachability;
+			sourceTree = "<group>";
+		};
+		8F9FCD8C1F7503C4000BD163 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				8FBA9A0A1F7281FC003A959F /* Constants.swift */,
+				8FBA9A0C1F728220003A959F /* Extensions.swift */,
+			);
+			name = Utils;
+			sourceTree = "<group>";
+		};
+		8F9FCD8D1F7503D2000BD163 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				8FBA9A141F7284E9003A959F /* EventsViewController.swift */,
+				8FA0EC441F73F4E800B72943 /* LoginViewController.swift */,
+				8FA0EC461F73F9EA00B72943 /* VerifyPasswordViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		8F9FCD8E1F7503DE000BD163 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				8FBA9A101F728461003A959F /* APIHandler.swift */,
+				8FBA9A121F728479003A959F /* API.swift */,
+			);
+			name = API;
+			sourceTree = "<group>";
+		};
+		8F9FCDA31F75321A000BD163 /* xib */ = {
+			isa = PBXGroup;
+			children = (
+				8F9FCD9F1F752F21000BD163 /* EventTableViewCell.swift */,
+				8F9FCDA01F752F21000BD163 /* EventTableViewCell.xib */,
+			);
+			name = xib;
+			sourceTree = "<group>";
+		};
+		8FAD83D31F75761400C287A8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8F9FCD971F7521A2000BD163 /* Events.swift */,
+				8F9FCD991F7521B4000BD163 /* ComputedSchedule.swift */,
+				8F7D62E11F7566FA00012921 /* DateAndEvent.swift */,
+				8F9FCD9B1F7521C7000BD163 /* Calendar.swift */,
+				8F9FCD9D1F75228C000BD163 /* Schedule.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		8FBA99EA1F7281A4003A959F = {
 			isa = PBXGroup;
 			children = (
@@ -83,15 +154,13 @@
 		8FBA99F51F7281A4003A959F /* Sangha Teacher */ = {
 			isa = PBXGroup;
 			children = (
-				8FBA9A0E1F72827D003A959F /* Reachability.swift */,
-				8FBA9A0A1F7281FC003A959F /* Constants.swift */,
-				8FBA9A0C1F728220003A959F /* Extensions.swift */,
 				8FBA99F61F7281A4003A959F /* AppDelegate.swift */,
-				8FBA9A141F7284E9003A959F /* EventsViewController.swift */,
-				8FA0EC441F73F4E800B72943 /* LoginViewController.swift */,
-				8FA0EC461F73F9EA00B72943 /* VerifyPasswordViewController.swift */,
-				8FBA9A101F728461003A959F /* APIHandler.swift */,
-				8FBA9A121F728479003A959F /* API.swift */,
+				8F9FCD8E1F7503DE000BD163 /* API */,
+				8F9FCD8B1F7503A8000BD163 /* Reachability */,
+				8F9FCD8C1F7503C4000BD163 /* Utils */,
+				8F9FCD8D1F7503D2000BD163 /* Controller */,
+				8FAD83D31F75761400C287A8 /* Model */,
+				8F9FCDA31F75321A000BD163 /* xib */,
 				8FBA99FC1F7281A5003A959F /* Main.storyboard */,
 				8FBA99FF1F7281A5003A959F /* Assets.xcassets */,
 				8FBA9A011F7281A5003A959F /* LaunchScreen.storyboard */,
@@ -172,6 +241,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8F9FCDA21F752F21000BD163 /* EventTableViewCell.xib in Resources */,
 				8FBA9A031F7281A5003A959F /* LaunchScreen.storyboard in Resources */,
 				8FBA9A001F7281A5003A959F /* Assets.xcassets in Resources */,
 				8FBA99FE1F7281A5003A959F /* Main.storyboard in Resources */,
@@ -234,13 +304,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				8FBA9A111F728461003A959F /* APIHandler.swift in Sources */,
+				8F9FCD9A1F7521B4000BD163 /* ComputedSchedule.swift in Sources */,
 				8FBA9A0D1F728220003A959F /* Extensions.swift in Sources */,
+				8F7D62E21F7566FA00012921 /* DateAndEvent.swift in Sources */,
 				8FBA9A0F1F72827D003A959F /* Reachability.swift in Sources */,
+				8F9FCDA11F752F21000BD163 /* EventTableViewCell.swift in Sources */,
 				8FBA99F71F7281A4003A959F /* AppDelegate.swift in Sources */,
+				8F9FCD981F7521A2000BD163 /* Events.swift in Sources */,
 				8FA0EC451F73F4E800B72943 /* LoginViewController.swift in Sources */,
+				8F9FCD9C1F7521C7000BD163 /* Calendar.swift in Sources */,
 				8FBA9A131F728479003A959F /* API.swift in Sources */,
 				8FBA9A0B1F7281FC003A959F /* Constants.swift in Sources */,
 				8FA0EC471F73F9EA00B72943 /* VerifyPasswordViewController.swift in Sources */,
+				8F9FCD9E1F75228C000BD163 /* Schedule.swift in Sources */,
 				8FBA9A151F7284E9003A959F /* EventsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -11,7 +11,8 @@ import UIKit
 
 struct AppColor{
     
-    static let appCalendarPrimaryColor:UInt32 = 0x28303C
+    static let appCalendarTextPrimaryColor: UInt32 = 0x28303C
+    static let appEventColor: UInt32 = 0x22B9F0
     
 }
 

@@ -22,7 +22,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sangha_logo" translatesAutoresizingMaskIntoConstraints="NO" id="UeX-ZW-1cC">
-                                <rect key="frame" x="113" y="84" width="150" height="150"/>
+                                <rect key="frame" x="112.5" y="84" width="150" height="150"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="150" id="SCI-5N-KDC"/>
                                     <constraint firstAttribute="height" constant="150" id="nDc-cM-lYR"/>
@@ -181,6 +181,8 @@
                     <connections>
                         <segue destination="KEu-Nd-QmX" kind="relationship" relationship="viewControllers" id="Lav-PO-eOA"/>
                         <segue destination="WWL-mz-TkM" kind="relationship" relationship="viewControllers" id="z4p-G2-YgO"/>
+                        <segue destination="0K1-3N-8JT" kind="relationship" relationship="viewControllers" id="Ecg-wJ-dqV"/>
+                        <segue destination="d3Y-Wy-vQS" kind="relationship" relationship="viewControllers" id="eXj-kT-52k"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
@@ -245,15 +247,25 @@
                                     <userDefinedRuntimeAttribute type="number" keyPath="headerMinimumDissolvedAlpha">
                                         <real key="value" value="0.0"/>
                                     </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="eventDefaultColor">
+                                        <color key="value" red="0.1333333333" green="0.72549019609999998" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="eventSelectionColor">
+                                        <color key="value" red="0.1333333333" green="0.72549019609999998" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <outlet property="dataSource" destination="aAI-yf-oVI" id="whG-9H-hbf"/>
                                     <outlet property="delegate" destination="aAI-yf-oVI" id="JLh-Rg-nFF"/>
                                 </connections>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4Ba-ZS-JWq">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4Ba-ZS-JWq">
                                 <rect key="frame" x="0.0" y="300" width="375" height="254"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="aAI-yf-oVI" id="DdQ-ox-aRm"/>
+                                    <outlet property="delegate" destination="aAI-yf-oVI" id="h5w-VR-9iB"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -278,11 +290,13 @@
             </objects>
             <point key="canvasLocation" x="3055.1999999999998" y="-382.75862068965517"/>
         </scene>
-        <!--Events-->
+        <!--Navigation Controller-->
         <scene sceneID="3RL-Wh-USY">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="KEu-Nd-QmX" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Events" image="cal" id="p2I-Pa-5xI"/>
+                    <tabBarItem key="tabBarItem" title="" image="cal" id="p2I-Pa-5xI">
+                        <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-6"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="aW5-IM-sqo">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -297,7 +311,7 @@
             </objects>
             <point key="canvasLocation" x="2116" y="-382.75862068965517"/>
         </scene>
-        <!--Profile-->
+        <!--Announcement-->
         <scene sceneID="2bQ-WB-dB5">
             <objects>
                 <viewController id="xLI-yA-yzT" sceneMemberID="viewController">
@@ -310,17 +324,57 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Profile" id="XbW-kO-bFK"/>
+                    <navigationItem key="navigationItem" title="Announcement" id="XbW-kO-bFK"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hhO-Ah-mxM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3055.1999999999998" y="311.69415292353824"/>
         </scene>
+        <!--Chat-->
+        <scene sceneID="cIf-RD-lHb">
+            <objects>
+                <viewController id="4Bo-db-Kx7" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Adc-kA-daH"/>
+                        <viewControllerLayoutGuide type="bottom" id="tIX-6P-x2u"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="iGM-W9-FGc">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Chat" id="VSD-jx-t4A"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="P1N-F8-QlM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3055" y="1003"/>
+        </scene>
         <!--Profile-->
+        <scene sceneID="I1y-PT-Dq6">
+            <objects>
+                <viewController id="MJy-En-WPy" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="RTb-fe-FzS"/>
+                        <viewControllerLayoutGuide type="bottom" id="t6h-MS-fR9"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="4cs-s8-XEb">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Profile" id="1RI-xw-Xxj"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gQ8-KC-knF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3055" y="1724"/>
+        </scene>
+        <!--Navigation Controller-->
         <scene sceneID="via-jU-0A0">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="WWL-mz-TkM" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Profile" image="profile" id="ZnK-q7-aY0"/>
+                    <tabBarItem key="tabBarItem" title="" image="announcement" id="ZnK-q7-aY0">
+                        <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-6"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="kRQ-du-h4N">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -356,9 +410,53 @@
             </objects>
             <point key="canvasLocation" x="-1591.2" y="-0.44977511244377816"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="dDP-B9-bVm">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="0K1-3N-8JT" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" image="chat" id="RIs-Q3-lNH">
+                        <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-6"/>
+                    </tabBarItem>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="2g7-EH-jcl">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="4Bo-db-Kx7" kind="relationship" relationship="rootViewController" id="Uuo-4G-fUf"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hy9-V1-6qY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2116" y="1003"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="j50-Rh-F0L">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="d3Y-Wy-vQS" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" image="profile" id="ag7-5I-8bz">
+                        <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-6"/>
+                    </tabBarItem>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="f4b-sA-oCM">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="MJy-En-WPy" kind="relationship" relationship="rootViewController" id="Vk2-4R-rLG"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="e4K-YF-UmQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2116" y="1724"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="announcement" width="29" height="29"/>
         <image name="cal" width="29" height="29"/>
+        <image name="chat" width="29" height="29"/>
         <image name="profile" width="29" height="29"/>
         <image name="sangha_logo" width="300" height="300"/>
     </resources>

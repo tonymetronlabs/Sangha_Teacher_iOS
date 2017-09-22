@@ -19,7 +19,7 @@ class EventsViewController: UIViewController {
     
     fileprivate lazy var dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd"
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'" //2017-09-12T00:00:00.000Z
         return formatter
     }()
     
@@ -30,10 +30,12 @@ class EventsViewController: UIViewController {
         panGesture.delegate = self
         return panGesture
     }()
-
-    var presentDatesArray:[String] = []
     
-    var absentDatesArray:[String] = []
+    var eventModelArray: [Events] = []
+    
+    var eventsDateArray: [Date] = []
+    
+    var dateAndEvent:[DateAndEvent] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,22 +43,15 @@ class EventsViewController: UIViewController {
         self.tabBarController?.navigationItem.hidesBackButton = true
         
         self.view.addGestureRecognizer(self.scopeGesture)
-        
-        self.presentDatesArray = ["2017-09-03",
-                                  "2017-09-06",
-                                  "2017-09-12",
-                                  "2017-09-25"];
-        
-        self.absentDatesArray = ["2017-09-10",
-                                 "2017-09-18",
-                                 "2017-09-15",
-                                 "2017-09-16"];
 
         self.calendarView.appearance.headerTitleFont = UIFont(name: AppFont.appFontDemiBold, size: 25)
         
         self.calendarView.appearance.weekdayFont = UIFont(name: AppFont.appFontDemiBold, size: 13)
         
         self.calendarView.appearance.titleFont = UIFont(name: AppFont.appFontMedium, size: 15)
+        
+        
+        self.eventsListTableView.register(EventTableViewCell.nib, forCellReuseIdentifier: EventTableViewCell.identifier)
         
         
         self.fetchEvent()
@@ -91,6 +86,8 @@ class EventsViewController: UIViewController {
     
     private func fetchEvent(){
         
+        print(Date())
+        
         let nowApi =  API.NowForOrg.init(withDate: "2017-09-21", eventsOnly: "1", rt: "month", oamr: "1")
         
         print(nowApi.URL)
@@ -101,8 +98,41 @@ class EventsViewController: UIViewController {
                 
                 if response?["status"] as! Int == 200{
                     
-                    
                     print(response ?? "")
+                    
+                    self.eventModelArray = Events.modelsFromDictionaryArray(array: response?["events"] as! [Dictionary<String, Any>])
+                    
+
+                    for obj in self.eventModelArray{
+                        
+                        for scheduleDate in (obj.computedSchedule?.calendar)!{
+                            
+                            print(scheduleDate.date ?? "No date")
+                            
+                            self.eventsDateArray.append(self.dateFormatter.date(from: scheduleDate.date!)!)
+                            
+                            self.dateAndEvent.append(DateAndEvent(with: self.dateFormatter.date(from: scheduleDate.date!)!, event: obj)!)
+                            
+                        }
+                    }
+                    
+                    print(self.dateAndEvent)
+
+                    
+                    print(Set(self.eventsDateArray))
+                    print(Set(self.eventsDateArray).sorted())
+                    
+                    let array = Set(self.eventsDateArray).sorted()
+                    
+                    print(array.filter({ (date) -> Bool in
+                        
+                        return date >= Date()
+                        
+                    }))
+                    
+                    self.eventsListTableView.reloadData()
+                    
+                    self.calendarView.reloadData()
                     
                 }else {
                     
@@ -118,6 +148,48 @@ class EventsViewController: UIViewController {
         
     }
 
+}
+
+extension EventsViewController: UITableViewDataSource, UITableViewDelegate{
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        
+        return 1
+        
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        
+        return 25.0
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.eventModelArray.count
+    }
+    
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
+        return EventTableViewCell.cellHeight
+        
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: EventTableViewCell.identifier) as! EventTableViewCell
+        
+        let event = self.eventModelArray[indexPath.row]
+        
+        cell.updateUI(with: event)
+        
+        return cell
+        
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
 }
 
 extension EventsViewController: UIGestureRecognizerDelegate{
@@ -147,38 +219,18 @@ extension EventsViewController: FSCalendarDataSource, FSCalendarDelegate, FSCale
     
     func calendar(_ calendar: FSCalendar, numberOfEventsFor date: Date) -> Int {
         
-        let dateString = self.dateFormatter.string(from: date)
         
-        if presentDatesArray.contains(dateString){
-            
-            return 2
-            
-        }else if absentDatesArray.contains(dateString){
+        if self.eventsDateArray.contains(date){
             
             return 1
-        }else{
-            
-            return 0
         }
         
         return 0
     }
     
     func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, eventDefaultColorsFor date: Date) -> [UIColor]? {
-
-        let dateString = self.dateFormatter.string(from: date)
         
-        if presentDatesArray.contains(dateString){
-            
-            return [UIColor.red,UIColor.brown]
-            
-        }else if absentDatesArray.contains(dateString){
-            
-            return [UIColor.black, UIColor.green]
-        }else{
-            
-            return [UIColor.clear]
-        }
+        return [UIColor(hex: AppColor.appEventColor)]
         
     }
 
