@@ -1,0 +1,24 @@
+PODS:
+  - FSCalendar (2.7.9)
+  - SVProgressHUD (2.2.1)
+
+DEPENDENCIES:
+  - FSCalendar
+  - SVProgressHUD (from `https://github.com/SVProgressHUD/SVProgressHUD.git`)
+
+EXTERNAL SOURCES:
+  SVProgressHUD:
+    :git: https://github.com/SVProgressHUD/SVProgressHUD.git
+
+CHECKOUT OPTIONS:
+  SVProgressHUD:
+    :commit: fe8e9d9a4bd8974fdd1b1d3eee85ee6d8141da83
+    :git: https://github.com/SVProgressHUD/SVProgressHUD.git
+
+SPEC CHECKSUMS:
+  FSCalendar: a04b09f16f811bc92e82f3cf852a15225233b9d5
+  SVProgressHUD: db27c54e6e18bc903341661fc9feb55e04905cc4
+
+PODFILE CHECKSUM: be8b3a471e9c296cfd825654860f731b4aed25a4
+
+COCOAPODS: 1.1.1

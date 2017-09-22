@@ -1,0 +1,6 @@
+framework module Pods_Sangha_Teacher {
+  umbrella header "Pods-Sangha Teacher-umbrella.h"
+
+  export *
+  module * { export * }
+}

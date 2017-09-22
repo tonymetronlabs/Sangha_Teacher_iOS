@@ -1,0 +1,415 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8FA0EC451F73F4E800B72943 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA0EC441F73F4E800B72943 /* LoginViewController.swift */; };
+		8FA0EC471F73F9EA00B72943 /* VerifyPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA0EC461F73F9EA00B72943 /* VerifyPasswordViewController.swift */; };
+		8FBA99F71F7281A4003A959F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FBA99F61F7281A4003A959F /* AppDelegate.swift */; };
+		8FBA99FE1F7281A5003A959F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8FBA99FC1F7281A5003A959F /* Main.storyboard */; };
+		8FBA9A001F7281A5003A959F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8FBA99FF1F7281A5003A959F /* Assets.xcassets */; };
+		8FBA9A031F7281A5003A959F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8FBA9A011F7281A5003A959F /* LaunchScreen.storyboard */; };
+		8FBA9A0B1F7281FC003A959F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FBA9A0A1F7281FC003A959F /* Constants.swift */; };
+		8FBA9A0D1F728220003A959F /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FBA9A0C1F728220003A959F /* Extensions.swift */; };
+		8FBA9A0F1F72827D003A959F /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FBA9A0E1F72827D003A959F /* Reachability.swift */; };
+		8FBA9A111F728461003A959F /* APIHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FBA9A101F728461003A959F /* APIHandler.swift */; };
+		8FBA9A131F728479003A959F /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FBA9A121F728479003A959F /* API.swift */; };
+		8FBA9A151F7284E9003A959F /* EventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FBA9A141F7284E9003A959F /* EventsViewController.swift */; };
+		A175609429147764D5A6C169 /* Pods_Sangha_Teacher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EC29D575624891BBEDA21BC /* Pods_Sangha_Teacher.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		1333E351AC4DDEF0CFE96D03 /* Pods-Sangha Teacher.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sangha Teacher.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Sangha Teacher/Pods-Sangha Teacher.debug.xcconfig"; sourceTree = "<group>"; };
+		3EC29D575624891BBEDA21BC /* Pods_Sangha_Teacher.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sangha_Teacher.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8FA0EC441F73F4E800B72943 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		8FA0EC461F73F9EA00B72943 /* VerifyPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerifyPasswordViewController.swift; sourceTree = "<group>"; };
+		8FBA99F31F7281A4003A959F /* Sangha Teacher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sangha Teacher.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8FBA99F61F7281A4003A959F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		8FBA99FD1F7281A5003A959F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		8FBA99FF1F7281A5003A959F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8FBA9A021F7281A5003A959F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		8FBA9A041F7281A5003A959F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8FBA9A0A1F7281FC003A959F /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		8FBA9A0C1F728220003A959F /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		8FBA9A0E1F72827D003A959F /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		8FBA9A101F728461003A959F /* APIHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIHandler.swift; sourceTree = "<group>"; };
+		8FBA9A121F728479003A959F /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		8FBA9A141F7284E9003A959F /* EventsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsViewController.swift; sourceTree = "<group>"; };
+		D58B5B47AE9752BA4D793D0D /* Pods-Sangha Teacher.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sangha Teacher.release.xcconfig"; path = "Pods/Target Support Files/Pods-Sangha Teacher/Pods-Sangha Teacher.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8FBA99F01F7281A4003A959F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A175609429147764D5A6C169 /* Pods_Sangha_Teacher.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5E32F3A5FD8BABF4F74141FF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3EC29D575624891BBEDA21BC /* Pods_Sangha_Teacher.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8FBA99EA1F7281A4003A959F = {
+			isa = PBXGroup;
+			children = (
+				8FBA99F51F7281A4003A959F /* Sangha Teacher */,
+				8FBA99F41F7281A4003A959F /* Products */,
+				CFC656F4AA7E2C73F67BDC6C /* Pods */,
+				5E32F3A5FD8BABF4F74141FF /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		8FBA99F41F7281A4003A959F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8FBA99F31F7281A4003A959F /* Sangha Teacher.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8FBA99F51F7281A4003A959F /* Sangha Teacher */ = {
+			isa = PBXGroup;
+			children = (
+				8FBA9A0E1F72827D003A959F /* Reachability.swift */,
+				8FBA9A0A1F7281FC003A959F /* Constants.swift */,
+				8FBA9A0C1F728220003A959F /* Extensions.swift */,
+				8FBA99F61F7281A4003A959F /* AppDelegate.swift */,
+				8FBA9A141F7284E9003A959F /* EventsViewController.swift */,
+				8FA0EC441F73F4E800B72943 /* LoginViewController.swift */,
+				8FA0EC461F73F9EA00B72943 /* VerifyPasswordViewController.swift */,
+				8FBA9A101F728461003A959F /* APIHandler.swift */,
+				8FBA9A121F728479003A959F /* API.swift */,
+				8FBA99FC1F7281A5003A959F /* Main.storyboard */,
+				8FBA99FF1F7281A5003A959F /* Assets.xcassets */,
+				8FBA9A011F7281A5003A959F /* LaunchScreen.storyboard */,
+				8FBA9A041F7281A5003A959F /* Info.plist */,
+			);
+			path = "Sangha Teacher";
+			sourceTree = "<group>";
+		};
+		CFC656F4AA7E2C73F67BDC6C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1333E351AC4DDEF0CFE96D03 /* Pods-Sangha Teacher.debug.xcconfig */,
+				D58B5B47AE9752BA4D793D0D /* Pods-Sangha Teacher.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8FBA99F21F7281A4003A959F /* Sangha Teacher */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8FBA9A071F7281A5003A959F /* Build configuration list for PBXNativeTarget "Sangha Teacher" */;
+			buildPhases = (
+				EE36EBE86C010C5C1D362034 /* [CP] Check Pods Manifest.lock */,
+				8FBA99EF1F7281A4003A959F /* Sources */,
+				8FBA99F01F7281A4003A959F /* Frameworks */,
+				8FBA99F11F7281A4003A959F /* Resources */,
+				1FF48071D575CCC80EDB6E7B /* [CP] Embed Pods Frameworks */,
+				D3A52CC395FFE24A627F4F96 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Sangha Teacher";
+			productName = "Sangha Teacher";
+			productReference = 8FBA99F31F7281A4003A959F /* Sangha Teacher.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		8FBA99EB1F7281A4003A959F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0820;
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = Sangha;
+				TargetAttributes = {
+					8FBA99F21F7281A4003A959F = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 4N7N8D95WX;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 8FBA99EE1F7281A4003A959F /* Build configuration list for PBXProject "Sangha Teacher" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 8FBA99EA1F7281A4003A959F;
+			productRefGroup = 8FBA99F41F7281A4003A959F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8FBA99F21F7281A4003A959F /* Sangha Teacher */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8FBA99F11F7281A4003A959F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8FBA9A031F7281A5003A959F /* LaunchScreen.storyboard in Resources */,
+				8FBA9A001F7281A5003A959F /* Assets.xcassets in Resources */,
+				8FBA99FE1F7281A5003A959F /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1FF48071D575CCC80EDB6E7B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Sangha Teacher/Pods-Sangha Teacher-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D3A52CC395FFE24A627F4F96 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Sangha Teacher/Pods-Sangha Teacher-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EE36EBE86C010C5C1D362034 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8FBA99EF1F7281A4003A959F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8FBA9A111F728461003A959F /* APIHandler.swift in Sources */,
+				8FBA9A0D1F728220003A959F /* Extensions.swift in Sources */,
+				8FBA9A0F1F72827D003A959F /* Reachability.swift in Sources */,
+				8FBA99F71F7281A4003A959F /* AppDelegate.swift in Sources */,
+				8FA0EC451F73F4E800B72943 /* LoginViewController.swift in Sources */,
+				8FBA9A131F728479003A959F /* API.swift in Sources */,
+				8FBA9A0B1F7281FC003A959F /* Constants.swift in Sources */,
+				8FA0EC471F73F9EA00B72943 /* VerifyPasswordViewController.swift in Sources */,
+				8FBA9A151F7284E9003A959F /* EventsViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		8FBA99FC1F7281A5003A959F /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8FBA99FD1F7281A5003A959F /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		8FBA9A011F7281A5003A959F /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8FBA9A021F7281A5003A959F /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		8FBA9A051F7281A5003A959F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		8FBA9A061F7281A5003A959F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		8FBA9A081F7281A5003A959F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1333E351AC4DDEF0CFE96D03 /* Pods-Sangha Teacher.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 4N7N8D95WX;
+				INFOPLIST_FILE = "Sangha Teacher/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.sanghapp.ios.tapp.beta;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		8FBA9A091F7281A5003A959F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D58B5B47AE9752BA4D793D0D /* Pods-Sangha Teacher.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 4N7N8D95WX;
+				INFOPLIST_FILE = "Sangha Teacher/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.sanghapp.ios.tapp.beta;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		8FBA99EE1F7281A4003A959F /* Build configuration list for PBXProject "Sangha Teacher" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8FBA9A051F7281A5003A959F /* Debug */,
+				8FBA9A061F7281A5003A959F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8FBA9A071F7281A5003A959F /* Build configuration list for PBXNativeTarget "Sangha Teacher" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8FBA9A081F7281A5003A959F /* Debug */,
+				8FBA9A091F7281A5003A959F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 8FBA99EB1F7281A4003A959F /* Project object */;
+}
