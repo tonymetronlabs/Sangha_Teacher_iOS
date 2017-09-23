@@ -12,10 +12,10 @@ public class DateAndEvent {
     public var date: Date?
     public var event: Events?
     
-    required public init?(with date: Date, event: Events) {
+    required public init?(with date: Date, events: Events) {
         
         self.date = date
-        self.event = event
+        self.event = events
         
     }
     

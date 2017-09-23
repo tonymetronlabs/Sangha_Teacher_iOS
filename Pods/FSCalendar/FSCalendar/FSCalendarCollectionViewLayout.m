@@ -240,7 +240,8 @@
             }
             contentSize = CGSizeMake(width, height);
         }
-        contentSize;
+        CGSize size = CGSizeMake(contentSize.width - 5, contentSize.height - 5);
+        size;
     });
     
     [self.calendar adjustMonthPosition];

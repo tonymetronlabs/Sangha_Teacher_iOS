@@ -134,6 +134,8 @@
     CGFloat titleHeight = self.bounds.size.height*5.0/6.0;
     CGFloat diameter = MIN(self.bounds.size.height*5.0/6.0,self.bounds.size.width);
     diameter = diameter > FSCalendarStandardCellDiameter ? (diameter - (diameter-FSCalendarStandardCellDiameter)*0.5) : diameter;
+    diameter = diameter - 1.3;
+    
     _shapeLayer.frame = CGRectMake((self.bounds.size.width-diameter)/2,
                                    (titleHeight-diameter)/2,
                                    diameter,
@@ -392,7 +394,7 @@ OFFSET_PROPERTY(preferredEventOffset, PreferredEventOffset, _appearance.eventOff
         self.contentView = view;
         
         self.eventLayers = [NSPointerArray weakObjectsPointerArray];
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < 5; i++) {
             CALayer *layer = [CALayer layer];
             layer.backgroundColor = [UIColor clearColor].CGColor;
             [self.contentView.layer addSublayer:layer];
@@ -422,9 +424,9 @@ OFFSET_PROPERTY(preferredEventOffset, PreferredEventOffset, _appearance.eventOff
             CALayer *eventLayer = [self.eventLayers pointerAtIndex:i];
             eventLayer.hidden = i >= self.numberOfEvents;
             if (!eventLayer.hidden) {
-                eventLayer.frame = CGRectMake((2*i*diameter), ((self.fs_height-diameter)*0.5)-1.5 , diameter + 3 , diameter + 3);
-                if (eventLayer.cornerRadius != (diameter+3)/2) {
-                    eventLayer.cornerRadius = (diameter+3)/2;
+                eventLayer.frame = CGRectMake((2*i*diameter), ((self.fs_height-diameter)*0.5) , diameter + 1, diameter + 1);
+                if (eventLayer.cornerRadius != (diameter + 1)/2) {
+                    eventLayer.cornerRadius = (diameter + 1)/2;
                 }
             }
         }
@@ -455,7 +457,7 @@ OFFSET_PROPERTY(preferredEventOffset, PreferredEventOffset, _appearance.eventOff
 - (void)setNumberOfEvents:(NSInteger)numberOfEvents
 {
     if (_numberOfEvents != numberOfEvents) {
-        _numberOfEvents = MIN(MAX(numberOfEvents,0),3);
+        _numberOfEvents = MIN(MAX(numberOfEvents,0),5);
         [self setNeedsLayout];
     }
 }

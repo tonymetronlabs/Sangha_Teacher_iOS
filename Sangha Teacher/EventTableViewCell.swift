@@ -28,6 +28,24 @@ class EventTableViewCell: UITableViewCell {
         
         self.eventTitleLabel.text = event.title
         self.eventTimeLabel.text = "08:00 AM - 9:00 AM"
+        
+        // For demo we designed as staic
+        if event.docSubType == "ptm"{
+            
+            self.eventImageView.backgroundColor = UIColor.init(hex: 0xF2CF38)
+            
+        }else if event.docSubType == "fieldtrip" {
+            
+            self.eventImageView.backgroundColor = UIColor.init(hex: 0x22B9F0)
+            
+        }else if event.docSubType == "reminder" {
+            
+            self.eventImageView.backgroundColor = UIColor.init(hex: 0x53F9AE)
+        }else{
+            
+            self.eventImageView.backgroundColor = UIColor.gray
+        }
+        
         self.eventTypeLabel.text = event.docSubType
     }
     

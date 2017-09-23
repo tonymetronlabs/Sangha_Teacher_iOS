@@ -13,7 +13,11 @@ class API: NSObject {
     
     #if DEBUG
     
-    private static let kServerURL = "http://beta-api.sanghapp.com/v1/"
+    //private static let kServerURL = "http://beta-api.sanghapp.com/v1/"
+    
+    
+    //MARK: - Live URL
+    private static let kServerURL = "https://api.sanghapp.com/v1/"
     
     #else
     
@@ -28,7 +32,10 @@ class API: NSObject {
         
         var paramDict: Dictionary<String, Any>? = nil
         
-        let URL = "http://beta-web.sanghapp.com/login"
+        //let URL = "http://beta-web.sanghapp.com/login"
+        
+        //MARK: - Live URL
+        let URL = "https://web.sanghapp.com/login"
         
         let APIMethod: API_METHOD = .POST
         

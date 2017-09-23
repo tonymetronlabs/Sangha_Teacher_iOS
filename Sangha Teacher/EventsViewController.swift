@@ -24,6 +24,12 @@ class EventsViewController: UIViewController {
     }()
     
     
+    fileprivate lazy var displayDateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd-MMM-yyyy" //2017-09-12T00:00:00.000Z
+        return formatter
+    }()
+    
     lazy var scopeGesture: UIPanGestureRecognizer = {
         [unowned self] in
         let panGesture = UIPanGestureRecognizer(target: self.calendarView, action: #selector(self.calendarView.handleScopeGesture(_:)))
@@ -34,9 +40,14 @@ class EventsViewController: UIViewController {
     var eventModelArray: [Events] = []
     
     var eventsDateArray: [Date] = []
+        
+    var dateAndEventDictionary = [Date: [DateAndEvent]]()
     
-    var dateAndEvent:[DateAndEvent] = []
-
+    var greaterThanEqualToday: [Date] = []
+    
+    var isSpecificDate:Bool = false
+    var selectedDate: Date!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -48,7 +59,7 @@ class EventsViewController: UIViewController {
         
         self.calendarView.appearance.weekdayFont = UIFont(name: AppFont.appFontDemiBold, size: 13)
         
-        self.calendarView.appearance.titleFont = UIFont(name: AppFont.appFontMedium, size: 15)
+        self.calendarView.appearance.titleFont = UIFont(name: AppFont.appFontMedium, size: 12)
         
         
         self.eventsListTableView.register(EventTableViewCell.nib, forCellReuseIdentifier: EventTableViewCell.identifier)
@@ -85,9 +96,7 @@ class EventsViewController: UIViewController {
     // MARK: - API Call
     
     private func fetchEvent(){
-        
-        print(Date())
-        
+                
         let nowApi =  API.NowForOrg.init(withDate: "2017-09-21", eventsOnly: "1", rt: "month", oamr: "1")
         
         print(nowApi.URL)
@@ -98,39 +107,37 @@ class EventsViewController: UIViewController {
                 
                 if response?["status"] as! Int == 200{
                     
-                    print(response ?? "")
-                    
                     self.eventModelArray = Events.modelsFromDictionaryArray(array: response?["events"] as! [Dictionary<String, Any>])
                     
-
+                    var dateAndEvent:[DateAndEvent] = []
+                    
                     for obj in self.eventModelArray{
                         
                         for scheduleDate in (obj.computedSchedule?.calendar)!{
                             
-                            print(scheduleDate.date ?? "No date")
-                            
                             self.eventsDateArray.append(self.dateFormatter.date(from: scheduleDate.date!)!)
                             
-                            self.dateAndEvent.append(DateAndEvent(with: self.dateFormatter.date(from: scheduleDate.date!)!, event: obj)!)
+                            let dateEventObject = DateAndEvent(with: self.dateFormatter.date(from: scheduleDate.date!)!, events: obj)!
+                            
+                            dateAndEvent.append(dateEventObject)
                             
                         }
                     }
                     
-                    print(self.dateAndEvent)
-
                     
-                    print(Set(self.eventsDateArray))
-                    print(Set(self.eventsDateArray).sorted())
-                    
-                    let array = Set(self.eventsDateArray).sorted()
-                    
-                    print(array.filter({ (date) -> Bool in
+                    for date in Set(self.eventsDateArray){
                         
-                        return date >= Date()
+                        let array = dateAndEvent.filter({ (event) -> Bool in
+                            
+                            return date == event.date
+                            
+                        })
                         
-                    }))
+                        self.dateAndEventDictionary[date] = array
+                        
+                    }
                     
-                    self.eventsListTableView.reloadData()
+                    self.toBeDisplay()
                     
                     self.calendarView.reloadData()
                     
@@ -147,6 +154,21 @@ class EventsViewController: UIViewController {
         
         
     }
+    
+    
+    private func toBeDisplay(){
+    
+        let sortedDateAndEventDictKeyArray = Array(self.dateAndEventDictionary.keys).sorted()
+    
+        self.greaterThanEqualToday = sortedDateAndEventDictKeyArray.filter { (date) -> Bool in
+            
+            return date > Date()
+            
+        }
+        
+        self.eventsListTableView.reloadData()
+        
+    }
 
 }
 
@@ -154,8 +176,11 @@ extension EventsViewController: UITableViewDataSource, UITableViewDelegate{
     
     func numberOfSections(in tableView: UITableView) -> Int {
         
-        return 1
+        return (isSpecificDate) ? 1 : self.greaterThanEqualToday.count
         
+        //return self.greaterThanEqualToday.count
+        
+        //return self.dateAndEventDictionary.keys.count
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -164,7 +189,48 @@ extension EventsViewController: UITableViewDataSource, UITableViewDelegate{
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.eventModelArray.count
+        
+        
+//        let key = Array(self.dateAndEventDictionary.keys).sorted()[section]
+//        let array = self.dateAndEventDictionary[key]
+//        let value = array?.count
+//        
+//        return value!
+        
+        if isSpecificDate{
+            
+            return ((self.dateAndEventDictionary[selectedDate])?.count)!
+            
+        }else{
+            
+            let key = self.greaterThanEqualToday[section]
+            
+            return ((self.dateAndEventDictionary[key])?.count)!
+            
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        
+//        let date = Array(self.dateAndEventDictionary.keys).sorted()[section]
+//        
+//        return self.displayDateFormatter.string(from: date)
+        
+        
+        if isSpecificDate {
+
+            return self.displayDateFormatter.string(from: selectedDate)
+            
+        }else{
+            
+            let date = self.greaterThanEqualToday[section]
+            
+            return self.displayDateFormatter.string(from: date)
+            
+        }
+        
+        
+        
     }
     
     
@@ -178,9 +244,27 @@ extension EventsViewController: UITableViewDataSource, UITableViewDelegate{
         
         let cell = tableView.dequeueReusableCell(withIdentifier: EventTableViewCell.identifier) as! EventTableViewCell
         
-        let event = self.eventModelArray[indexPath.row]
+        let dateEvent: DateAndEvent!
         
-        cell.updateUI(with: event)
+        if isSpecificDate{
+            
+            dateEvent = self.dateAndEventDictionary[selectedDate]?[indexPath.row]
+
+        }else{
+            
+            let keyDate = self.greaterThanEqualToday[indexPath.section]
+            
+            dateEvent = self.dateAndEventDictionary[keyDate]?[indexPath.row]
+            
+//            let event = dateEvent?.event
+//            
+//            cell.updateUI(with: event!)
+            
+        }
+        
+        let event = dateEvent?.event
+        
+        cell.updateUI(with: event!)
         
         return cell
         
@@ -195,17 +279,13 @@ extension EventsViewController: UITableViewDataSource, UITableViewDelegate{
 extension EventsViewController: UIGestureRecognizerDelegate{
     
     func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
-        let shouldBegin = self.eventsListTableView.contentOffset.y <= -self.eventsListTableView.contentInset.top
-        if shouldBegin {
-            let velocity = self.scopeGesture.velocity(in: self.view)
-            switch self.calendarView.scope {
-            case .month:
-                return velocity.y < 0
-            case .week:
-                return velocity.y > 0
-            }
+        let velocity = self.scopeGesture.velocity(in: self.view)
+        switch self.calendarView.scope {
+        case .month:
+            return velocity.y < 0
+        case .week:
+            return velocity.y > 0
         }
-        return shouldBegin
     }
 }
 
@@ -219,18 +299,112 @@ extension EventsViewController: FSCalendarDataSource, FSCalendarDelegate, FSCale
     
     func calendar(_ calendar: FSCalendar, numberOfEventsFor date: Date) -> Int {
         
-        
         if self.eventsDateArray.contains(date){
             
-            return 1
+            for (key, value) in self.dateAndEventDictionary{
+                
+                if key == date {
+                    
+                    return value.count
+                }
+                
+            }
+            
         }
-        
         return 0
     }
     
     func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, eventDefaultColorsFor date: Date) -> [UIColor]? {
         
-        return [UIColor(hex: AppColor.appEventColor)]
+        if self.eventsDateArray.contains(date){
+            
+            for (key, value) in self.dateAndEventDictionary{
+                
+                if key == date {
+                    
+                    var colorArray:[UIColor] = []
+                    
+                    for dateEvent in value{
+                        
+                        //For Demo
+                        if dateEvent.event?.docSubType == "ptm"{
+                            
+                            colorArray.append(UIColor.init(hex: 0xF2CF38))
+                            
+                        }else if dateEvent.event?.docSubType == "fieldtrip" {
+                            
+                            colorArray.append(UIColor.init(hex: 0x22B9F0))
+                            
+                        }else if dateEvent.event?.docSubType == "reminder" {
+                            
+                            colorArray.append(UIColor.init(hex: 0x53F9AE))
+                        }else{
+                            
+                            colorArray.append(UIColor.gray)
+                        }
+                        
+                    }
+                    
+                    return colorArray
+                }
+                
+            }
+            
+        }
+        
+        return [UIColor.green]
+        
+    }
+    
+    func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, eventSelectionColorsFor date: Date) -> [UIColor]? {
+        
+        if self.eventsDateArray.contains(date){
+            
+            for (key, value) in self.dateAndEventDictionary{
+                
+                if key == date {
+                    
+                    var colorArray:[UIColor] = []
+                    
+                    for dateEvent in value{
+                        
+                        //For Demo
+                        if dateEvent.event?.docSubType == "ptm"{
+                            
+                            colorArray.append(UIColor.init(hex: 0xF2CF38))
+                            
+                        }else if dateEvent.event?.docSubType == "fieldtrip" {
+                            
+                            colorArray.append(UIColor.init(hex: 0x22B9F0))
+                            
+                        }else if dateEvent.event?.docSubType == "reminder" {
+                            
+                            colorArray.append(UIColor.init(hex: 0x53F9AE))
+                        }else{
+                            
+                            colorArray.append(UIColor.gray)
+                        }
+                        
+                    }
+                    
+                    return colorArray
+                }
+                
+            }
+            
+        }
+        
+        return [UIColor.green]
+        
+    }
+    
+    func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
+        
+        self.selectedDate = date
+        
+        self.isSpecificDate = true
+        
+        self.eventsListTableView.reloadData()
         
     }
 
