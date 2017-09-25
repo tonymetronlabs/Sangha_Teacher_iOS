@@ -19,14 +19,15 @@ class EventsViewController: UIViewController {
     
     fileprivate lazy var dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
+        formatter.locale = .current
         formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'" //2017-09-12T00:00:00.000Z
         return formatter
     }()
     
-    
     fileprivate lazy var displayDateFormatter: DateFormatter = {
         let formatter = DateFormatter()
-        formatter.dateFormat = "dd-MMM-yyyy" //2017-09-12T00:00:00.000Z
+        formatter.locale = .current
+        formatter.dateFormat = "EEEE, MMMM dd yyyy"
         return formatter
     }()
     
@@ -64,6 +65,8 @@ class EventsViewController: UIViewController {
         
         self.eventsListTableView.register(EventTableViewCell.nib, forCellReuseIdentifier: EventTableViewCell.identifier)
         
+        self.eventsListTableView.register(EventTableHeaderView.nib, forHeaderFooterViewReuseIdentifier: EventTableHeaderView.identifier)
+        
         
         self.fetchEvent()
     
@@ -97,7 +100,7 @@ class EventsViewController: UIViewController {
     
     private func fetchEvent(){
                 
-        let nowApi =  API.NowForOrg.init(withDate: "2017-09-21", eventsOnly: "1", rt: "month", oamr: "1")
+        let nowApi =  API.NowForOrg.init(withDate: "2017-09-25", eventsOnly: "1", rt: "month", oamr: "1")
         
         print(nowApi.URL)
         
@@ -112,6 +115,14 @@ class EventsViewController: UIViewController {
                     var dateAndEvent:[DateAndEvent] = []
                     
                     for obj in self.eventModelArray{
+                        
+                        _ = obj.ais.filter { (aisObj) -> Bool in
+                            
+                            print(aisObj.aiType)
+                            
+                            return true
+                            
+                        }
                         
                         for scheduleDate in (obj.computedSchedule?.calendar)!{
                             
@@ -129,11 +140,13 @@ class EventsViewController: UIViewController {
                         
                         let array = dateAndEvent.filter({ (event) -> Bool in
                             
-                            return date == event.date
+                            return date.compare(event.date!) == .orderedSame
                             
                         })
                         
                         self.dateAndEventDictionary[date] = array
+                        
+                        print(self.dateAndEventDictionary)
                         
                     }
                     
@@ -161,8 +174,8 @@ class EventsViewController: UIViewController {
         let sortedDateAndEventDictKeyArray = Array(self.dateAndEventDictionary.keys).sorted()
     
         self.greaterThanEqualToday = sortedDateAndEventDictKeyArray.filter { (date) -> Bool in
-            
-            return date > Date()
+
+            return date >= Calendar.current.date(byAdding: .day, value: -1, to: Date())!
             
         }
         
@@ -177,29 +190,52 @@ extension EventsViewController: UITableViewDataSource, UITableViewDelegate{
     func numberOfSections(in tableView: UITableView) -> Int {
         
         return (isSpecificDate) ? 1 : self.greaterThanEqualToday.count
-        
-        //return self.greaterThanEqualToday.count
-        
-        //return self.dateAndEventDictionary.keys.count
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         
-        return 25.0
+        return EventTableHeaderView.headerViewHeight
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
+        
+        let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: EventTableHeaderView.identifier) as! EventTableHeaderView
+        
+        if isSpecificDate {
+            
+            headerView.dateLabel.text = self.displayDateFormatter.string(from: selectedDate)
+            
+        }else{
+            
+            let date = self.greaterThanEqualToday[section]
+            
+            if date == (Calendar.current.date(byAdding: .day, value: -1, to: Date())!) {
+                
+                headerView.dateLabel.text = "Today" + (self.displayDateFormatter.string(from: date))
+            
+            }else{
+                
+                headerView.dateLabel.text = self.displayDateFormatter.string(from: date)
+                
+            }
+            
+        }
+        
+        return headerView
+        
+        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        
-//        let key = Array(self.dateAndEventDictionary.keys).sorted()[section]
-//        let array = self.dateAndEventDictionary[key]
-//        let value = array?.count
-//        
-//        return value!
-        
         if isSpecificDate{
             
-            return ((self.dateAndEventDictionary[selectedDate])?.count)!
+            guard let date = self.dateAndEventDictionary[selectedDate] else {
+                return 0
+            }
+            
+            return date.count
             
         }else{
             
@@ -209,30 +245,6 @@ extension EventsViewController: UITableViewDataSource, UITableViewDelegate{
             
         }
     }
-    
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        
-//        let date = Array(self.dateAndEventDictionary.keys).sorted()[section]
-//        
-//        return self.displayDateFormatter.string(from: date)
-        
-        
-        if isSpecificDate {
-
-            return self.displayDateFormatter.string(from: selectedDate)
-            
-        }else{
-            
-            let date = self.greaterThanEqualToday[section]
-            
-            return self.displayDateFormatter.string(from: date)
-            
-        }
-        
-        
-        
-    }
-    
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
@@ -255,11 +267,6 @@ extension EventsViewController: UITableViewDataSource, UITableViewDelegate{
             let keyDate = self.greaterThanEqualToday[indexPath.section]
             
             dateEvent = self.dateAndEventDictionary[keyDate]?[indexPath.row]
-            
-//            let event = dateEvent?.event
-//            
-//            cell.updateUI(with: event!)
-            
         }
         
         let event = dateEvent?.event
@@ -325,6 +332,22 @@ extension EventsViewController: FSCalendarDataSource, FSCalendarDelegate, FSCale
                     var colorArray:[UIColor] = []
                     
                     for dateEvent in value{
+                        
+                        /*let type = EventType(rawValue: (dateEvent.event?.docSubType)!)!
+                        switch type {
+                        case .ptm:
+                            
+                            break
+                            
+                        case .fieldTrip:
+                            
+                            break
+                            
+                        case .reminder:
+                            
+                            break
+                            
+                        }*/
                         
                         //For Demo
                         if dateEvent.event?.docSubType == "ptm"{

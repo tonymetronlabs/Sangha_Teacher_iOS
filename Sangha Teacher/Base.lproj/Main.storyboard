@@ -161,6 +161,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="passwordTextField" destination="wX1-2W-IsY" id="mlV-Vq-QZ0"/>
+                        <outlet property="verifyButton" destination="t3k-ev-Rtt" id="emT-QQ-UEK"/>
                         <segue destination="49e-Tb-3d3" kind="show" identifier="tabBarSegue" id="qLg-kZ-UKY"/>
                     </connections>
                 </viewController>

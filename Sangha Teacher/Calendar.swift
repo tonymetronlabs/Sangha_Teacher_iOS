@@ -8,18 +8,18 @@
 
 import Foundation
 
-public class Calendar {
+public class EventCalendar {
     public var date: String! = ""
     public var startTime: String! = ""
     public var endTime: String! = ""
     
-    public class func modelsFromDictionaryArray(array:[Dictionary<String, Any>]) -> [Calendar]{
+    public class func modelsFromDictionaryArray(array:[Dictionary<String, Any>]) -> [EventCalendar]{
         
-        var models:[Calendar] = []
+        var models:[EventCalendar] = []
         
         for item in array{
             
-            models.append(Calendar(dictionary: item)!)
+            models.append(EventCalendar(dictionary: item)!)
         }
         return models
     }

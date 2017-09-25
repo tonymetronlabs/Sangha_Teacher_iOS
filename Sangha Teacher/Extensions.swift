@@ -11,6 +11,12 @@ import UIKit
 
 //MARK: - UIColor Extension
 
+let dateFormatter : DateFormatter = {
+    let dateFormatter = DateFormatter()
+    dateFormatter.locale = Locale.current
+    return dateFormatter
+}()
+
 extension UIColor {
     
     convenience init(hex:UInt32, alpha:CGFloat = 1.0) {
@@ -57,6 +63,36 @@ extension String {
         
     }
     
+    func toDateFromString(dateFormat:String) -> Date
+    {
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale.current
+        
+        dateFormatter.dateFormat = dateFormat
+        
+        guard dateFormat != "HH:mm:ss" else {
+            let dateString = (self == "00:00:00" || self == "") ? Date().toString(dateFormat: dateFormat) : self
+            return dateFormatter.date(from: dateString)!
+        }
+        
+        let dateString = (self == "00-00-0000" ||  self == "0000-00-00" || self == "" ) ? Date().toString(dateFormat: dateFormat) : self
+        
+        return dateFormatter.date(from: dateString)!
+    }
+    
+}
+
+extension Date{
+    
+    func toString(dateFormat: String) -> String {
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale.current
+                
+        dateFormatter.dateFormat = dateFormat
+        
+        return (dateFormatter.string(from: self))
+    }
 }
 
 //MARK: - UINavigationBar Extension

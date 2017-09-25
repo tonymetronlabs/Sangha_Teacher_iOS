@@ -12,6 +12,8 @@ class VerifyPasswordViewController: UIViewController {
     
     @IBOutlet weak var passwordTextField: UITextField!
     
+    @IBOutlet weak var verifyButton: UIButton!
+    
     var emailId: String = ""
 
     override func viewDidLoad() {
@@ -52,11 +54,15 @@ class VerifyPasswordViewController: UIViewController {
             
         }
         
+        self.verifyButton.isUserInteractionEnabled = false
+        
         let loginApi = API.Login.init(withEmail: self.emailId , password: password)
         
         APIHandler.sharedInstance.initWithAPIUrl(loginApi.URL, method: loginApi.APIMethod, params: loginApi.paramDict, currentView: self) { (success, response) in
             
             if success {
+                
+                self.verifyButton.isUserInteractionEnabled = true
                 
                 if response?["status"] as! Int == 200{
                     
@@ -74,6 +80,7 @@ class VerifyPasswordViewController: UIViewController {
                 }
             }else{
                 
+                self.verifyButton.isUserInteractionEnabled = true
                 self.showAlert(withTitle: Messages.networkErrorTitle, message: Messages.networkErrorMessage)
             }
         }

@@ -51,3 +51,21 @@ struct Messages {
     static let noInternetMessage = "Please check your connection or try again later"
     
 }
+
+enum EventType: String{
+    
+    case ptm = "ptm"
+    case fieldTrip = "fieldtrip"
+    case reminder = "reminder"
+}
+
+
+enum AiType: String{
+    
+    case form = "approval"
+    case rsvp = "rsvp"
+    case toBring = "stb"
+    case payment = "payment"
+    case voluenteer = "todo"
+    case ptm = "ptm"
+}

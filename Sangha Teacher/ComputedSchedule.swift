@@ -10,7 +10,7 @@ import Foundation
 
 public class ComputedSchedule {
     public var coeType: String! = ""
-    public var calendar: [Calendar] = []
+    public var calendar: [EventCalendar] = []
     public var type: String! = ""
     
     public class func modelsFromDictionaryArray(array:[Dictionary<String, Any>]) -> [ComputedSchedule]{
@@ -31,7 +31,7 @@ public class ComputedSchedule {
         
         if let calendarArray = dictionary["calendar"] as? [Dictionary<String, Any>]{
             
-            calendar = Calendar.modelsFromDictionaryArray(array: calendarArray)
+            calendar = EventCalendar.modelsFromDictionaryArray(array: calendarArray)
             
         }
         

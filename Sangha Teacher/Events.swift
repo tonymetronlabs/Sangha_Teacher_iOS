@@ -21,7 +21,7 @@ public class Events {
     public var docSubType: String! = ""
     public var status: String! = ""
     public var computedSchedule: ComputedSchedule?
-    
+    public var ais: [Ais] = []
     
     public class func modelsFromDictionaryArray(array:[Dictionary<String, Any>]) -> [Events]{
         
@@ -56,6 +56,11 @@ public class Events {
         if let computedScheduleDictionary = dictionary["computedSchedule"] as? Dictionary<String, Any>{
             
             computedSchedule = ComputedSchedule(dictionary: computedScheduleDictionary)
+        }
+        
+        if let aisValue = dictionary["ais"] as? [Dictionary<String, Any>]{
+            
+            ais = Ais.modelsFromDictionaryArray(array: aisValue)
         }
         
     }

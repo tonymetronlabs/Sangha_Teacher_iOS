@@ -18,6 +18,16 @@ class EventTableViewCell: UITableViewCell {
     
     @IBOutlet weak var eventTypeLabel: UILabel!
     
+    @IBOutlet weak var rsvpLabel: UILabel!
+    
+    @IBOutlet weak var volunteerLabel: UILabel!
+    
+    @IBOutlet weak var toBringLabel: UILabel!
+    
+    @IBOutlet weak var formLabel: UILabel!
+    
+    @IBOutlet weak var paymentLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -27,26 +37,105 @@ class EventTableViewCell: UITableViewCell {
     func updateUI(with event: Events) {
         
         self.eventTitleLabel.text = event.title
-        self.eventTimeLabel.text = "08:00 AM - 9:00 AM"
+        
+        
         
         // For demo we designed as staic
-        if event.docSubType == "ptm"{
+        self.eventTimeLabel.text = "08:00 AM - 9:00 AM"
+        let type = EventType(rawValue: event.docSubType)!
+        switch type {
+        case .ptm:
             
             self.eventImageView.backgroundColor = UIColor.init(hex: 0xF2CF38)
+            break
             
-        }else if event.docSubType == "fieldtrip" {
+        case .fieldTrip:
             
             self.eventImageView.backgroundColor = UIColor.init(hex: 0x22B9F0)
             
-        }else if event.docSubType == "reminder" {
+            break
+            
+        case .reminder:
             
             self.eventImageView.backgroundColor = UIColor.init(hex: 0x53F9AE)
-        }else{
             
-            self.eventImageView.backgroundColor = UIColor.gray
+            break
+
         }
         
         self.eventTypeLabel.text = event.docSubType
+        
+        
+        for aisObj in event.ais{
+            
+            let type = AiType(rawValue: aisObj.aiType)!
+            
+            switch type {
+            
+            case .form:
+                
+                let totalCount = (aisObj.summary?.acceptCount)!+(aisObj.summary?.pendingCount)!
+                
+                self.formLabel.text = "F:\((aisObj.summary?.acceptCount)!)/\(totalCount)"
+                
+            case .rsvp:
+                
+                let totalCount = (aisObj.summary?.acceptCount)!+(aisObj.summary?.rcap)!
+                
+                self.rsvpLabel.text = "R:\((aisObj.summary?.acceptCount)!)/\(totalCount)"
+                
+            case .toBring:
+                
+                let totalCount = (aisObj.summary?.acceptCount)!+(aisObj.summary?.pendingCount)!
+                
+                self.toBringLabel.text = "B:\((aisObj.summary?.acceptCount)!)/\(totalCount)"
+                
+            case .payment:
+                
+                self.paymentLabel.isHidden = false
+                
+                let totalCount = (aisObj.summary?.acceptCount)!+(aisObj.summary?.pendingCount)!
+                
+                self.paymentLabel.text = "P:\((aisObj.summary?.acceptCount)!)/\(totalCount)"
+                
+            case .voluenteer:
+                
+                let totalCount = (aisObj.summary?.acceptCount)!+(aisObj.summary?.pendingCount)!
+                
+                self.volunteerLabel.text = "V:\((aisObj.summary?.acceptCount!)!)/\(totalCount)"
+             
+            case .ptm:
+                
+                break
+                
+            }
+            
+        }
+        
+        
+       /* approval
+        approval
+        approval
+        approval
+        rsvp
+        approval
+        rsvp
+        todo
+        stb
+        approval
+        approval
+        approval
+        rsvp
+        rsvp
+        rsvp
+        stb
+        todo
+        approval
+        payment
+        ptm
+        approval*/
+        
+        
     }
     
     
@@ -59,6 +148,6 @@ class EventTableViewCell: UITableViewCell {
     }
     
     static var cellHeight: CGFloat {
-        return 90
+        return 116
     }
 }
