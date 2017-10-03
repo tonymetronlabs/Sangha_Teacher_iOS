@@ -9,14 +9,6 @@
 import Foundation
 import UIKit
 
-//MARK: - UIColor Extension
-
-let dateFormatter : DateFormatter = {
-    let dateFormatter = DateFormatter()
-    dateFormatter.locale = Locale.current
-    return dateFormatter
-}()
-
 extension UIColor {
     
     convenience init(hex:UInt32, alpha:CGFloat = 1.0) {
@@ -103,7 +95,7 @@ extension UINavigationBar {
         self.setBackgroundImage(UIImage(), for: .default)
         self.shadowImage = UIImage()
         self.isTranslucent = true
-        self.isUserInteractionEnabled = false
+        self.isUserInteractionEnabled = true
     }
     
     func nilTransparentBackground()  {
@@ -229,6 +221,25 @@ extension UITextField {
         }
     }
     
+    @IBInspectable var isNeedBottomLayer:Bool {
+        set {
+            self.setBottomBorder()
+        }
+        get {
+            return false
+        }
+    }
+    
+    @IBInspectable var bottomLayerBorderColor: UIColor? {
+        get {
+            return UIColor(cgColor: layer.shadowColor!)
+        }
+        set {
+            
+            layer.shadowColor = newValue?.cgColor
+        }
+    }
+    
     func textFieldView(textField:UITextField,image: UIImage,whichSide:Int) -> Void {
         
         let txtImgView : UIView = UIView(frame:CGRect(x: 0, y: 0, width: textField.frame.size.height, height:textField.frame.size.height ) )
@@ -264,6 +275,16 @@ extension UITextField {
         
         txtImgView.addSubview(button)
         
+    }
+    
+    func setBottomBorder() {
+        self.borderStyle = .none
+        self.layer.backgroundColor = UIColor.white.cgColor
+        
+        self.layer.masksToBounds = false
+        self.layer.shadowOffset = CGSize(width: 0.0, height: 1.0)
+        self.layer.shadowOpacity = 1.0
+        self.layer.shadowRadius = 0.0
     }
     
 }

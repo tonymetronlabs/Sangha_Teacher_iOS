@@ -12,9 +12,14 @@ class LoginViewController: UIViewController {
 
     @IBOutlet weak var emailIdTextField: UITextField!
     
+    @IBOutlet weak var passwordTextField: UITextField!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        
+        
         // Do any additional setup after loading the view.
     }
 
@@ -32,18 +37,26 @@ class LoginViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        if segue.destination is VerifyPasswordViewController {
-            
-            let verifyPasswordVC = segue.destination as! VerifyPasswordViewController
-            
-            verifyPasswordVC.emailId = sender as! String
-        }
-        
     }
     
     // MARK: - Methods
     
-    fileprivate func emailIdValidation(){
+    func navigateToHome() {
+        
+        //let sideMenuNavController = self.storyboard?.instantiateViewController(withIdentifier: "SBEvents") as! UINavigationController
+        
+        let sideMenuVC = self.storyboard?.instantiateViewController(withIdentifier: "SBLeft") as! LeftSideMenuViewController
+        
+        let eventsViewController = self.storyboard?.instantiateViewController(withIdentifier: "SBEvents") as! UINavigationController
+        
+        let sideMenuController = SlideMenuController(mainViewController: eventsViewController, leftMenuViewController: sideMenuVC)
+        
+        sideMenuController.addLeftGestures()
+        
+        self.navigationController?.setViewControllers([sideMenuController], animated: true)
+    }
+    
+    fileprivate func getLogin(){
         
         guard let emailId = self.emailIdTextField.text, !emailId.isEmpty, !emailId.removeWhiteSpace.isEmpty  else {
             
@@ -60,18 +73,48 @@ class LoginViewController: UIViewController {
             return
         }
         
+        guard let password = self.passwordTextField.text, !password.isEmpty, !password.removeWhiteSpace.isEmpty  else {
+            
+            self.showAlert(withTitle: "Enter Password", message: "")
+            
+            return
+            
+        }
+        
+        let loginApi = API.Login.init(withEmail: validEmail , password: password)
+        
+        APIHandler.sharedInstance.initWithAPIUrl(loginApi.URL, method: loginApi.APIMethod, params: loginApi.paramDict, currentView: self) { (success, response) in
+            
+            if success {
+                
+                if response?["status"] as! Int == 200{
+                    
+                    print(response ?? "No dict")
+                    
+                    API.accessToken = response?["at"] as! String
+                    
+                    self.navigateToHome()
+                    
+                }else {
+                    
+                    self.showAlert(withTitle: response?["message"] as? String ?? "No resposne", message:"")
+                }
+            }else{
+                
+                self.showAlert(withTitle: Messages.networkErrorTitle, message: Messages.networkErrorMessage)
+            }
+        }
         
         
-        self.performSegue(withIdentifier: "passwordSegue", sender: validEmail)
     }
     
     // MARK: - Button Action
     
     @IBAction func loginButtonAction(_ sender: Any) {
         
-        self.emailIdTextField.resignFirstResponder()
+        self.view.endEditing(true)
         
-        self.emailIdValidation()
+        self.getLogin()
         
     }
 }
@@ -80,9 +123,15 @@ extension LoginViewController: UITextFieldDelegate{
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         
-        self.emailIdTextField.resignFirstResponder()
-        
-        self.emailIdValidation()
+        if textField == self.emailIdTextField{
+            
+            self.passwordTextField.becomeFirstResponder()
+            
+        }else if textField == self.passwordTextField{
+            
+            self.passwordTextField.resignFirstResponder()
+            
+        }
         
         return true
         

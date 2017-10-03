@@ -18,18 +18,24 @@ struct AppColor{
 
 struct AppFont{
     
-    static let appFontUltraLight = "AvenirNext-UltraLight"
-    static let appFontUltraLightItalic = "AvenirNext-UltraLightItalic"
-    static let appFontBold = "AvenirNext-Bold"
-    static let appFontBoldItalic = "AvenirNext-BoldItalic"
-    static let appFontDemiBold = "AvenirNext-DemiBold"
-    static let appFontDemiBoldItalic = "AvenirNext-DemiBoldItalic"
-    static let appFontMedium = "AvenirNext-Medium"
-    static let appFontHeavyItalic = "AvenirNext-HeavyItalic"
-    static let appFontHeavy = "AvenirNext-Heavy"
-    static let appFontItalic = "AvenirNext-Italic"
-    static let appFontRegular = "AvenirNext-Regular"
-    static let appFontMediumItalic = "AvenirNext-MediumItalic"
+    static let appFontLight = "ProximaNova-Light"
+    static let appFontLightItalic = "ProximaNova-LightIt"
+    static let appFontBold = "ProximaNova-Bold"
+    static let appFontBoldItalic = "ProximaNova-BoldIt"
+    static let appFontSemiBold = "ProximaNova-Semibold"
+    static let appFontSemiBoldItalic = "ProximaNova-SemiboldIt"
+    static let appFontExtraBold = "ProximaNova-Extrabld"
+    static let appFontBlack = "roximaNova-Black"
+    static let appFontRegular = "ProximaNova-Regular"
+    static let appFontRegularItalic = "ProximaNova-RegularIt"
+    
+    static let appFontCondRegular = "ProximaNovaCond-Regular"
+    static let appFontCondRegularItalic = "ProximaNovaCond-RegularIt"
+    static let appFontCondSemiBold = "ProximaNovaCond-Semibold"
+    static let appFontCondSemiBoldItalic = "ProximaNovaCond-SemiboldIt"
+    static let appFontCondLight = "ProximaNovaCond-Light"
+    static let appFontCondLightItalic = "ProximaNovaCond-LightIt"
+    
     
 }
 
@@ -49,6 +55,39 @@ struct Messages {
     static let noInternetTitle  = "No Internet connection"
     
     static let noInternetMessage = "Please check your connection or try again later"
+    
+}
+
+enum MenuItem: Int{
+    
+    case notifications = 0,
+    autoAlert,
+    classes,
+    settings
+    
+    var menuTitle: String{
+        
+        switch self {
+        case .notifications:
+            
+            return "Notifications"
+            
+        case .autoAlert:
+            
+            return "Auto Alert"
+            
+        case .classes:
+            
+            return "Classes"
+            
+        case .settings:
+            
+            return "Settings"
+        }
+        
+    }
+    
+    static let menuArray: [MenuItem] = [.notifications, .autoAlert, .classes, .settings]
     
 }
 

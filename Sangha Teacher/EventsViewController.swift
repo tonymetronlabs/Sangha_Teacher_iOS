@@ -52,15 +52,13 @@ class EventsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.tabBarController?.navigationItem.hidesBackButton = true
-        
         self.view.addGestureRecognizer(self.scopeGesture)
 
-        self.calendarView.appearance.headerTitleFont = UIFont(name: AppFont.appFontDemiBold, size: 25)
+        self.calendarView.appearance.headerTitleFont = UIFont(name: AppFont.appFontSemiBold, size: 25)
         
-        self.calendarView.appearance.weekdayFont = UIFont(name: AppFont.appFontDemiBold, size: 13)
+        self.calendarView.appearance.weekdayFont = UIFont(name: AppFont.appFontSemiBold, size: 13)
         
-        self.calendarView.appearance.titleFont = UIFont(name: AppFont.appFontMedium, size: 12)
+        self.calendarView.appearance.titleFont = UIFont(name: AppFont.appFontBold, size: 12)
         
         
         self.eventsListTableView.register(EventTableViewCell.nib, forCellReuseIdentifier: EventTableViewCell.identifier)
@@ -95,6 +93,11 @@ class EventsViewController: UIViewController {
     }
     */
     
+    
+    @IBAction func menuButtonAction(_ sender: Any) {
+        
+        slideMenuController()?.openLeft()
+    }
     
     // MARK: - API Call
     

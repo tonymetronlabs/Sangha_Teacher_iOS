@@ -91,9 +91,7 @@ class EventTableViewCell: UITableViewCell {
                 self.toBringLabel.text = "B:\((aisObj.summary?.acceptCount)!)/\(totalCount)"
                 
             case .payment:
-                
-                self.paymentLabel.isHidden = false
-                
+                                
                 let totalCount = (aisObj.summary?.acceptCount)!+(aisObj.summary?.pendingCount)!
                 
                 self.paymentLabel.text = "P:\((aisObj.summary?.acceptCount)!)/\(totalCount)"
@@ -111,31 +109,6 @@ class EventTableViewCell: UITableViewCell {
             }
             
         }
-        
-        
-       /* approval
-        approval
-        approval
-        approval
-        rsvp
-        approval
-        rsvp
-        todo
-        stb
-        approval
-        approval
-        approval
-        rsvp
-        rsvp
-        rsvp
-        stb
-        todo
-        approval
-        payment
-        ptm
-        approval*/
-        
-        
     }
     
     
