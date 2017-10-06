@@ -16,6 +16,8 @@ class EventsViewController: UIViewController {
     @IBOutlet weak var calendarViewHeightConstraint: NSLayoutConstraint!
     
     @IBOutlet weak var eventsListTableView: UITableView!
+
+    var eventListModel : EventList = EventList()
     
     fileprivate lazy var dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
@@ -38,7 +40,7 @@ class EventsViewController: UIViewController {
         return panGesture
     }()
     
-    var eventModelArray: [Events] = []
+    var eventModelArray: [Event] = []
     
     var eventsDateArray: [Date] = []
         
@@ -47,12 +49,14 @@ class EventsViewController: UIViewController {
     var greaterThanEqualToday: [Date] = []
     
     var isSpecificDate:Bool = false
-    var selectedDate: Date!
+    var selectedDate: Date! = Date()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.view.addGestureRecognizer(self.scopeGesture)
+
+        self.calendarView.scope = .week
 
         self.calendarView.appearance.headerTitleFont = UIFont(name: AppFont.appFontSemiBold, size: 25)
         
@@ -65,110 +69,88 @@ class EventsViewController: UIViewController {
         
         self.eventsListTableView.register(EventTableHeaderView.nib, forHeaderFooterViewReuseIdentifier: EventTableHeaderView.identifier)
         
-        
         self.fetchEvent()
-    
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        
-    
     }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-    
-    
     @IBAction func menuButtonAction(_ sender: Any) {
-        
         slideMenuController()?.openLeft()
     }
     
     // MARK: - API Call
-    
     private func fetchEvent(){
                 
-        let nowApi =  API.NowForOrg.init(withDate: "2017-09-25", eventsOnly: "1", rt: "month", oamr: "1")
-        
-        print(nowApi.URL)
-        
-        APIHandler.sharedInstance.initWithAPIUrl(nowApi.URL, method: nowApi.APIMethod, params: nil, currentView: self) { (success, response) in
+        let nowApi =  API.NowForOrg.init(withDate: "2017-10-03", eventsOnly: "1", rt: "month", oamr: "1")
+
+        APIHandler.sharedInstance.initWithAPIUrl(nowApi.URL, method: nowApi.APIMethod, params: nil, currentView: self) { (success, responseDict, responseData) in
             
             if success {
                 
-                if response?["status"] as! Int == 200{
-                    
-                    self.eventModelArray = Events.modelsFromDictionaryArray(array: response?["events"] as! [Dictionary<String, Any>])
-                    
-                    var dateAndEvent:[DateAndEvent] = []
-                    
-                    for obj in self.eventModelArray{
-                        
-                        _ = obj.ais.filter { (aisObj) -> Bool in
-                            
-                            print(aisObj.aiType)
-                            
-                            return true
-                            
+                if responseDict?["status"] as! Int == 200{
+
+                    let decoder = JSONDecoder()
+
+                    do {
+                        self.eventListModel = try decoder.decode(EventList.self, from: responseData!)
+
+                        self.eventModelArray = self.eventListModel.events
+
+                        var dateAndEvent:[DateAndEvent] = []
+
+                        for obj in self.eventModelArray {
+
+                            _ = obj.ais?.filter { (aisObj) -> Bool in
+                                print(aisObj.aiType!)
+                                return true
+                            }
+
+                            for scheduleDate in (obj.computedSchedule?.calendar)!{
+
+                                self.eventsDateArray.append(self.dateFormatter.date(from: scheduleDate.date!)!)
+
+                                let dateEventObject = DateAndEvent(with: self.dateFormatter.date(from: scheduleDate.date!)!, events: obj)!
+
+                                dateAndEvent.append(dateEventObject)
+                            }
                         }
-                        
-                        for scheduleDate in (obj.computedSchedule?.calendar)!{
-                            
-                            self.eventsDateArray.append(self.dateFormatter.date(from: scheduleDate.date!)!)
-                            
-                            let dateEventObject = DateAndEvent(with: self.dateFormatter.date(from: scheduleDate.date!)!, events: obj)!
-                            
-                            dateAndEvent.append(dateEventObject)
-                            
+
+
+                        for date in Set(self.eventsDateArray){
+
+                            let array = dateAndEvent.filter({ (event) -> Bool in
+
+                                return date.compare(event.date) == .orderedSame
+                            })
+
+                            self.dateAndEventDictionary[date] = array
+
+                            print(self.dateAndEventDictionary)
                         }
+
+                        self.toBeDisplay()
+
+                        self.calendarView.reloadData()
                     }
-                    
-                    
-                    for date in Set(self.eventsDateArray){
-                        
-                        let array = dateAndEvent.filter({ (event) -> Bool in
-                            
-                            return date.compare(event.date!) == .orderedSame
-                            
-                        })
-                        
-                        self.dateAndEventDictionary[date] = array
-                        
-                        print(self.dateAndEventDictionary)
-                        
+                    catch let error {
+                        print(error.localizedDescription)
                     }
-                    
-                    self.toBeDisplay()
-                    
-                    self.calendarView.reloadData()
-                    
-                }else {
-                    
-                    self.showAlert(withTitle: response?["message"] as? String ?? "No resposne", message:"")
                 }
-            }else{
-                
+                else {
+                    self.showAlert(withTitle: responseDict?["message"] as? String ?? "No response", message:"")
+                }
+            }
+            else{
                 self.showAlert(withTitle: Messages.networkErrorTitle, message: Messages.networkErrorMessage)
             }
-            
         }
-        
-        
     }
     
     
@@ -179,11 +161,9 @@ class EventsViewController: UIViewController {
         self.greaterThanEqualToday = sortedDateAndEventDictKeyArray.filter { (date) -> Bool in
 
             return date >= Calendar.current.date(byAdding: .day, value: -1, to: Date())!
-            
         }
-        
+
         self.eventsListTableView.reloadData()
-        
     }
 
 }
@@ -250,9 +230,19 @@ extension EventsViewController: UITableViewDataSource, UITableViewDelegate{
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        
-        return EventTableViewCell.cellHeight
-        
+
+        let dateEvent: DateAndEvent!
+
+        if isSpecificDate{
+            dateEvent = self.dateAndEventDictionary[selectedDate]?[indexPath.row]
+        }else{
+            let keyDate = self.greaterThanEqualToday[indexPath.section]
+            dateEvent = self.dateAndEventDictionary[keyDate]?[indexPath.row]
+        }
+
+        let event = dateEvent?.event
+        return EventTableViewCell.getCellHeight(with: event!, selectedDate: self.selectedDate)
+//        return EventTableViewCell.cellHeight
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -274,7 +264,7 @@ extension EventsViewController: UITableViewDataSource, UITableViewDelegate{
         
         let event = dateEvent?.event
         
-        cell.updateUI(with: event!)
+        cell.updateUI(with: event!,selectedDate: self.selectedDate)
         
         return cell
         
@@ -283,6 +273,25 @@ extension EventsViewController: UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         tableView.deselectRow(at: indexPath, animated: true)
+
+        let dateEvent: DateAndEvent!
+
+        if isSpecificDate{
+
+            dateEvent = self.dateAndEventDictionary[selectedDate]?[indexPath.row]
+
+        }else{
+
+            let keyDate = self.greaterThanEqualToday[indexPath.section]
+
+            dateEvent = self.dateAndEventDictionary[keyDate]?[indexPath.row]
+        }
+
+        let event = dateEvent?.event
+
+        let eventDetailVC = self.storyboard?.instantiateViewController(withIdentifier: "SBEventDetail") as! EventDetailViewController
+        eventDetailVC.eventObj = event
+        self.navigationController?.pushViewController(eventDetailVC, animated: true)
     }
 }
 
@@ -353,15 +362,15 @@ extension EventsViewController: FSCalendarDataSource, FSCalendarDelegate, FSCale
                         }*/
                         
                         //For Demo
-                        if dateEvent.event?.docSubType == "ptm"{
+                        if dateEvent.event.docSubType == "ptm"{
                             
                             colorArray.append(UIColor.init(hex: 0xF2CF38))
                             
-                        }else if dateEvent.event?.docSubType == "fieldtrip" {
+                        }else if dateEvent.event.docSubType == "fieldtrip" {
                             
                             colorArray.append(UIColor.init(hex: 0x22B9F0))
                             
-                        }else if dateEvent.event?.docSubType == "reminder" {
+                        }else if dateEvent.event.docSubType == "reminder" {
                             
                             colorArray.append(UIColor.init(hex: 0x53F9AE))
                         }else{
@@ -395,15 +404,15 @@ extension EventsViewController: FSCalendarDataSource, FSCalendarDelegate, FSCale
                     for dateEvent in value{
                         
                         //For Demo
-                        if dateEvent.event?.docSubType == "ptm"{
+                        if dateEvent.event.docSubType == "ptm"{
                             
                             colorArray.append(UIColor.init(hex: 0xF2CF38))
                             
-                        }else if dateEvent.event?.docSubType == "fieldtrip" {
+                        }else if dateEvent.event.docSubType == "fieldtrip" {
                             
                             colorArray.append(UIColor.init(hex: 0x22B9F0))
                             
-                        }else if dateEvent.event?.docSubType == "reminder" {
+                        }else if dateEvent.event.docSubType == "reminder" {
                             
                             colorArray.append(UIColor.init(hex: 0x53F9AE))
                         }else{

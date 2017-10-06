@@ -11,7 +11,6 @@ import UIKit
 class EventTableHeaderView: UITableViewHeaderFooterView {
 
     @IBOutlet weak var dateLabel: UILabel!
-
     
     static var nib:UINib {
         return UINib(nibName: identifier, bundle: nil)

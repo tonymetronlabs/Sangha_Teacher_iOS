@@ -51,7 +51,7 @@ class HeaderView: UIView {
     func loadViewFromNib() -> UIView {
         
         let view = HeaderView.nib.instantiate(withOwner: self, options: nil)[0] as! UIView
-        
+        view.frame = self.frame
         return view
     }
     

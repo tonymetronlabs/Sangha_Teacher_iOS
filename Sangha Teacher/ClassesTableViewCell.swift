@@ -10,6 +10,9 @@ import UIKit
 
 class ClassesTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var classNameLabel: UILabel!
+    @IBOutlet weak var studentsCountLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

@@ -16,12 +16,10 @@ class LeftSideMenuViewController: UIViewController {
         super.viewDidLoad()
 
         self.menuTableView.tableFooterView = UIView()
-    
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
 }
@@ -76,9 +74,30 @@ extension LeftSideMenuViewController: UITableViewDataSource, UITableViewDelegate
         case .settings:
             
            navigateToViewController = self.storyboard?.instantiateViewController(withIdentifier: "SBSettings") as! SettingsViewController
-            
+
+        case .logout:
+
+            let alertController = UIAlertController(title: "Confirm Logout", message: "Are you sure want to Logout?", preferredStyle: .alert)
+            let logoutAction = UIAlertAction(title: "Logout", style: .destructive, handler: { (alertAction) in
+                let loginVC = self.storyboard?.instantiateViewController(withIdentifier: "SBLogin") as! LoginViewController
+                let navCtrl = self.storyboard?.instantiateViewController(withIdentifier: "SBNavCtrl") as! UINavigationController
+                if let bundle = Bundle.main.bundleIdentifier {
+                    UserDefaults.standard.removePersistentDomain(forName: bundle)
+                }
+                AppDelegate.sharedInstance().window?.rootViewController = navCtrl
+                AppDelegate.sharedInstance().window?.makeKeyAndVisible()
+                ((self.parent as! SlideMenuController).mainViewController as! UINavigationController).popToRootViewController(animated: true)
+                ((self.parent as! SlideMenuController).mainViewController as! UINavigationController).setViewControllers([loginVC], animated: true)
+            })
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+
+            alertController.addAction(logoutAction)
+            alertController.addAction(cancelAction)
+
+            self.present(alertController, animated: true, completion: nil)
+
+            return
         }
-        
         
         let navigationController = UINavigationController(rootViewController: navigateToViewController)
         

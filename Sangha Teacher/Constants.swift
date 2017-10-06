@@ -63,7 +63,8 @@ enum MenuItem: Int{
     case notifications = 0,
     autoAlert,
     classes,
-    settings
+    settings,
+    logout
     
     var menuTitle: String{
         
@@ -83,11 +84,16 @@ enum MenuItem: Int{
         case .settings:
             
             return "Settings"
+
+        case .logout:
+
+            return "Logout"
+
         }
         
     }
     
-    static let menuArray: [MenuItem] = [.notifications, .autoAlert, .classes, .settings]
+    static let menuArray: [MenuItem] = [.notifications, .autoAlert, .classes, .settings, .logout]
     
 }
 
@@ -107,4 +113,15 @@ enum AiType: String{
     case payment = "payment"
     case voluenteer = "todo"
     case ptm = "ptm"
+}
+
+enum DateFormat : String {
+
+    case computedScheduleDate = "yyyy-MM-dd'T'HH:mm:ss.sssZ"
+    case eventDetailDate = "HH:mm a, dd/MM/yy"
+}
+
+enum UserDefaultsKey : String {
+    case isLogin = "isLogin"
+    case accessToken = "accessToken"
 }

@@ -16,19 +16,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
-        self.printFonts()
+//        self.printFonts()
+
+        self.setupInitialViewControllers()
         
         return true
-    }
-    
-    func printFonts() {
-        let fontFamilyNames = UIFont.familyNames
-        for familyName in fontFamilyNames {
-            print("------------------------------")
-            print("Font Family Name = [\(familyName)]")
-            let names = UIFont.fontNames(forFamilyName: familyName)
-            print("Font Names = [\(names)]")
-        }
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
@@ -53,5 +45,53 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
+    // MARK: - Methods
+
+    class func sharedInstance() -> AppDelegate {
+        let instance : AppDelegate = {
+            let instance = AppDelegate()
+            return instance
+        }()
+        return instance
+    }
+
+    func setupInitialViewControllers() {
+
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+
+        if UserDefaults.standard.value(forKey: UserDefaultsKey.isLogin.rawValue) == nil {
+            UserDefaults.standard.set(false, forKey: UserDefaultsKey.isLogin.rawValue)
+        }
+
+        if UserDefaults.standard.bool(forKey: UserDefaultsKey.isLogin.rawValue) {
+
+            let sideMenuVC = storyboard.instantiateViewController(withIdentifier: "SBLeft") as! LeftSideMenuViewController
+            let eventsViewController = storyboard.instantiateViewController(withIdentifier: "SBEvents") as! UINavigationController
+
+            let sideMenuController = SlideMenuController(mainViewController: eventsViewController, leftMenuViewController: sideMenuVC)
+            sideMenuController.addLeftGestures()
+
+            API.accessToken = UserDefaults.standard.value(forKey: UserDefaultsKey.accessToken.rawValue) as! String
+
+            self.window?.rootViewController = sideMenuController
+            self.window?.makeKeyAndVisible()
+        }
+        else {
+            let loginVC = storyboard.instantiateViewController(withIdentifier: "SBLogin") as! LoginViewController
+            let navCtrl = storyboard.instantiateViewController(withIdentifier: "SBNavCtrl") as! UINavigationController
+            self.window?.rootViewController = navCtrl
+            self.window?.makeKeyAndVisible()
+        }
+    }
+
+    func printFonts() {
+        let fontFamilyNames = UIFont.familyNames
+        for familyName in fontFamilyNames {
+            print("------------------------------")
+            print("Font Family Name = [\(familyName)]")
+            let names = UIFont.fontNames(forFamilyName: familyName)
+            print("Font Names = [\(names)]")
+        }
+    }
 }
 

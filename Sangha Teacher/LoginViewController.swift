@@ -13,19 +13,13 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var emailIdTextField: UITextField!
     
     @IBOutlet weak var passwordTextField: UITextField!
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        
-        
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
 
@@ -52,7 +46,7 @@ class LoginViewController: UIViewController {
         let sideMenuController = SlideMenuController(mainViewController: eventsViewController, leftMenuViewController: sideMenuVC)
         
         sideMenuController.addLeftGestures()
-        
+        self.navigationController?.isNavigationBarHidden = true
         self.navigationController?.setViewControllers([sideMenuController], animated: true)
     }
     
@@ -83,7 +77,7 @@ class LoginViewController: UIViewController {
         
         let loginApi = API.Login.init(withEmail: validEmail , password: password)
         
-        APIHandler.sharedInstance.initWithAPIUrl(loginApi.URL, method: loginApi.APIMethod, params: loginApi.paramDict, currentView: self) { (success, response) in
+        APIHandler.sharedInstance.initWithAPIUrl(loginApi.URL, method: loginApi.APIMethod, params: loginApi.paramDict, currentView: self) { (success, response, responseData) in
             
             if success {
                 
@@ -92,6 +86,9 @@ class LoginViewController: UIViewController {
                     print(response ?? "No dict")
                     
                     API.accessToken = response?["at"] as! String
+
+                    UserDefaults.standard.set(API.accessToken, forKey: UserDefaultsKey.accessToken.rawValue)
+                    UserDefaults.standard.set(true, forKey: UserDefaultsKey.isLogin.rawValue)
                     
                     self.navigateToHome()
                     

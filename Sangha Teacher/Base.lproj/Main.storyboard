@@ -28,10 +28,10 @@
         <!--Login View Controller-->
         <scene sceneID="USV-xn-H0K">
             <objects>
-                <viewController id="3zM-mo-8cm" customClass="LoginViewController" customModule="Sangha_Teacher" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SBLogin" id="3zM-mo-8cm" customClass="LoginViewController" customModule="Sangha_Teacher" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="DRT-r6-jQR"/>
-                        <viewControllerLayoutGuide type="bottom" id="ffv-rj-u7v"/>
+                        <viewControllerLayoutGuide type="top" id="5UP-2b-YU9"/>
+                        <viewControllerLayoutGuide type="bottom" id="L8N-Vo-IAW"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bB-us-iBb">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -112,7 +112,7 @@
                             <constraint firstItem="Hbb-5m-8X5" firstAttribute="top" secondItem="wX1-2W-IsY" secondAttribute="bottom" constant="40" id="Z8p-J6-gQo"/>
                             <constraint firstItem="tR4-1p-x9p" firstAttribute="top" secondItem="UeX-ZW-1cC" secondAttribute="bottom" constant="20" id="ZGq-lB-jOh"/>
                             <constraint firstItem="Hbb-5m-8X5" firstAttribute="centerX" secondItem="8bB-us-iBb" secondAttribute="centerX" id="c2c-tJ-rFG"/>
-                            <constraint firstItem="UeX-ZW-1cC" firstAttribute="top" secondItem="DRT-r6-jQR" secondAttribute="bottom" constant="10" id="hoE-IH-zeB"/>
+                            <constraint firstItem="UeX-ZW-1cC" firstAttribute="top" secondItem="5UP-2b-YU9" secondAttribute="bottom" constant="10" id="hoE-IH-zeB"/>
                             <constraint firstItem="wX1-2W-IsY" firstAttribute="top" secondItem="tR4-1p-x9p" secondAttribute="bottom" constant="20" id="r8S-pT-cSE"/>
                             <constraint firstAttribute="trailing" secondItem="tR4-1p-x9p" secondAttribute="trailing" constant="30" id="xaW-6v-mav"/>
                         </constraints>
@@ -127,15 +127,15 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="45H-3r-aak" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-652" y="-0.44977511244377816"/>
+            <point key="canvasLocation" x="-876" y="0.0"/>
         </scene>
         <!--Events View Controller Scene-->
         <scene sceneID="pam-cI-PUx">
             <objects>
                 <viewController id="aAI-yf-oVI" userLabel="Events View Controller Scene" customClass="EventsViewController" customModule="Sangha_Teacher" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="GTJ-sN-Flp"/>
-                        <viewControllerLayoutGuide type="bottom" id="35u-43-Gdj"/>
+                        <viewControllerLayoutGuide type="top" id="Ku7-br-wJE"/>
+                        <viewControllerLayoutGuide type="bottom" id="Xji-h2-Vpl"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="RVU-8j-asQ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -220,7 +220,7 @@
                             <constraint firstItem="4Ba-ZS-JWq" firstAttribute="leading" secondItem="RVU-8j-asQ" secondAttribute="leading" id="HOc-h6-e1H"/>
                             <constraint firstItem="5Md-Tg-XWh" firstAttribute="leading" secondItem="RVU-8j-asQ" secondAttribute="leading" id="MBK-YF-qkL"/>
                             <constraint firstItem="5Md-Tg-XWh" firstAttribute="top" secondItem="3vU-sl-YaH" secondAttribute="bottom" id="Oop-2a-QPd"/>
-                            <constraint firstItem="35u-43-Gdj" firstAttribute="top" secondItem="4Ba-ZS-JWq" secondAttribute="bottom" id="Oym-PY-tgu"/>
+                            <constraint firstItem="Xji-h2-Vpl" firstAttribute="top" secondItem="4Ba-ZS-JWq" secondAttribute="bottom" id="Oym-PY-tgu"/>
                             <constraint firstItem="4Ba-ZS-JWq" firstAttribute="top" secondItem="5Md-Tg-XWh" secondAttribute="bottom" id="Pzd-TH-Qft"/>
                             <constraint firstAttribute="trailing" secondItem="3vU-sl-YaH" secondAttribute="trailing" id="X5O-Ow-dGq"/>
                             <constraint firstAttribute="trailing" secondItem="4Ba-ZS-JWq" secondAttribute="trailing" id="rjI-GZ-wGU"/>
@@ -229,14 +229,19 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" largeTitleDisplayMode="always" id="gqa-En-cU5">
-                        <barButtonItem key="leftBarButtonItem" title="Item" id="oaR-sh-ab2">
+                        <barButtonItem key="leftBarButtonItem" image="menu" id="oaR-sh-ab2">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <action selector="menuButtonAction:" destination="aAI-yf-oVI" id="KDC-bc-jPR"/>
                             </connections>
                         </barButtonItem>
                         <rightBarButtonItems>
-                            <barButtonItem title="Item" id="GLT-I6-T12"/>
-                            <barButtonItem title="Item" id="udD-Ba-037"/>
+                            <barButtonItem image="comment_header" id="GLT-I6-T12">
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </barButtonItem>
+                            <barButtonItem image="announcement" id="udD-Ba-037">
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
@@ -249,13 +254,83 @@
             </objects>
             <point key="canvasLocation" x="77.599999999999994" y="-0.44977511244377816"/>
         </scene>
+        <!--Event Detail View Controller-->
+        <scene sceneID="SEs-Tm-gu9">
+            <objects>
+                <viewController storyboardIdentifier="SBEventDetail" id="6B4-05-X9q" customClass="EventDetailViewController" customModule="Sangha_Teacher" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="1Ch-cr-7D4"/>
+                        <viewControllerLayoutGuide type="bottom" id="C3d-Oj-GtS"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="vwZ-Fx-Cp9">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jUH-tr-iq5" customClass="HeaderView" customModule="Sangha_Teacher" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="160"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="160" id="52b-39-0hb"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="title" value="Title"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Phg-xn-T28">
+                                <rect key="frame" x="0.0" y="160" width="375" height="507"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" textLabel="owg-Gw-RaF" style="IBUITableViewCellStyleDefault" id="IIb-wq-FFA">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="IIb-wq-FFA" id="OVN-gu-gvq">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="owg-Gw-RaF">
+                                                    <rect key="frame" x="15" y="0.0" width="345" height="44"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="6B4-05-X9q" id="moP-t8-VzC"/>
+                                    <outlet property="delegate" destination="6B4-05-X9q" id="zxi-d3-mTC"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="C3d-Oj-GtS" firstAttribute="top" secondItem="Phg-xn-T28" secondAttribute="bottom" id="RYJ-hR-abJ"/>
+                            <constraint firstAttribute="trailing" secondItem="Phg-xn-T28" secondAttribute="trailing" id="gaG-CQ-Jdw"/>
+                            <constraint firstItem="Phg-xn-T28" firstAttribute="leading" secondItem="vwZ-Fx-Cp9" secondAttribute="leading" id="i7q-8C-qfT"/>
+                            <constraint firstItem="Phg-xn-T28" firstAttribute="top" secondItem="jUH-tr-iq5" secondAttribute="bottom" id="iku-hD-Aas"/>
+                            <constraint firstAttribute="trailing" secondItem="jUH-tr-iq5" secondAttribute="trailing" id="jkT-ZZ-r8r"/>
+                            <constraint firstItem="jUH-tr-iq5" firstAttribute="leading" secondItem="vwZ-Fx-Cp9" secondAttribute="leading" id="pH2-nI-Aow"/>
+                            <constraint firstItem="jUH-tr-iq5" firstAttribute="top" secondItem="vwZ-Fx-Cp9" secondAttribute="top" id="xXW-1w-3yn"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="headerView" destination="jUH-tr-iq5" id="kix-LH-KFw"/>
+                        <outlet property="tableView" destination="Phg-xn-T28" id="tzG-x3-Xnj"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qzn-3p-G9R" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="84" y="675.11244377811101"/>
+        </scene>
         <!--Classes View Controller-->
         <scene sceneID="Zbf-jw-c3X">
             <objects>
                 <viewController storyboardIdentifier="SBClasses" id="ppk-oF-uHb" customClass="ClassesViewController" customModule="Sangha_Teacher" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="dQk-WH-tZq"/>
-                        <viewControllerLayoutGuide type="bottom" id="Bre-yE-VRh"/>
+                        <viewControllerLayoutGuide type="top" id="AdX-0f-E2l"/>
+                        <viewControllerLayoutGuide type="bottom" id="a7T-Ua-enG"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="s2j-jG-nze">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -288,12 +363,13 @@
                             <constraint firstItem="gQJ-dH-dVK" firstAttribute="top" secondItem="s2j-jG-nze" secondAttribute="top" id="PVX-d4-Xvv"/>
                             <constraint firstAttribute="trailing" secondItem="gQJ-dH-dVK" secondAttribute="trailing" id="SUN-wu-g6j"/>
                             <constraint firstItem="uIq-7j-ae7" firstAttribute="top" secondItem="gQJ-dH-dVK" secondAttribute="bottom" id="Uzn-XG-qQU"/>
-                            <constraint firstItem="Bre-yE-VRh" firstAttribute="top" secondItem="uIq-7j-ae7" secondAttribute="bottom" id="hJE-Me-1Bg"/>
+                            <constraint firstItem="a7T-Ua-enG" firstAttribute="top" secondItem="uIq-7j-ae7" secondAttribute="bottom" id="hJE-Me-1Bg"/>
                             <constraint firstItem="uIq-7j-ae7" firstAttribute="leading" secondItem="s2j-jG-nze" secondAttribute="leading" id="lmF-x8-FHx"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="0dU-cs-vcT">
-                        <barButtonItem key="leftBarButtonItem" title="Item" id="tfx-Xy-gGg">
+                        <barButtonItem key="leftBarButtonItem" image="close" id="tfx-Xy-gGg">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <action selector="closeButtonAction:" destination="ppk-oF-uHb" id="cgZ-yE-g8b"/>
                             </connections>
@@ -313,8 +389,8 @@
             <objects>
                 <viewController storyboardIdentifier="SBNotifications" id="YjD-uf-GOQ" customClass="NotificationsViewController" customModule="Sangha_Teacher" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="XvS-TK-L0E"/>
-                        <viewControllerLayoutGuide type="bottom" id="uqY-4y-d7E"/>
+                        <viewControllerLayoutGuide type="top" id="6f5-bE-VGs"/>
+                        <viewControllerLayoutGuide type="bottom" id="ZSF-30-Vlc"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="13D-5b-Oof">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -332,7 +408,8 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
                     <navigationItem key="navigationItem" id="XqY-7i-bce">
-                        <barButtonItem key="leftBarButtonItem" title="Item" id="Dq4-ZM-Dt7">
+                        <barButtonItem key="leftBarButtonItem" image="close" id="Dq4-ZM-Dt7">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <action selector="closeButtonAction:" destination="YjD-uf-GOQ" id="JGr-k1-qAg"/>
                             </connections>
@@ -349,8 +426,8 @@
             <objects>
                 <viewController storyboardIdentifier="SBAutoAlert" id="Zq7-jo-3QJ" customClass="AutoAlertViewController" customModule="Sangha_Teacher" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Dn3-28-gxu"/>
-                        <viewControllerLayoutGuide type="bottom" id="bjT-gb-LyH"/>
+                        <viewControllerLayoutGuide type="top" id="788-Sb-o9c"/>
+                        <viewControllerLayoutGuide type="bottom" id="1D2-9u-0PV"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="hZq-dA-ldr">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -368,7 +445,8 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
                     <navigationItem key="navigationItem" id="xSQ-uz-IWF">
-                        <barButtonItem key="leftBarButtonItem" title="Item" id="ovI-0e-dn5">
+                        <barButtonItem key="leftBarButtonItem" image="close" id="ovI-0e-dn5">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <action selector="closeButtonAction:" destination="Zq7-jo-3QJ" id="6FO-sW-WkK"/>
                             </connections>
@@ -385,8 +463,8 @@
             <objects>
                 <viewController storyboardIdentifier="SBSettings" id="nDk-tQ-jG1" customClass="SettingsViewController" customModule="Sangha_Teacher" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="c2E-km-ogy"/>
-                        <viewControllerLayoutGuide type="bottom" id="aUp-7y-y1h"/>
+                        <viewControllerLayoutGuide type="top" id="Adz-yD-Q7G"/>
+                        <viewControllerLayoutGuide type="bottom" id="0HA-4f-RvW"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="gfh-9N-Lnz">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -404,7 +482,8 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
                     <navigationItem key="navigationItem" id="3xp-CO-DvZ">
-                        <barButtonItem key="leftBarButtonItem" title="Item" id="rnP-cY-Rsw">
+                        <barButtonItem key="leftBarButtonItem" image="close" id="rnP-cY-Rsw">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <action selector="closeButtonAction:" destination="nDk-tQ-jG1" id="aZj-74-Omz"/>
                             </connections>
@@ -440,8 +519,8 @@
             <objects>
                 <viewController storyboardIdentifier="SBLeft" id="MOM-4r-okh" customClass="LeftSideMenuViewController" customModule="Sangha_Teacher" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="erW-2e-1wj"/>
-                        <viewControllerLayoutGuide type="bottom" id="kh1-zF-n5h"/>
+                        <viewControllerLayoutGuide type="top" id="qRy-vz-gtS"/>
+                        <viewControllerLayoutGuide type="bottom" id="0fH-Ya-ZPI"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Sxa-cP-Y1Z">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -467,7 +546,7 @@
                                             </userDefinedRuntimeAttributes>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ezhil Adhavan gh" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Ap-rG-CdB">
-                                            <rect key="frame" x="20" y="90" width="201.5" height="26"/>
+                                            <rect key="frame" x="20" y="90" width="200.5" height="26"/>
                                             <fontDescription key="fontDescription" name="ProximaNova-Semibold" family="Proxima Nova" pointSize="26"/>
                                             <color key="textColor" red="0.15686274510000001" green="0.18823529410000001" blue="0.23529411759999999" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -488,7 +567,7 @@
                                         <rect key="frame" x="0.0" y="159" width="375" height="65"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="TsX-G0-9YE" id="THQ-zm-3rH">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="64.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="65"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cEt-3l-Szg">
@@ -524,10 +603,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="2EE-YM-b2i" firstAttribute="top" secondItem="erW-2e-1wj" secondAttribute="bottom" id="JG7-F7-cjv"/>
+                            <constraint firstItem="2EE-YM-b2i" firstAttribute="top" secondItem="qRy-vz-gtS" secondAttribute="bottom" id="JG7-F7-cjv"/>
                             <constraint firstItem="2EE-YM-b2i" firstAttribute="leading" secondItem="Sxa-cP-Y1Z" secondAttribute="leading" id="kEA-Uo-zPU"/>
                             <constraint firstAttribute="trailing" secondItem="2EE-YM-b2i" secondAttribute="trailing" id="vnz-iH-78p"/>
-                            <constraint firstItem="kh1-zF-n5h" firstAttribute="top" secondItem="2EE-YM-b2i" secondAttribute="bottom" id="zHB-6X-exv"/>
+                            <constraint firstItem="0fH-Ya-ZPI" firstAttribute="top" secondItem="2EE-YM-b2i" secondAttribute="bottom" id="zHB-6X-exv"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Ym2-7Y-pXh"/>
@@ -542,7 +621,7 @@
         <!--Navigation Controller-->
         <scene sceneID="C35-qj-vPg">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="rTK-WB-DNV" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="SBNavCtrl" automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="rTK-WB-DNV" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="MHc-Ay-nyq">
                         <autoresizingMask key="autoresizingMask"/>
@@ -558,6 +637,10 @@
         </scene>
     </scenes>
     <resources>
+        <image name="announcement" width="29" height="29"/>
+        <image name="close" width="15" height="14"/>
+        <image name="comment_header" width="20" height="21"/>
+        <image name="menu" width="20" height="13"/>
         <image name="sangha_logo" width="300" height="300"/>
     </resources>
 </document>

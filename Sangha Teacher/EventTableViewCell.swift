@@ -27,90 +27,127 @@ class EventTableViewCell: UITableViewCell {
     @IBOutlet weak var formLabel: UILabel!
     
     @IBOutlet weak var paymentLabel: UILabel!
-    
+
+    @IBOutlet weak var eventStatusVw: UIView!
+
+    @IBOutlet weak var eventStatusStackVw: UIStackView!
+
     override func awakeFromNib() {
         super.awakeFromNib()
         
     }
 
     
-    func updateUI(with event: Events) {
-        
-        self.eventTitleLabel.text = event.title
-        
-        
-        
-        // For demo we designed as staic
-        self.eventTimeLabel.text = "08:00 AM - 9:00 AM"
-        let type = EventType(rawValue: event.docSubType)!
-        switch type {
-        case .ptm:
-            
-            self.eventImageView.backgroundColor = UIColor.init(hex: 0xF2CF38)
-            break
-            
-        case .fieldTrip:
-            
-            self.eventImageView.backgroundColor = UIColor.init(hex: 0x22B9F0)
-            
-            break
-            
-        case .reminder:
-            
-            self.eventImageView.backgroundColor = UIColor.init(hex: 0x53F9AE)
-            
-            break
+    func updateUI(with event: Event, selectedDate:Date) {
 
+        self.eventTitleLabel.text = event.title
+
+        // For demo we designed as staic
+
+        let eventScheduleArr = event.computedSchedule?.calendar?.filter({ (eventCalendar) -> Bool in
+            Calendar.current.isDate((eventCalendar.date?.toDateFromString(dateFormat: DateFormat.computedScheduleDate.rawValue))!, inSameDayAs: selectedDate)
+        })
+
+        if let eventSchedule = eventScheduleArr?.first, !(eventSchedule.startTime?.isEmpty)!, !(eventSchedule.endTime?.isEmpty)! {
+
+            self.eventTimeLabel.isHidden = false
+            self.eventTimeLabel.text = "\(eventSchedule.startTime) - \(eventSchedule.endTime)"
         }
-        
-        self.eventTypeLabel.text = event.docSubType
-        
-        
-        for aisObj in event.ais{
-            
-            let type = AiType(rawValue: aisObj.aiType)!
-            
+        else {
+            self.eventTimeLabel.isHidden = true
+            self.eventTimeLabel.text = ""
+        }
+
+        if event.docSubType != nil {
+
+            let type = EventType(rawValue: event.docSubType)!
+
             switch type {
-            
-            case .form:
-                
-                let totalCount = (aisObj.summary?.acceptCount)!+(aisObj.summary?.pendingCount)!
-                
-                self.formLabel.text = "F:\((aisObj.summary?.acceptCount)!)/\(totalCount)"
-                
-            case .rsvp:
-                
-                let totalCount = (aisObj.summary?.acceptCount)!+(aisObj.summary?.rcap)!
-                
-                self.rsvpLabel.text = "R:\((aisObj.summary?.acceptCount)!)/\(totalCount)"
-                
-            case .toBring:
-                
-                let totalCount = (aisObj.summary?.acceptCount)!+(aisObj.summary?.pendingCount)!
-                
-                self.toBringLabel.text = "B:\((aisObj.summary?.acceptCount)!)/\(totalCount)"
-                
-            case .payment:
-                                
-                let totalCount = (aisObj.summary?.acceptCount)!+(aisObj.summary?.pendingCount)!
-                
-                self.paymentLabel.text = "P:\((aisObj.summary?.acceptCount)!)/\(totalCount)"
-                
-            case .voluenteer:
-                
-                let totalCount = (aisObj.summary?.acceptCount)!+(aisObj.summary?.pendingCount)!
-                
-                self.volunteerLabel.text = "V:\((aisObj.summary?.acceptCount!)!)/\(totalCount)"
-             
+
             case .ptm:
-                
+                self.eventImageView.backgroundColor = UIColor.init(hex: 0xF2CF38)
+                self.eventStatusVw.isHidden = true
                 break
-                
+
+            case .fieldTrip:
+                self.eventImageView.backgroundColor = UIColor.init(hex: 0x22B9F0)
+                self.eventStatusVw.isHidden = false
+                break
+
+            case .reminder:
+                self.eventImageView.backgroundColor = UIColor.init(hex: 0x53F9AE)
+                self.eventStatusVw.isHidden = true
+                break
             }
-            
+
+            self.eventTypeLabel.text = event.docSubType
+        }
+
+        if event.ais != nil {
+
+            for aisObj in event.ais! {
+
+                let type = AiType(rawValue: aisObj.aiType!)!
+
+                let acceptCount = aisObj.acceptCount!
+                let totalCount = aisObj.total!
+
+                switch type {
+
+                case .form:
+
+                    self.formLabel.text = "F:\(acceptCount)/\(totalCount)"
+
+                case .rsvp:
+
+                    self.rsvpLabel.text = "R:\((acceptCount))/\(totalCount)"
+
+                case .toBring:
+
+                    self.toBringLabel.text = "B:\(acceptCount)/\(totalCount)"
+
+                case .payment:
+
+                    self.paymentLabel.text = "P:\(acceptCount)/\(totalCount)"
+
+                case .voluenteer:
+
+                    self.volunteerLabel.text = "V:\(acceptCount)/\(totalCount)"
+
+                case .ptm:
+                    break
+                }
+            }
+        }
+
+        self.updateConstraintsIfNeeded()
+        self.layoutIfNeeded()
+    }
+
+    class func getCellHeight(with event : Event, selectedDate : Date) -> CGFloat {
+
+        let type = EventType(rawValue: event.docSubType)!
+
+        var isTimeAvailable : Bool = false
+
+        let eventScheduleArr =
+            event.computedSchedule?.calendar?.filter({ (eventCalendar) -> Bool in
+                Calendar.current.isDate((eventCalendar.date?.toDateFromString(dateFormat: DateFormat.computedScheduleDate.rawValue))!, inSameDayAs: selectedDate)
+        })
+
+        if let eventCalendar = eventScheduleArr?.first {
+            isTimeAvailable = (!(eventCalendar.startTime?.isEmpty)! && !(eventCalendar.endTime?.isEmpty)!) ? true : false
+        }
+
+        switch type {
+        case .fieldTrip:
+            return isTimeAvailable ? 136 : 106
+        case .reminder,.ptm:
+            return isTimeAvailable ? 106 : 76
+        default:
+            return 0
         }
     }
-    
     
     static var nib:UINib {
         return UINib(nibName: identifier, bundle: nil)

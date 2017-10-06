@@ -28,11 +28,8 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rnL-Qt-7VJ">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="120"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hey" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E9K-Lg-UpP">
-                            <rect key="frame" x="15" y="72" width="345" height="38"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="38" id="Spm-vx-b9T"/>
-                            </constraints>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hey" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.59999999999999998" translatesAutoresizingMaskIntoConstraints="NO" id="E9K-Lg-UpP">
+                            <rect key="frame" x="15" y="69" width="345" height="41"/>
                             <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="30"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
@@ -42,19 +39,19 @@
                         <constraint firstAttribute="bottom" secondItem="E9K-Lg-UpP" secondAttribute="bottom" constant="10" id="VkA-kq-x0W"/>
                         <constraint firstAttribute="trailing" secondItem="E9K-Lg-UpP" secondAttribute="trailing" constant="15" id="W4P-83-GVS"/>
                         <constraint firstItem="E9K-Lg-UpP" firstAttribute="leading" secondItem="rnL-Qt-7VJ" secondAttribute="leading" constant="15" id="cel-uE-TBo"/>
-                        <constraint firstItem="E9K-Lg-UpP" firstAttribute="centerX" secondItem="rnL-Qt-7VJ" secondAttribute="centerX" id="lPH-dt-Xhg"/>
+                        <constraint firstItem="E9K-Lg-UpP" firstAttribute="top" secondItem="rnL-Qt-7VJ" secondAttribute="top" constant="69" id="wYA-3u-K8Z"/>
                     </constraints>
                 </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="rnL-Qt-7VJ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="7Jz-qP-A5O"/>
-                <constraint firstAttribute="bottom" secondItem="rnL-Qt-7VJ" secondAttribute="bottom" id="LbK-VW-7eo"/>
-                <constraint firstAttribute="trailing" secondItem="rnL-Qt-7VJ" secondAttribute="trailing" id="nUT-MH-fMl"/>
-                <constraint firstItem="rnL-Qt-7VJ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="pLZ-Ag-t0s"/>
+                <constraint firstAttribute="bottom" secondItem="rnL-Qt-7VJ" secondAttribute="bottom" id="4gg-6u-XZO"/>
+                <constraint firstAttribute="trailing" secondItem="rnL-Qt-7VJ" secondAttribute="trailing" id="9IT-oi-kyu"/>
+                <constraint firstItem="rnL-Qt-7VJ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="qdB-si-zbv"/>
+                <constraint firstItem="rnL-Qt-7VJ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="wX3-tx-Mg0"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="33.5" y="266"/>
+            <point key="canvasLocation" x="44.5" y="333.5"/>
         </view>
     </objects>
 </document>

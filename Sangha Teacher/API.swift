@@ -13,11 +13,11 @@ class API: NSObject {
     
     #if DEBUG
     
-    //private static let kServerURL = "http://beta-api.sanghapp.com/v1/"
+    private static let kServerURL = "http://beta-api.sanghapp.com/v1/"
     
     
     //MARK: - Live URL
-    private static let kServerURL = "https://api.sanghapp.com/v1/"
+   // private static let kServerURL = "https://api.sanghapp.com/v1/"
     
     #else
     
@@ -32,10 +32,10 @@ class API: NSObject {
         
         var paramDict: Dictionary<String, Any>? = nil
         
-        //let URL = "http://beta-web.sanghapp.com/login"
+        let URL = "http://beta-web.sanghapp.com/login"
         
         //MARK: - Live URL
-        let URL = "https://web.sanghapp.com/login"
+        //let URL = "https://web.sanghapp.com/login"
         
         let APIMethod: API_METHOD = .POST
         
@@ -57,7 +57,7 @@ class API: NSObject {
         
         init(withDate date: String, eventsOnly: String, rt: String, oamr: String) {
             
-            var urlComponents = URLComponents(string: kServerURL + "nowfororg?")!
+            var urlComponents = URLComponents(string: kServerURL + "tapp/nowfororg?")!
             
             urlComponents.queryItems = [URLQueryItem(name: "dt", value: date),
                                         URLQueryItem(name: "eo", value: eventsOnly),
@@ -68,9 +68,18 @@ class API: NSObject {
             
             URL = (urlComponents.url?.absoluteString)!
         }
-        
-        
-        
     }
 
+ struct GetAllClasses{
+
+        var URL = ""
+        let APIMethod : API_METHOD = .GET
+    let param : [String:Any]? = nil
+
+        init() {
+            var urlComponents = URLComponents(string: kServerURL + "tapp/classes?")!
+            urlComponents.queryItems = [URLQueryItem(name: "access_token", value: API.accessToken)]
+            URL = (urlComponents.url?.absoluteString)!
+        }
+    }
 }

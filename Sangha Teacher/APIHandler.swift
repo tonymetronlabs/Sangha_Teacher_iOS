@@ -25,7 +25,7 @@ class APIHandler: NSObject {
     
     //MARK:- Service Request and Response
     
-    func initWithAPIUrl(_ urlString: String, method: API_METHOD, params: Dictionary<String, Any>?, currentView: UIViewController?, completionHandler: @escaping (Bool, Dictionary<String, Any>?) -> Void){
+    func initWithAPIUrl(_ urlString: String, method: API_METHOD, params: Dictionary<String, Any>?, currentView: UIViewController?, completionHandler: @escaping (Bool, Dictionary<String, Any>?, Data?) -> Void){
         
         if self.hasReachability() { // Need to check Reachability
             
@@ -68,7 +68,7 @@ class APIHandler: NSObject {
                         
                     }
                     
-                    completionHandler(false, nil)
+                    completionHandler(false, nil, nil)
                     
                     return
                     
@@ -91,7 +91,7 @@ class APIHandler: NSObject {
                                 
                             }
                             
-                            completionHandler(true, json as Dictionary<String, Any>)
+                            completionHandler(true, json as Dictionary<String, Any>,data)
                         })
                         
                         
@@ -109,7 +109,7 @@ class APIHandler: NSObject {
                             
                         }
                         
-                        completionHandler(false, nil)
+                        completionHandler(false, nil,nil)
                         
                     })
                     
