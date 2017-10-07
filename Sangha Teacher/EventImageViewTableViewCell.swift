@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import PINRemoteImage
 
 class EventImageViewTableViewCell: UITableViewCell {
 
@@ -21,6 +22,10 @@ class EventImageViewTableViewCell: UITableViewCell {
     }
 
     func loadContentView(event : Event) {
-        self.imgVw.image = #imageLiteral(resourceName: "logo")
+        guard let attachmentObj = event.attachments?.first, let imageURL = attachmentObj.url else {
+            self.imgVw.image = nil
+            return
+        }
+        self.imgVw.pin_setImage(from: URL(string: imageURL))
     }
 }

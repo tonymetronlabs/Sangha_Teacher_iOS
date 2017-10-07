@@ -15,8 +15,16 @@
 		1C314FCA1F84CD6D008CF054 /* EventDescriptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C314FC81F84CD6D008CF054 /* EventDescriptionTableViewCell.swift */; };
 		1C314FCB1F84CD6D008CF054 /* EventDescriptionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C314FC91F84CD6D008CF054 /* EventDescriptionTableViewCell.xib */; };
 		1C6A1B121F852B6700A1BF29 /* Pods_Sangha_Teacher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C6A1B151F852B6700A1BF29 /* Pods_Sangha_Teacher.framework */; };
+		1C847D251F8915820092F28B /* FLAnimatedImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C847D261F8915820092F28B /* FLAnimatedImage.framework */; };
+		1C847D271F8915850092F28B /* PINCache.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C847D281F8915850092F28B /* PINCache.framework */; };
+		1C847D291F8915870092F28B /* PINRemoteImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C847D2A1F8915870092F28B /* PINRemoteImage.framework */; };
 		1CE31FD81F88B5B20033BEE3 /* UIBarButtonItem+Badge.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CE31FD41F88B5B10033BEE3 /* UIBarButtonItem+Badge.m */; };
 		1CE31FD91F88B5B20033BEE3 /* UIButton+Badge.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CE31FD71F88B5B20033BEE3 /* UIButton+Badge.m */; };
+		1CE31FDC1F88C0C60033BEE3 /* MTCircularSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE31FDB1F88C0C50033BEE3 /* MTCircularSlider.swift */; };
+		1CE31FDF1F88C2130033BEE3 /* EventStatusTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE31FDD1F88C2130033BEE3 /* EventStatusTableViewCell.swift */; };
+		1CE31FE01F88C2130033BEE3 /* EventStatusTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1CE31FDE1F88C2130033BEE3 /* EventStatusTableViewCell.xib */; };
+		1CE31FE31F88C31B0033BEE3 /* StatusCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE31FE11F88C31B0033BEE3 /* StatusCollectionViewCell.swift */; };
+		1CE31FE41F88C31B0033BEE3 /* StatusCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1CE31FE21F88C31B0033BEE3 /* StatusCollectionViewCell.xib */; };
 		1CF8F54E1F876A2700C7513A /* ClassList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF8F54D1F876A2700C7513A /* ClassList.swift */; };
 		1CF8F5501F876BF600C7513A /* EventList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF8F54F1F876BF600C7513A /* EventList.swift */; };
 		1CF8F5511F8790A200C7513A /* FSCalendar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CF8F5521F8790A200C7513A /* FSCalendar.framework */; };
@@ -79,11 +87,19 @@
 		1C6A1B141F852B6700A1BF29 /* FSCalendar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FSCalendar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C6A1B151F852B6700A1BF29 /* Pods_Sangha_Teacher.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_Sangha_Teacher.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C6A1B161F852B6700A1BF29 /* SVProgressHUD.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SVProgressHUD.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1C847D261F8915820092F28B /* FLAnimatedImage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FLAnimatedImage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1C847D281F8915850092F28B /* PINCache.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PINCache.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1C847D2A1F8915870092F28B /* PINRemoteImage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PINRemoteImage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1CE31FD31F88B5B00033BEE3 /* Sangha Teacher-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Sangha Teacher-Bridging-Header.h"; sourceTree = "<group>"; };
 		1CE31FD41F88B5B10033BEE3 /* UIBarButtonItem+Badge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+Badge.m"; sourceTree = "<group>"; };
 		1CE31FD51F88B5B20033BEE3 /* UIButton+Badge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Badge.h"; sourceTree = "<group>"; };
 		1CE31FD61F88B5B20033BEE3 /* UIBarButtonItem+Badge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+Badge.h"; sourceTree = "<group>"; };
 		1CE31FD71F88B5B20033BEE3 /* UIButton+Badge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Badge.m"; sourceTree = "<group>"; };
+		1CE31FDB1F88C0C50033BEE3 /* MTCircularSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTCircularSlider.swift; sourceTree = "<group>"; };
+		1CE31FDD1F88C2130033BEE3 /* EventStatusTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventStatusTableViewCell.swift; sourceTree = "<group>"; };
+		1CE31FDE1F88C2130033BEE3 /* EventStatusTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventStatusTableViewCell.xib; sourceTree = "<group>"; };
+		1CE31FE11F88C31B0033BEE3 /* StatusCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusCollectionViewCell.swift; sourceTree = "<group>"; };
+		1CE31FE21F88C31B0033BEE3 /* StatusCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StatusCollectionViewCell.xib; sourceTree = "<group>"; };
 		1CF8F54D1F876A2700C7513A /* ClassList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassList.swift; sourceTree = "<group>"; };
 		1CF8F54F1F876BF600C7513A /* EventList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventList.swift; sourceTree = "<group>"; };
 		1CF8F5521F8790A200C7513A /* FSCalendar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FSCalendar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -141,6 +157,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1C847D291F8915870092F28B /* PINRemoteImage.framework in Frameworks */,
+				1C847D271F8915850092F28B /* PINCache.framework in Frameworks */,
+				1C847D251F8915820092F28B /* FLAnimatedImage.framework in Frameworks */,
 				1CF8F5531F8790A500C7513A /* SVProgressHUD.framework in Frameworks */,
 				1CF8F5511F8790A200C7513A /* FSCalendar.framework in Frameworks */,
 				1C6A1B121F852B6700A1BF29 /* Pods_Sangha_Teacher.framework in Frameworks */,
@@ -159,6 +178,10 @@
 				1C314FBC1F84C819008CF054 /* EventImageViewTableViewCell.xib */,
 				1C314FC81F84CD6D008CF054 /* EventDescriptionTableViewCell.swift */,
 				1C314FC91F84CD6D008CF054 /* EventDescriptionTableViewCell.xib */,
+				1CE31FDD1F88C2130033BEE3 /* EventStatusTableViewCell.swift */,
+				1CE31FDE1F88C2130033BEE3 /* EventStatusTableViewCell.xib */,
+				1CE31FE11F88C31B0033BEE3 /* StatusCollectionViewCell.swift */,
+				1CE31FE21F88C31B0033BEE3 /* StatusCollectionViewCell.xib */,
 			);
 			name = "Event Detail ";
 			sourceTree = "<group>";
@@ -166,6 +189,7 @@
 		1CE31FDA1F88B5C30033BEE3 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				1CE31FDB1F88C0C50033BEE3 /* MTCircularSlider.swift */,
 				1CE31FD61F88B5B20033BEE3 /* UIBarButtonItem+Badge.h */,
 				1CE31FD41F88B5B10033BEE3 /* UIBarButtonItem+Badge.m */,
 				1CE31FD51F88B5B20033BEE3 /* UIButton+Badge.h */,
@@ -177,6 +201,9 @@
 		5E32F3A5FD8BABF4F74141FF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1C847D2A1F8915870092F28B /* PINRemoteImage.framework */,
+				1C847D281F8915850092F28B /* PINCache.framework */,
+				1C847D261F8915820092F28B /* FLAnimatedImage.framework */,
 				1CF8F5541F8790A500C7513A /* SVProgressHUD.framework */,
 				1CF8F5521F8790A200C7513A /* FSCalendar.framework */,
 				1C6A1B141F852B6700A1BF29 /* FSCalendar.framework */,
@@ -406,10 +433,12 @@
 				8F366FD21F7D10DC00DB60DD /* ProximaNovaCond-Light.otf in Resources */,
 				8F366FD31F7D10DC00DB60DD /* ProximaNovaCond-LightIt.otf in Resources */,
 				8F366FD41F7D10DC00DB60DD /* ProximaNovaCond-Regular.otf in Resources */,
+				1CE31FE41F88C31B0033BEE3 /* StatusCollectionViewCell.xib in Resources */,
 				8F366FD51F7D10DC00DB60DD /* ProximaNovaCond-RegularIt.otf in Resources */,
 				8F366FD61F7D10DC00DB60DD /* ProximaNovaCond-Semibold.otf in Resources */,
 				8F366FD71F7D10DC00DB60DD /* ProximaNovaCond-SemiboldIt.otf in Resources */,
 				8F072B5C1F794E2B00B8BE78 /* EventTableHeaderView.xib in Resources */,
+				1CE31FE01F88C2130033BEE3 /* EventStatusTableViewCell.xib in Resources */,
 				8F75A4631F825FB500BEB9BF /* ClassesTableViewCell.xib in Resources */,
 				1C314FBE1F84C819008CF054 /* EventImageViewTableViewCell.xib in Resources */,
 				1C314FCB1F84CD6D008CF054 /* EventDescriptionTableViewCell.xib in Resources */,
@@ -431,9 +460,20 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Sangha Teacher/Pods-Sangha Teacher-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/FLAnimatedImage/FLAnimatedImage.framework",
+				"${BUILT_PRODUCTS_DIR}/FSCalendar/FSCalendar.framework",
+				"${BUILT_PRODUCTS_DIR}/PINCache/PINCache.framework",
+				"${BUILT_PRODUCTS_DIR}/PINRemoteImage/PINRemoteImage.framework",
+				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FLAnimatedImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FSCalendar.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PINCache.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PINRemoteImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -461,13 +501,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Sangha Teacher-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -500,9 +543,12 @@
 				1CE31FD81F88B5B20033BEE3 /* UIBarButtonItem+Badge.m in Sources */,
 				8FBA9A0B1F7281FC003A959F /* Constants.swift in Sources */,
 				8F75A45B1F82548900BEB9BF /* NotificationsViewController.swift in Sources */,
+				1CE31FDC1F88C0C60033BEE3 /* MTCircularSlider.swift in Sources */,
 				8F75A4621F825FB500BEB9BF /* ClassesTableViewCell.swift in Sources */,
 				8FBA9A151F7284E9003A959F /* EventsViewController.swift in Sources */,
+				1CE31FDF1F88C2130033BEE3 /* EventStatusTableViewCell.swift in Sources */,
 				8F75A45F1F8258E700BEB9BF /* SettingsViewController.swift in Sources */,
+				1CE31FE31F88C31B0033BEE3 /* StatusCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

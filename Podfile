@@ -8,5 +8,5 @@ target 'Sangha Teacher' do
   # Pods for Sangha Teacher
     pod 'SVProgressHUD', :git => 'https://github.com/SVProgressHUD/SVProgressHUD.git'
     pod 'FSCalendar'
-    #pod 'PINRemoteImage'
+    pod 'PINRemoteImage'
 end

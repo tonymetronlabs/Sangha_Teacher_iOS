@@ -19,7 +19,7 @@ class EventDetailViewController: UIViewController {
         super.viewDidLoad()
 
         self.headerView.headerLabel.text = self.eventObj?.title
-//        self.tableView.register(UINib(nibName: "EventTitleTableViewCell", bundle: nil), forCellReuseIdentifier: "eventDetailTitleCell")
+        self.tableView.register(UINib(nibName: "EventStatusTableViewCell", bundle: nil), forCellReuseIdentifier: "eventStatusTableViewCell")
         self.tableView.register(UINib(nibName: "EventImageViewTableViewCell", bundle: nil), forCellReuseIdentifier: "eventDetailImageViewCell")
         self.tableView.register(UINib(nibName: "EventDescriptionTableViewCell", bundle: nil), forCellReuseIdentifier: "eventDetailDescriptionCell")
     }
@@ -27,6 +27,7 @@ class EventDetailViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.topItem?.title = ""
@@ -49,10 +50,6 @@ extension EventDetailViewController : UITableViewDataSource,UITableViewDelegate 
         var cell : UITableViewCell!
 
         switch indexPath.row {
-//        case 0:
-//            cell = tableView.dequeueReusableCell(withIdentifier: "eventDetailTitleCell")
-//            (cell as? EventTitleTableViewCell)?.loadContentView(event: self.eventObj!)
-//            break
         case 0:
             cell = tableView.dequeueReusableCell(withIdentifier:"eventDetailImageViewCell")
             (cell as? EventImageViewTableViewCell)?.loadContentView(event: self.eventObj!)
@@ -77,9 +74,30 @@ extension EventDetailViewController : UITableViewDataSource,UITableViewDelegate 
             (cell as! EventDescriptionTableViewCell).loadContentView(event: self.eventObj!)
             break
         default:
-            cell = tableView.dequeueReusableCell(withIdentifier: "cell")
+            cell = tableView.dequeueReusableCell(withIdentifier: "eventStatusTableViewCell")
+            (cell as! EventStatusTableViewCell).loadContentView(event: self.eventObj!)
             break
         }
         return cell!
+    }
+
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+
+        switch indexPath.row {
+        case 0:
+            guard let attachmentObj = self.eventObj?.attachments?.first, let _ = attachmentObj.url else {
+                return 0
+            }
+            return 200
+        case 5:
+            guard (self.eventObj?.ais) != nil else {
+                return 0
+            }
+            var width = (tableView.frame.size.width - 40)/3
+            width = width < 115 ? 115 : width
+            return width * 2 + 10
+        default:
+            return UITableViewAutomaticDimension
+        }
     }
 }
