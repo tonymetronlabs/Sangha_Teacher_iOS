@@ -245,8 +245,10 @@
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
+                        <outlet property="announcementBarButton" destination="udD-Ba-037" id="Ihi-PW-JHs"/>
                         <outlet property="calendarView" destination="5Md-Tg-XWh" id="XXF-R8-tvu"/>
                         <outlet property="calendarViewHeightConstraint" destination="pm8-uT-LjL" id="eBc-SO-MXW"/>
+                        <outlet property="chatBarButton" destination="GLT-I6-T12" id="02w-jF-SYE"/>
                         <outlet property="eventsListTableView" destination="4Ba-ZS-JWq" id="QcI-Rl-FeH"/>
                     </connections>
                 </viewController>
@@ -567,7 +569,7 @@
                                         <rect key="frame" x="0.0" y="159" width="375" height="65"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="TsX-G0-9YE" id="THQ-zm-3rH">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="65"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="64.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cEt-3l-Szg">

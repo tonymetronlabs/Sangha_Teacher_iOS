@@ -17,7 +17,9 @@ class EventsViewController: UIViewController {
     
     @IBOutlet weak var eventsListTableView: UITableView!
 
-    var eventListModel : EventList = EventList()
+    @IBOutlet weak var announcementBarButton: UIBarButtonItem!
+
+    @IBOutlet weak var chatBarButton: UIBarButtonItem!
     
     fileprivate lazy var dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
@@ -39,15 +41,12 @@ class EventsViewController: UIViewController {
         panGesture.delegate = self
         return panGesture
     }()
-    
+
+    var eventListModel : EventList = EventList()
     var eventModelArray: [Event] = []
-    
     var eventsDateArray: [Date] = []
-        
     var dateAndEventDictionary = [Date: [DateAndEvent]]()
-    
     var greaterThanEqualToday: [Date] = []
-    
     var isSpecificDate:Bool = false
     var selectedDate: Date! = Date()
     
@@ -136,7 +135,7 @@ class EventsViewController: UIViewController {
                         }
 
                         self.toBeDisplay()
-
+                        self.updateBarButtons()
                         self.calendarView.reloadData()
                     }
                     catch let error {
@@ -152,8 +151,19 @@ class EventsViewController: UIViewController {
             }
         }
     }
-    
-    
+
+    private func updateBarButtons() {
+        self.chatBarButton.badgeValue = "\(self.eventListModel.unreadMsgCounts.chatsCount ?? 0)"
+        self.chatBarButton.badgeFont = UIFont(name: AppFont.appFontCondSemiBold, size: 15)
+        self.chatBarButton.badgeTextColor = UIColor.white
+        self.chatBarButton.badgeBGColor = UIColor.red
+
+        self.announcementBarButton.badgeValue = "\(self.eventListModel.unreadMsgCounts.messagesCount ?? 0)"
+        self.announcementBarButton.badgeFont = UIFont(name: AppFont.appFontCondSemiBold, size: 15)
+        self.announcementBarButton.badgeTextColor = UIColor.white
+        self.announcementBarButton.badgeBGColor = UIColor.red
+    }
+
     private func toBeDisplay(){
     
         let sortedDateAndEventDictKeyArray = Array(self.dateAndEventDictionary.keys).sorted()

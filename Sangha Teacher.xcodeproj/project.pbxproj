@@ -15,6 +15,8 @@
 		1C314FCA1F84CD6D008CF054 /* EventDescriptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C314FC81F84CD6D008CF054 /* EventDescriptionTableViewCell.swift */; };
 		1C314FCB1F84CD6D008CF054 /* EventDescriptionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C314FC91F84CD6D008CF054 /* EventDescriptionTableViewCell.xib */; };
 		1C6A1B121F852B6700A1BF29 /* Pods_Sangha_Teacher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C6A1B151F852B6700A1BF29 /* Pods_Sangha_Teacher.framework */; };
+		1CE31FD81F88B5B20033BEE3 /* UIBarButtonItem+Badge.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CE31FD41F88B5B10033BEE3 /* UIBarButtonItem+Badge.m */; };
+		1CE31FD91F88B5B20033BEE3 /* UIButton+Badge.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CE31FD71F88B5B20033BEE3 /* UIButton+Badge.m */; };
 		1CF8F54E1F876A2700C7513A /* ClassList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF8F54D1F876A2700C7513A /* ClassList.swift */; };
 		1CF8F5501F876BF600C7513A /* EventList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF8F54F1F876BF600C7513A /* EventList.swift */; };
 		1CF8F5511F8790A200C7513A /* FSCalendar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CF8F5521F8790A200C7513A /* FSCalendar.framework */; };
@@ -77,6 +79,11 @@
 		1C6A1B141F852B6700A1BF29 /* FSCalendar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FSCalendar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C6A1B151F852B6700A1BF29 /* Pods_Sangha_Teacher.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_Sangha_Teacher.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C6A1B161F852B6700A1BF29 /* SVProgressHUD.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SVProgressHUD.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1CE31FD31F88B5B00033BEE3 /* Sangha Teacher-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Sangha Teacher-Bridging-Header.h"; sourceTree = "<group>"; };
+		1CE31FD41F88B5B10033BEE3 /* UIBarButtonItem+Badge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+Badge.m"; sourceTree = "<group>"; };
+		1CE31FD51F88B5B20033BEE3 /* UIButton+Badge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Badge.h"; sourceTree = "<group>"; };
+		1CE31FD61F88B5B20033BEE3 /* UIBarButtonItem+Badge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+Badge.h"; sourceTree = "<group>"; };
+		1CE31FD71F88B5B20033BEE3 /* UIButton+Badge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Badge.m"; sourceTree = "<group>"; };
 		1CF8F54D1F876A2700C7513A /* ClassList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassList.swift; sourceTree = "<group>"; };
 		1CF8F54F1F876BF600C7513A /* EventList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventList.swift; sourceTree = "<group>"; };
 		1CF8F5521F8790A200C7513A /* FSCalendar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FSCalendar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -154,6 +161,17 @@
 				1C314FC91F84CD6D008CF054 /* EventDescriptionTableViewCell.xib */,
 			);
 			name = "Event Detail ";
+			sourceTree = "<group>";
+		};
+		1CE31FDA1F88B5C30033BEE3 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				1CE31FD61F88B5B20033BEE3 /* UIBarButtonItem+Badge.h */,
+				1CE31FD41F88B5B10033BEE3 /* UIBarButtonItem+Badge.m */,
+				1CE31FD51F88B5B20033BEE3 /* UIButton+Badge.h */,
+				1CE31FD71F88B5B20033BEE3 /* UIButton+Badge.m */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 		5E32F3A5FD8BABF4F74141FF /* Frameworks */ = {
@@ -284,6 +302,7 @@
 				8FBA99F61F7281A4003A959F /* AppDelegate.swift */,
 				8F47E1611F7A82C000CDC544 /* SlideMenuController.swift */,
 				8F49FAAA1F7BC1F40018A9C4 /* LeftSideMenuViewController.swift */,
+				1CE31FDA1F88B5C30033BEE3 /* Resources */,
 				8F366FC61F7D0F6C00DB60DD /* Fonts */,
 				8F9FCD8E1F7503DE000BD163 /* API */,
 				8F9FCD8B1F7503A8000BD163 /* Reachability */,
@@ -295,6 +314,7 @@
 				8FBA99FF1F7281A5003A959F /* Assets.xcassets */,
 				8FBA9A011F7281A5003A959F /* LaunchScreen.storyboard */,
 				8FBA9A041F7281A5003A959F /* Info.plist */,
+				1CE31FD31F88B5B00033BEE3 /* Sangha Teacher-Bridging-Header.h */,
 			);
 			path = "Sangha Teacher";
 			sourceTree = "<group>";
@@ -344,6 +364,7 @@
 					8FBA99F21F7281A4003A959F = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = 4N7N8D95WX;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -469,12 +490,14 @@
 				8FBA99F71F7281A4003A959F /* AppDelegate.swift in Sources */,
 				8FA0EC451F73F4E800B72943 /* LoginViewController.swift in Sources */,
 				1CF8F54E1F876A2700C7513A /* ClassList.swift in Sources */,
+				1CE31FD91F88B5B20033BEE3 /* UIButton+Badge.m in Sources */,
 				1CF8F5501F876BF600C7513A /* EventList.swift in Sources */,
 				8F47E1621F7A82C100CDC544 /* SlideMenuController.swift in Sources */,
 				1C314FBD1F84C819008CF054 /* EventImageViewTableViewCell.swift in Sources */,
 				1C314FBA1F84C2A9008CF054 /* EventDetailViewController.swift in Sources */,
 				8F366FB21F7D040D00DB60DD /* HeaderView.swift in Sources */,
 				8FBA9A131F728479003A959F /* API.swift in Sources */,
+				1CE31FD81F88B5B20033BEE3 /* UIBarButtonItem+Badge.m in Sources */,
 				8FBA9A0B1F7281FC003A959F /* Constants.swift in Sources */,
 				8F75A45B1F82548900BEB9BF /* NotificationsViewController.swift in Sources */,
 				8F75A4621F825FB500BEB9BF /* ClassesTableViewCell.swift in Sources */,
@@ -615,12 +638,15 @@
 			baseConfigurationReference = 1333E351AC4DDEF0CFE96D03 /* Pods-Sangha Teacher.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 4N7N8D95WX;
 				INFOPLIST_FILE = "Sangha Teacher/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sanghapp.ios.tapp.beta;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Sangha Teacher/Sangha Teacher-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -630,12 +656,14 @@
 			baseConfigurationReference = D58B5B47AE9752BA4D793D0D /* Pods-Sangha Teacher.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 4N7N8D95WX;
 				INFOPLIST_FILE = "Sangha Teacher/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sanghapp.ios.tapp.beta;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Sangha Teacher/Sangha Teacher-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
