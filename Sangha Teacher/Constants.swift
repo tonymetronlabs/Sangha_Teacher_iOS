@@ -13,7 +13,6 @@ struct AppColor{
     
     static let appCalendarTextPrimaryColor: UInt32 = 0x28303C
     static let appEventColor: UInt32 = 0x22B9F0
-    
 }
 
 struct AppFont{
@@ -97,22 +96,65 @@ enum MenuItem: Int{
     
 }
 
-enum EventType: String{
-    
+enum EventType : String{
     case ptm = "ptm"
     case fieldTrip = "fieldtrip"
     case reminder = "reminder"
 }
 
 
-enum AiType: String{
+enum AiType : String {
     
     case form = "approval"
     case rsvp = "rsvp"
     case toBring = "stb"
     case payment = "payment"
-    case voluenteer = "todo"
+    case volunteer = "todo"
     case ptm = "ptm"
+
+    var title : String {
+
+        switch self {
+        case .form:
+            return "FORM"
+        case .rsvp:
+            return "RSVP"
+        case .toBring:
+            return "TO BRING"
+        case .payment:
+            return "PAYMENT"
+        case .volunteer:
+            return "VOLUNTEER"
+        case .ptm:
+            return "PTM"
+        default:
+            return ""
+        }
+    }
+
+    var placeholderImageView : UIImage {
+
+        switch self {
+        case .rsvp:
+            return #imageLiteral(resourceName: "students")
+            break
+        case .form:
+            return #imageLiteral(resourceName: "note")
+            break
+        case .payment:
+            return #imageLiteral(resourceName: "small_dollar")
+            break
+        case .volunteer:
+            return #imageLiteral(resourceName: "hand")
+            break
+        case .toBring:
+            return #imageLiteral(resourceName: "cart")
+            break
+        default:
+            return #imageLiteral(resourceName: "students")
+            break
+        }
+    }
 }
 
 enum DateFormat : String {

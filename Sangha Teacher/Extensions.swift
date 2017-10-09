@@ -184,7 +184,6 @@ extension UITextField {
                 let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: newValue, height: 1))
                 rightView = paddingView;
                 rightViewMode = .always
-                
             }
         }
         get {
@@ -202,7 +201,6 @@ extension UITextField {
     }
     
     @IBInspectable var rightImage: UIImage? {
-        
         set (newValue) {
             self.textFieldView(textField: self, image: newValue!,whichSide: 2)
         }
@@ -235,7 +233,6 @@ extension UITextField {
             return UIColor(cgColor: layer.shadowColor!)
         }
         set {
-            
             layer.shadowColor = newValue?.cgColor
         }
     }

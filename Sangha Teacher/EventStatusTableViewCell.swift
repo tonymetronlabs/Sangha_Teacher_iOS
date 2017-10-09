@@ -11,7 +11,9 @@ import UIKit
 class EventStatusTableViewCell: UITableViewCell {
 
     @IBOutlet weak var categoryCollectionView: UICollectionView!
+
     var eventObj : Event?
+    var delegate : SelectAisTypeDelegate?
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -44,13 +46,34 @@ extension EventStatusTableViewCell : UICollectionViewDataSource, UICollectionVie
             return cell
         }
 
+        let categoryValue = Float(aisObj.total! / 3)
+
+        if Float(currentValue) < categoryValue {
+            cell.circularSlider.tintColor = UIColor.init(hex: 0xFA3DAB, alpha: 1.0)
+        }
+        else if Float(currentValue) >= categoryValue, Float(currentValue) < 2*categoryValue {
+            cell.circularSlider.tintColor = UIColor.init(hex: 0xFAE16F, alpha: 1.0)
+        }
+        else {
+            cell.circularSlider.tintColor = UIColor.init(hex: 0x3BE8BF, alpha: 1.0)
+        }
+
+        let ais = AiType(rawValue: aisObj.aiType!)
+        cell.categoryImageView.image = ais?.placeholderImageView
         cell.circularSlider.valueMaximum = Float(maxValue)
         cell.circularSlider.valueMinimum = 0
-        cell.circularSlider.value = Float(maxValue - 20)
+        cell.circularSlider.value = Float(currentValue)
         cell.categoryNameLabel.text = aisObj.aiType?.capitalized
         cell.categoryStatusCountLabel.text = "\(currentValue)/\(maxValue)"
 
         return cell
+    }
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard self.eventObj?.ais != nil, let ais = self.eventObj?.ais?[indexPath.row], let aisType = AiType(rawValue: ais.aiType!) else{
+            return
+        }
+        self.delegate?.didSelect(aisType: aisType, eventObj: self.eventObj!)
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1C128AC01F8B3E72008F4D62 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C128ABF1F8B3E71008F4D62 /* Utilities.swift */; };
 		1C314FBA1F84C2A9008CF054 /* EventDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C314FB91F84C2A9008CF054 /* EventDetailViewController.swift */; };
 		1C314FBD1F84C819008CF054 /* EventImageViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C314FBB1F84C819008CF054 /* EventImageViewTableViewCell.swift */; };
 		1C314FBE1F84C819008CF054 /* EventImageViewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C314FBC1F84C819008CF054 /* EventImageViewTableViewCell.xib */; };
@@ -75,6 +76,7 @@
 
 /* Begin PBXFileReference section */
 		1333E351AC4DDEF0CFE96D03 /* Pods-Sangha Teacher.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sangha Teacher.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Sangha Teacher/Pods-Sangha Teacher.debug.xcconfig"; sourceTree = "<group>"; };
+		1C128ABF1F8B3E71008F4D62 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		1C314FB91F84C2A9008CF054 /* EventDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailViewController.swift; sourceTree = "<group>"; };
 		1C314FBB1F84C819008CF054 /* EventImageViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventImageViewTableViewCell.swift; sourceTree = "<group>"; };
 		1C314FBC1F84C819008CF054 /* EventImageViewTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventImageViewTableViewCell.xib; sourceTree = "<group>"; };
@@ -253,6 +255,7 @@
 			children = (
 				8FBA9A0A1F7281FC003A959F /* Constants.swift */,
 				8FBA9A0C1F728220003A959F /* Extensions.swift */,
+				1C128ABF1F8B3E71008F4D62 /* Utilities.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -538,6 +541,7 @@
 				8F47E1621F7A82C100CDC544 /* SlideMenuController.swift in Sources */,
 				1C314FBD1F84C819008CF054 /* EventImageViewTableViewCell.swift in Sources */,
 				1C314FBA1F84C2A9008CF054 /* EventDetailViewController.swift in Sources */,
+				1C128AC01F8B3E72008F4D62 /* Utilities.swift in Sources */,
 				8F366FB21F7D040D00DB60DD /* HeaderView.swift in Sources */,
 				8FBA9A131F728479003A959F /* API.swift in Sources */,
 				1CE31FD81F88B5B20033BEE3 /* UIBarButtonItem+Badge.m in Sources */,

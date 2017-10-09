@@ -92,58 +92,66 @@ class EventsViewController: UIViewController {
         APIHandler.sharedInstance.initWithAPIUrl(nowApi.URL, method: nowApi.APIMethod, params: nil, currentView: self) { (success, responseDict, responseData) in
             
             if success {
-                
-                if responseDict?["status"] as! Int == 200{
 
-                    let decoder = JSONDecoder()
+                let status = responseDict?["status"] as! Int
 
-                    do {
-                        self.eventListModel = try decoder.decode(EventList.self, from: responseData!)
+                switch status {
 
-                        self.eventModelArray = self.eventListModel.events
+                    case 200:
+                        let decoder = JSONDecoder()
 
-                        var dateAndEvent:[DateAndEvent] = []
+                        do {
+                            self.eventListModel = try decoder.decode(EventList.self, from: responseData!)
 
-                        for obj in self.eventModelArray {
+                            self.eventModelArray = self.eventListModel.events
 
-                            _ = obj.ais?.filter { (aisObj) -> Bool in
-                                print(aisObj.aiType!)
-                                return true
+                            var dateAndEvent:[DateAndEvent] = []
+
+                            for obj in self.eventModelArray {
+
+//                                _ = obj.ais?.filter { (aisObj) -> Bool in
+//                                    print(aisObj.aiType!)
+//                                    return true
+//                                }
+
+                                for scheduleDate in (obj.computedSchedule?.calendar)!{
+
+                                    self.eventsDateArray.append(self.dateFormatter.date(from: scheduleDate.date!)!)
+
+                                    let dateEventObject = DateAndEvent(with: self.dateFormatter.date(from: scheduleDate.date!)!, events: obj)!
+
+                                    dateAndEvent.append(dateEventObject)
+                                }
                             }
 
-                            for scheduleDate in (obj.computedSchedule?.calendar)!{
 
-                                self.eventsDateArray.append(self.dateFormatter.date(from: scheduleDate.date!)!)
+                            for date in Set(self.eventsDateArray){
 
-                                let dateEventObject = DateAndEvent(with: self.dateFormatter.date(from: scheduleDate.date!)!, events: obj)!
+                                let array = dateAndEvent.filter({ (event) -> Bool in
 
-                                dateAndEvent.append(dateEventObject)
+                                    return date.compare(event.date) == .orderedSame
+                                })
+
+                                self.dateAndEventDictionary[date] = array
+
+                                print(self.dateAndEventDictionary)
                             }
+
+                            self.toBeDisplay()
+                            self.updateBarButtons()
+                            self.calendarView.reloadData()
                         }
-
-
-                        for date in Set(self.eventsDateArray){
-
-                            let array = dateAndEvent.filter({ (event) -> Bool in
-
-                                return date.compare(event.date) == .orderedSame
-                            })
-
-                            self.dateAndEventDictionary[date] = array
-
-                            print(self.dateAndEventDictionary)
-                        }
-
-                        self.toBeDisplay()
-                        self.updateBarButtons()
-                        self.calendarView.reloadData()
+                        catch let error {
+                            print(error.localizedDescription)
                     }
-                    catch let error {
-                        print(error.localizedDescription)
-                    }
-                }
-                else {
+                     break
+                case 403:
                     self.showAlert(withTitle: responseDict?["message"] as? String ?? "No response", message:"")
+                    Utilities.sharedInstance.logoutAction(viewController: self)
+                    break
+                default:
+                    self.showAlert(withTitle: responseDict?["message"] as? String ?? "No response", message:"")
+                    break
                 }
             }
             else{
@@ -452,5 +460,4 @@ extension EventsViewController: FSCalendarDataSource, FSCalendarDelegate, FSCale
         self.eventsListTableView.reloadData()
         
     }
-
 }

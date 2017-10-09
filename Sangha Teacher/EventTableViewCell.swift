@@ -48,10 +48,10 @@ class EventTableViewCell: UITableViewCell {
             Calendar.current.isDate((eventCalendar.date?.toDateFromString(dateFormat: DateFormat.computedScheduleDate.rawValue))!, inSameDayAs: selectedDate)
         })
 
-        if let eventSchedule = eventScheduleArr?.first, !(eventSchedule.startTime?.isEmpty)!, !(eventSchedule.endTime?.isEmpty)! {
+        if let eventSchedule = eventScheduleArr?.first, let startTime = eventSchedule.startTime, let endTime = eventSchedule.endTime {
 
             self.eventTimeLabel.isHidden = false
-            self.eventTimeLabel.text = "\(eventSchedule.startTime) - \(eventSchedule.endTime)"
+            self.eventTimeLabel.text = "\(startTime) - \(endTime)"
         }
         else {
             self.eventTimeLabel.isHidden = true
@@ -110,7 +110,7 @@ class EventTableViewCell: UITableViewCell {
 
                     self.paymentLabel.text = "P:\(acceptCount)/\(totalCount)"
 
-                case .voluenteer:
+                case .volunteer:
 
                     self.volunteerLabel.text = "V:\(acceptCount)/\(totalCount)"
 

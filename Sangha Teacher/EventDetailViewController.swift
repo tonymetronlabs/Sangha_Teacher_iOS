@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol SelectAisTypeDelegate {
+    func didSelect(aisType : AiType, eventObj : Event)
+}
+
 class EventDetailViewController: UIViewController {
 
     @IBOutlet weak var headerView: HeaderView!
@@ -76,6 +80,7 @@ extension EventDetailViewController : UITableViewDataSource,UITableViewDelegate 
         default:
             cell = tableView.dequeueReusableCell(withIdentifier: "eventStatusTableViewCell")
             (cell as! EventStatusTableViewCell).loadContentView(event: self.eventObj!)
+            (cell as! EventStatusTableViewCell).delegate = self
             break
         }
         return cell!
@@ -99,5 +104,12 @@ extension EventDetailViewController : UITableViewDataSource,UITableViewDelegate 
         default:
             return UITableViewAutomaticDimension
         }
+    }
+}
+
+extension EventDetailViewController : SelectAisTypeDelegate {
+
+    func didSelect(aisType: AiType, eventObj: Event) {
+        print(aisType.rawValue + " --- " + eventObj.title)
     }
 }

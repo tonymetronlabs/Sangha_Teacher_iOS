@@ -68,7 +68,7 @@ open class MTCircularSlider: UIControl {
 	var trackShadowDepth: CGFloat = 0 { didSet { setNeedsDisplay() } }
 	
 	@IBInspectable
-	var trackMinAngle: Double = 0.0 //90.0
+	var trackMinAngle: Double = 90.0
     {
 		didSet {
 			do {
@@ -83,7 +83,7 @@ open class MTCircularSlider: UIControl {
 	}
 
 	@IBInspectable
-	var trackMaxAngle: Double = 360.0 // 450.0
+	var trackMaxAngle: Double = 450.0
     {
 		didSet {
 			do {
@@ -159,14 +159,15 @@ open class MTCircularSlider: UIControl {
 	}
 
 	fileprivate var isLeftToRight: Bool {
-		if #available(iOS 9.0, *) {
-			return UIView.userInterfaceLayoutDirection(for: self.semanticContentAttribute) == UIUserInterfaceLayoutDirection.leftToRight
-		} else {
-			// Fallback on earlier versions
-			return true
-		}
+        if #available(iOS 9.0, *) {
+            return UIView.userInterfaceLayoutDirection(for: self.semanticContentAttribute) == UIUserInterfaceLayoutDirection.rightToLeft
+            //FIXME: Changed to RightToLeft for Design
+        } else {
+            // Fallback on earlier versions
+            return true
+        }
 	}
-	
+
 	fileprivate var thumbLayer = CAShapeLayer()
 	
 	fileprivate var viewCenter: CGPoint {
@@ -291,7 +292,6 @@ open class MTCircularSlider: UIControl {
 		*/
 		func drawProgress() {
 			let minAngle = CGFloat(trackMinAngle / 180.0 * M_PI + M_PI)
-
 			let progressPath =
 				isLeftToRight ?
 					getArcPath(viewCenter,
@@ -553,9 +553,8 @@ open class MTCircularSlider: UIControl {
 
 		if (clockwise == isLeftToRight) {
 			while (angle < 0) { angle += 360 }
-			
 		} else {
-			while (angle > 0) { angle -= 360 }
+            while (angle > 0) { angle -= 360 }
 		}
 		
 		// Update our value by as much as the last motion defined.
