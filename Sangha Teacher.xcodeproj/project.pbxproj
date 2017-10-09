@@ -72,6 +72,7 @@
 		8FBA9A111F728461003A959F /* APIHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FBA9A101F728461003A959F /* APIHandler.swift */; };
 		8FBA9A131F728479003A959F /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FBA9A121F728479003A959F /* API.swift */; };
 		8FBA9A151F7284E9003A959F /* EventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FBA9A141F7284E9003A959F /* EventsViewController.swift */; };
+		DFFBA4431F8B889A007CB649 /* ActionItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFFBA4421F8B889A007CB649 /* ActionItemsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -152,6 +153,7 @@
 		8FBA9A121F728479003A959F /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		8FBA9A141F7284E9003A959F /* EventsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsViewController.swift; sourceTree = "<group>"; };
 		D58B5B47AE9752BA4D793D0D /* Pods-Sangha Teacher.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sangha Teacher.release.xcconfig"; path = "Pods/Target Support Files/Pods-Sangha Teacher/Pods-Sangha Teacher.release.xcconfig"; sourceTree = "<group>"; };
+		DFFBA4421F8B889A007CB649 /* ActionItemsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionItemsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -270,6 +272,7 @@
 				8F75A45A1F82548900BEB9BF /* NotificationsViewController.swift */,
 				8F75A45C1F8257F800BEB9BF /* AutoAlertViewController.swift */,
 				8F75A45E1F8258E700BEB9BF /* SettingsViewController.swift */,
+				DFFBA4421F8B889A007CB649 /* ActionItemsViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -534,6 +537,7 @@
 				8F9FCDA11F752F21000BD163 /* EventTableViewCell.swift in Sources */,
 				1C314FC21F84CB7C008CF054 /* EventTitleTableViewCell.swift in Sources */,
 				8FBA99F71F7281A4003A959F /* AppDelegate.swift in Sources */,
+				DFFBA4431F8B889A007CB649 /* ActionItemsViewController.swift in Sources */,
 				8FA0EC451F73F4E800B72943 /* LoginViewController.swift in Sources */,
 				1CF8F54E1F876A2700C7513A /* ClassList.swift in Sources */,
 				1CE31FD91F88B5B20033BEE3 /* UIButton+Badge.m in Sources */,
