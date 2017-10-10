@@ -19,27 +19,27 @@ class EventList : Decodable {
 // MARK: - Event Struct
 
 class Event: Decodable {
-        public var _id: String = ""
-        public var title: String = ""
-        public var desc: String = ""
-        public var owner: String = ""
-        public var stime: String = ""
-        public var etime: String = ""
-        public var organizationId: String = ""
-        public var organizationName: String = ""
-        public var docSubType: String = ""
-        public var actionItems : [String] = []
+        var _id: String = ""
+        var title: String = ""
+        var desc: String = ""
+        var owner: String = ""
+        var stime: String = ""
+        var etime: String = ""
+        var organizationId: String = ""
+        var organizationName: String = ""
+        var docSubType: String = ""
+        var actionItems : [String] = []
 
-        public var location : Location?
-        public var schedule: Schedule?
-        public var ais: [Ais]?
-        public var computedSchedule: ComputedSchedule?
-        public var attachments : [Attachment]?
-        public var members : [Member]?
-        public var klasses : [Klasses]?
+        var location : Location?
+        var schedule: Schedule?
+        var ais: [Ais]?
+        var computedSchedule: ComputedSchedule?
+        var attachments : [Attachment]?
+        var members : [Member]?
+        var klasses : [Klasses]?
 
-        private enum key : String, CodingKey {
-        case id = "_id"
+        private enum Codingkey : String, CodingKey {
+            case id = "_id" 
     }
 }
 

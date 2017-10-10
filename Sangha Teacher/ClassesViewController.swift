@@ -76,5 +76,11 @@ extension ClassesViewController: UITableViewDataSource, UITableViewDelegate{
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+
+        if let classID = self.classListModel.classes[indexPath.row]._id as? String {
+            let classDetailVC = self.storyboard?.instantiateViewController(withIdentifier: "SBClassDetail") as! ClassDetailViewController
+            classDetailVC.classID = classID
+            self.navigationController?.pushViewController(classDetailVC, animated: true)
+        }
     }
 }

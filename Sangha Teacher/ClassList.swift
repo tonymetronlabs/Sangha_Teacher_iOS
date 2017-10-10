@@ -14,8 +14,12 @@ class ClassList: NSObject, Decodable {
 }
 
 class Classes : Decodable {
-    var _id : String
-    var desc : String
-    var title : String
-    var studentsCount : Int
+    var _id : String = ""
+    var desc : String = ""
+    var title : String = ""
+    var studentsCount : Int = 0
+
+    private enum codingkeyschange : String, CodingKey {
+        case id = "_id"
+    }
 }

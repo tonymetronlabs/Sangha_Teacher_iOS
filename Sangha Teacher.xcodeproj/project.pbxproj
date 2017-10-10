@@ -19,6 +19,14 @@
 		1C847D251F8915820092F28B /* FLAnimatedImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C847D261F8915820092F28B /* FLAnimatedImage.framework */; };
 		1C847D271F8915850092F28B /* PINCache.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C847D281F8915850092F28B /* PINCache.framework */; };
 		1C847D291F8915870092F28B /* PINRemoteImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C847D2A1F8915870092F28B /* PINRemoteImage.framework */; };
+		1C912D431F8CFD0800D648EB /* ClassDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C912D421F8CFD0800D648EB /* ClassDetail.swift */; };
+		1CDAA61D1F8CAD2C0024A0AB /* ClassDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CDAA61C1F8CAD2C0024A0AB /* ClassDetailViewController.swift */; };
+		1CDAA6211F8CB3630024A0AB /* ClassCategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CDAA61F1F8CB3630024A0AB /* ClassCategoryCollectionViewCell.swift */; };
+		1CDAA6221F8CB3630024A0AB /* ClassCategoryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1CDAA6201F8CB3630024A0AB /* ClassCategoryCollectionViewCell.xib */; };
+		1CDAA6251F8CB5B60024A0AB /* ClassStudentsListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CDAA6231F8CB5B60024A0AB /* ClassStudentsListCollectionViewCell.swift */; };
+		1CDAA6261F8CB5B60024A0AB /* ClassStudentsListCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1CDAA6241F8CB5B60024A0AB /* ClassStudentsListCollectionViewCell.xib */; };
+		1CDAA6291F8CB6B60024A0AB /* StudentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CDAA6271F8CB6B60024A0AB /* StudentTableViewCell.swift */; };
+		1CDAA62A1F8CB6B60024A0AB /* StudentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1CDAA6281F8CB6B60024A0AB /* StudentTableViewCell.xib */; };
 		1CE31FD81F88B5B20033BEE3 /* UIBarButtonItem+Badge.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CE31FD41F88B5B10033BEE3 /* UIBarButtonItem+Badge.m */; };
 		1CE31FD91F88B5B20033BEE3 /* UIButton+Badge.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CE31FD71F88B5B20033BEE3 /* UIButton+Badge.m */; };
 		1CE31FDC1F88C0C60033BEE3 /* MTCircularSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE31FDB1F88C0C50033BEE3 /* MTCircularSlider.swift */; };
@@ -93,6 +101,14 @@
 		1C847D261F8915820092F28B /* FLAnimatedImage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FLAnimatedImage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C847D281F8915850092F28B /* PINCache.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PINCache.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C847D2A1F8915870092F28B /* PINRemoteImage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PINRemoteImage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1C912D421F8CFD0800D648EB /* ClassDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassDetail.swift; sourceTree = "<group>"; };
+		1CDAA61C1F8CAD2C0024A0AB /* ClassDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassDetailViewController.swift; sourceTree = "<group>"; };
+		1CDAA61F1F8CB3630024A0AB /* ClassCategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassCategoryCollectionViewCell.swift; sourceTree = "<group>"; };
+		1CDAA6201F8CB3630024A0AB /* ClassCategoryCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ClassCategoryCollectionViewCell.xib; sourceTree = "<group>"; };
+		1CDAA6231F8CB5B60024A0AB /* ClassStudentsListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassStudentsListCollectionViewCell.swift; sourceTree = "<group>"; };
+		1CDAA6241F8CB5B60024A0AB /* ClassStudentsListCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ClassStudentsListCollectionViewCell.xib; sourceTree = "<group>"; };
+		1CDAA6271F8CB6B60024A0AB /* StudentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentTableViewCell.swift; sourceTree = "<group>"; };
+		1CDAA6281F8CB6B60024A0AB /* StudentTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StudentTableViewCell.xib; sourceTree = "<group>"; };
 		1CE31FD31F88B5B00033BEE3 /* Sangha Teacher-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Sangha Teacher-Bridging-Header.h"; sourceTree = "<group>"; };
 		1CE31FD41F88B5B10033BEE3 /* UIBarButtonItem+Badge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+Badge.m"; sourceTree = "<group>"; };
 		1CE31FD51F88B5B20033BEE3 /* UIButton+Badge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Badge.h"; sourceTree = "<group>"; };
@@ -190,6 +206,19 @@
 			name = "Event Detail ";
 			sourceTree = "<group>";
 		};
+		1CDAA61E1F8CB2C20024A0AB /* Class Detail */ = {
+			isa = PBXGroup;
+			children = (
+				1CDAA61F1F8CB3630024A0AB /* ClassCategoryCollectionViewCell.swift */,
+				1CDAA6201F8CB3630024A0AB /* ClassCategoryCollectionViewCell.xib */,
+				1CDAA6231F8CB5B60024A0AB /* ClassStudentsListCollectionViewCell.swift */,
+				1CDAA6241F8CB5B60024A0AB /* ClassStudentsListCollectionViewCell.xib */,
+				1CDAA6271F8CB6B60024A0AB /* StudentTableViewCell.swift */,
+				1CDAA6281F8CB6B60024A0AB /* StudentTableViewCell.xib */,
+			);
+			name = "Class Detail";
+			sourceTree = "<group>";
+		};
 		1CE31FDA1F88B5C30033BEE3 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -269,6 +298,7 @@
 				1C314FB91F84C2A9008CF054 /* EventDetailViewController.swift */,
 				8FA0EC441F73F4E800B72943 /* LoginViewController.swift */,
 				8F75A4581F824C3D00BEB9BF /* ClassesViewController.swift */,
+				1CDAA61C1F8CAD2C0024A0AB /* ClassDetailViewController.swift */,
 				8F75A45A1F82548900BEB9BF /* NotificationsViewController.swift */,
 				8F75A45C1F8257F800BEB9BF /* AutoAlertViewController.swift */,
 				8F75A45E1F8258E700BEB9BF /* SettingsViewController.swift */,
@@ -289,6 +319,7 @@
 		8F9FCDA31F75321A000BD163 /* xib */ = {
 			isa = PBXGroup;
 			children = (
+				1CDAA61E1F8CB2C20024A0AB /* Class Detail */,
 				8F9FCD9F1F752F21000BD163 /* EventTableViewCell.swift */,
 				8F9FCDA01F752F21000BD163 /* EventTableViewCell.xib */,
 				1C314FBF1F84C9F8008CF054 /* Event Detail  */,
@@ -307,6 +338,7 @@
 			children = (
 				1CF8F54D1F876A2700C7513A /* ClassList.swift */,
 				1CF8F54F1F876BF600C7513A /* EventList.swift */,
+				1C912D421F8CFD0800D648EB /* ClassDetail.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -396,7 +428,7 @@
 				TargetAttributes = {
 					8FBA99F21F7281A4003A959F = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = 4N7N8D95WX;
+						DevelopmentTeam = D7AK8RQF6Y;
 						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 					};
@@ -434,6 +466,7 @@
 				8F366FCD1F7D10DC00DB60DD /* ProximaNova-RegItalic.otf in Resources */,
 				8F366FCE1F7D10DC00DB60DD /* ProximaNova-Regular.otf in Resources */,
 				8F366FCF1F7D10DC00DB60DD /* ProximaNova-RegularItalic.otf in Resources */,
+				1CDAA6221F8CB3630024A0AB /* ClassCategoryCollectionViewCell.xib in Resources */,
 				8F366FD01F7D10DC00DB60DD /* ProximaNova-Semibold.otf in Resources */,
 				8F366FD11F7D10DC00DB60DD /* ProximaNova-SemiboldItalic.otf in Resources */,
 				8F366FD21F7D10DC00DB60DD /* ProximaNovaCond-Light.otf in Resources */,
@@ -443,10 +476,12 @@
 				8F366FD51F7D10DC00DB60DD /* ProximaNovaCond-RegularIt.otf in Resources */,
 				8F366FD61F7D10DC00DB60DD /* ProximaNovaCond-Semibold.otf in Resources */,
 				8F366FD71F7D10DC00DB60DD /* ProximaNovaCond-SemiboldIt.otf in Resources */,
+				1CDAA62A1F8CB6B60024A0AB /* StudentTableViewCell.xib in Resources */,
 				8F072B5C1F794E2B00B8BE78 /* EventTableHeaderView.xib in Resources */,
 				1CE31FE01F88C2130033BEE3 /* EventStatusTableViewCell.xib in Resources */,
 				8F75A4631F825FB500BEB9BF /* ClassesTableViewCell.xib in Resources */,
 				1C314FBE1F84C819008CF054 /* EventImageViewTableViewCell.xib in Resources */,
+				1CDAA6261F8CB5B60024A0AB /* ClassStudentsListCollectionViewCell.xib in Resources */,
 				1C314FCB1F84CD6D008CF054 /* EventDescriptionTableViewCell.xib in Resources */,
 				8F9FCDA21F752F21000BD163 /* EventTableViewCell.xib in Resources */,
 				1C314FC31F84CB7C008CF054 /* EventTitleTableViewCell.xib in Resources */,
@@ -528,15 +563,20 @@
 			files = (
 				8FBA9A111F728461003A959F /* APIHandler.swift in Sources */,
 				8F072B5A1F794E0C00B8BE78 /* EventTableHeaderView.swift in Sources */,
+				1CDAA61D1F8CAD2C0024A0AB /* ClassDetailViewController.swift in Sources */,
 				8F49FAAB1F7BC1F40018A9C4 /* LeftSideMenuViewController.swift in Sources */,
 				8F75A4591F824C3D00BEB9BF /* ClassesViewController.swift in Sources */,
 				8F75A45D1F8257F800BEB9BF /* AutoAlertViewController.swift in Sources */,
 				8FBA9A0D1F728220003A959F /* Extensions.swift in Sources */,
 				8FBA9A0F1F72827D003A959F /* Reachability.swift in Sources */,
 				1C314FCA1F84CD6D008CF054 /* EventDescriptionTableViewCell.swift in Sources */,
+				1CDAA6211F8CB3630024A0AB /* ClassCategoryCollectionViewCell.swift in Sources */,
 				8F9FCDA11F752F21000BD163 /* EventTableViewCell.swift in Sources */,
+				1CDAA6291F8CB6B60024A0AB /* StudentTableViewCell.swift in Sources */,
 				1C314FC21F84CB7C008CF054 /* EventTitleTableViewCell.swift in Sources */,
+				1C912D431F8CFD0800D648EB /* ClassDetail.swift in Sources */,
 				8FBA99F71F7281A4003A959F /* AppDelegate.swift in Sources */,
+				1CDAA6251F8CB5B60024A0AB /* ClassStudentsListCollectionViewCell.swift in Sources */,
 				DFFBA4431F8B889A007CB649 /* ActionItemsViewController.swift in Sources */,
 				8FA0EC451F73F4E800B72943 /* LoginViewController.swift in Sources */,
 				1CF8F54E1F876A2700C7513A /* ClassList.swift in Sources */,
@@ -693,7 +733,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = 4N7N8D95WX;
+				DEVELOPMENT_TEAM = D7AK8RQF6Y;
 				INFOPLIST_FILE = "Sangha Teacher/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -711,7 +751,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = 4N7N8D95WX;
+				DEVELOPMENT_TEAM = D7AK8RQF6Y;
 				INFOPLIST_FILE = "Sangha Teacher/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

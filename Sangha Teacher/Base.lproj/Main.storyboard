@@ -326,6 +326,89 @@
             </objects>
             <point key="canvasLocation" x="84" y="675.11244377811101"/>
         </scene>
+        <!--Class Detail View Controller-->
+        <scene sceneID="s9s-Qn-xTr">
+            <objects>
+                <viewController storyboardIdentifier="SBClassDetail" id="1hD-2N-MoT" customClass="ClassDetailViewController" customModule="Sangha_Teacher" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="1MG-eo-dcc"/>
+                        <viewControllerLayoutGuide type="bottom" id="FU7-cK-mUm"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="02C-HF-eZF">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3gz-K6-xGb">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
+                                <subviews>
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="8jM-0C-FqM">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="65"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="10" id="LHh-Ah-UbK">
+                                            <size key="itemSize" width="50" height="65"/>
+                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        </collectionViewFlowLayout>
+                                        <cells/>
+                                        <connections>
+                                            <outlet property="dataSource" destination="1hD-2N-MoT" id="WbK-M9-Kb3"/>
+                                            <outlet property="delegate" destination="1hD-2N-MoT" id="mdE-eo-N0g"/>
+                                        </connections>
+                                    </collectionView>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LhE-ZW-p0X">
+                                        <rect key="frame" x="0.0" y="67" width="50" height="3"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.98039215690000003" green="0.23921568630000001" blue="0.6705882353" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="8jM-0C-FqM" secondAttribute="bottom" constant="5" id="TrK-F8-yr1"/>
+                                    <constraint firstAttribute="height" constant="70" id="g2p-8T-pfH"/>
+                                    <constraint firstAttribute="trailing" secondItem="8jM-0C-FqM" secondAttribute="trailing" id="icb-tK-dE9"/>
+                                    <constraint firstItem="8jM-0C-FqM" firstAttribute="top" secondItem="3gz-K6-xGb" secondAttribute="top" id="uFB-8e-evg"/>
+                                    <constraint firstItem="8jM-0C-FqM" firstAttribute="leading" secondItem="3gz-K6-xGb" secondAttribute="leading" id="wEA-LG-NOz"/>
+                                </constraints>
+                            </view>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="tMS-Jo-xlm">
+                                <rect key="frame" x="0.0" y="70" width="375" height="597"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="KUm-gw-kft">
+                                    <size key="itemSize" width="373" height="596"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                                <connections>
+                                    <outlet property="dataSource" destination="1hD-2N-MoT" id="WnG-Gv-kd8"/>
+                                    <outlet property="delegate" destination="1hD-2N-MoT" id="6zM-3D-0K9"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="FU7-cK-mUm" firstAttribute="top" secondItem="tMS-Jo-xlm" secondAttribute="bottom" id="IlI-do-dTW"/>
+                            <constraint firstAttribute="trailing" secondItem="3gz-K6-xGb" secondAttribute="trailing" id="MG1-tD-79B"/>
+                            <constraint firstAttribute="trailing" secondItem="tMS-Jo-xlm" secondAttribute="trailing" id="V0r-u2-2on"/>
+                            <constraint firstItem="3gz-K6-xGb" firstAttribute="leading" secondItem="02C-HF-eZF" secondAttribute="leading" id="Xpg-2K-Vuo"/>
+                            <constraint firstItem="tMS-Jo-xlm" firstAttribute="top" secondItem="3gz-K6-xGb" secondAttribute="bottom" id="bbD-3H-QHN"/>
+                            <constraint firstItem="3gz-K6-xGb" firstAttribute="top" secondItem="02C-HF-eZF" secondAttribute="top" id="cKi-az-pxX"/>
+                            <constraint firstItem="tMS-Jo-xlm" firstAttribute="leading" secondItem="02C-HF-eZF" secondAttribute="leading" id="sI0-yR-st5"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="bottomLineView" destination="LhE-ZW-p0X" id="dAH-P4-BOs"/>
+                        <outlet property="categoryHeaderCollectionView" destination="8jM-0C-FqM" id="Kaj-Ky-bmO"/>
+                        <outlet property="headerView" destination="3gz-K6-xGb" id="zVc-qu-N65"/>
+                        <outlet property="listCollectionView" destination="tMS-Jo-xlm" id="Osn-0J-OGz"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="k6Y-Lz-Y5a" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="928.79999999999995" y="674.21289355322347"/>
+        </scene>
         <!--Classes View Controller-->
         <scene sceneID="Zbf-jw-c3X">
             <objects>

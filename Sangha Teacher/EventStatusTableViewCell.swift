@@ -63,7 +63,7 @@ extension EventStatusTableViewCell : UICollectionViewDataSource, UICollectionVie
         cell.circularSlider.valueMaximum = Float(maxValue)
         cell.circularSlider.valueMinimum = 0
         cell.circularSlider.value = Float(currentValue)
-        cell.categoryNameLabel.text = aisObj.aiType?.capitalized
+        cell.categoryNameLabel.text = ais?.title
         cell.categoryStatusCountLabel.text = "\(currentValue)/\(maxValue)"
 
         return cell

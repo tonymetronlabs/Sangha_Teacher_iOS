@@ -109,10 +109,10 @@ class EventsViewController: UIViewController {
 
                             for obj in self.eventModelArray {
 
-//                                _ = obj.ais?.filter { (aisObj) -> Bool in
-//                                    print(aisObj.aiType!)
-//                                    return true
-//                                }
+                                _ = obj.ais?.filter { (aisObj) -> Bool in
+                                    print(aisObj.aiType!)
+                                    return true
+                                }
 
                                 for scheduleDate in (obj.computedSchedule?.calendar)!{
 

@@ -25,4 +25,9 @@ class Utilities: NSObject {
         viewController.navigationController?.popToRootViewController(animated: true)
         viewController.navigationController?.setViewControllers([loginVC], animated: true)
     }
+
+    static var getJSONDecoderInstance : JSONDecoder {
+        let instance = JSONDecoder()
+        return instance
+    }
 }

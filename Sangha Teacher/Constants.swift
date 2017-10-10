@@ -137,22 +137,16 @@ enum AiType : String {
         switch self {
         case .rsvp:
             return #imageLiteral(resourceName: "students")
-            break
         case .form:
             return #imageLiteral(resourceName: "note")
-            break
         case .payment:
             return #imageLiteral(resourceName: "small_dollar")
-            break
         case .volunteer:
             return #imageLiteral(resourceName: "hand")
-            break
         case .toBring:
             return #imageLiteral(resourceName: "cart")
-            break
         default:
             return #imageLiteral(resourceName: "students")
-            break
         }
     }
 }
@@ -166,4 +160,92 @@ enum DateFormat : String {
 enum UserDefaultsKey : String {
     case isLogin = "isLogin"
     case accessToken = "accessToken"
+}
+
+enum ClassListCells : Int {
+
+    case CategoryHeaderCollectionViewCell = 0,
+    CategoryListCollectionViewCell,
+    StudentListTableViewCell
+
+    func cell(obj : Any, indexPath : IndexPath?) -> Any {
+
+        switch self {
+        case .CategoryHeaderCollectionViewCell:
+            return (obj as! UICollectionView).dequeueReusableCell(withReuseIdentifier: self.cellIdentifier, for: indexPath!)
+        case .CategoryListCollectionViewCell:
+            return (obj as! UICollectionView).dequeueReusableCell(withReuseIdentifier: self.cellIdentifier, for: indexPath!)
+        default:
+            return (obj as! UITableView).dequeueReusableCell(withIdentifier: self.cellIdentifier)!
+        }
+    }
+
+    var cellIdentifier : String {
+        switch self {
+        case .CategoryHeaderCollectionViewCell:
+            return "classCategoryCollectionViewCell"
+        case .CategoryListCollectionViewCell:
+            return "classStudentsListCollectionViewCell"
+        case .StudentListTableViewCell:
+            return "studentTableViewCell"
+        default:
+            return ""
+        }
+    }
+
+    var nib : UINib {
+        switch self {
+        case .CategoryHeaderCollectionViewCell:
+            return UINib(nibName: String(describing: ClassCategoryCollectionViewCell.self), bundle: nil)
+        case .CategoryListCollectionViewCell:
+            return UINib(nibName: String(describing: ClassStudentsListCollectionViewCell.self), bundle: nil)
+        default:
+            return UINib(nibName: String(describing: StudentTableViewCell.self), bundle: nil)
+        }
+    }
+
+}
+
+enum EventListCells : Int {
+    case EventImageTableViewCell = 0,
+    EventClassesTableViewCell,
+    EventDateTimeTableViewCell,
+    EventLocationTableViewCell,
+    EventDescriptionTableViewCell,
+    EventStatusTableViewCell
+
+    func cell(tableView : UITableView) -> UITableViewCell {
+        return tableView.dequeueReusableCell(withIdentifier: self.cellIdentifier)!
+    }
+
+    var cellIdentifier : String {
+
+        switch self {
+        case .EventImageTableViewCell:
+            return "eventDetailImageViewCell"
+    case .EventClassesTableViewCell,.EventDateTimeTableViewCell,.EventLocationTableViewCell:
+            return "cell"
+        case .EventDescriptionTableViewCell:
+            return "eventDetailDescriptionCell"
+        case .EventStatusTableViewCell:
+            return "eventStatusTableViewCell"
+        default:
+            return ""
+        }
+    }
+
+    var nib : UINib? {
+
+        switch self {
+        case .EventImageTableViewCell:
+            return UINib(nibName: "EventImageViewTableViewCell", bundle: nil)
+        case .EventDescriptionTableViewCell:
+            return UINib(nibName: "EventDescriptionTableViewCell", bundle: nil)
+        case .EventStatusTableViewCell:
+            return UINib(nibName: "EventStatusTableViewCell", bundle: nil)
+        default:
+            return nil
+        }
+    }
+
 }

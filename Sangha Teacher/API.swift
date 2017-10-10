@@ -82,4 +82,16 @@ class API: NSObject {
             URL = (urlComponents.url?.absoluteString)!
         }
     }
+
+    struct GetClassDetail {
+        var URL = ""
+        let APIMethod : API_METHOD = .GET
+        let param : [String:Any]? = nil
+
+        init(classID : String) {
+            var urlComponents = URLComponents(string: kServerURL + "tapp/classes?\(classID)")!
+            urlComponents.queryItems = [URLQueryItem(name: "access_token", value: API.accessToken)]
+            URL = (urlComponents.url?.absoluteString)!
+        }
+    }
 }
