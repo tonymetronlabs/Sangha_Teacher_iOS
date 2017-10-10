@@ -11,8 +11,6 @@
 		1C314FBA1F84C2A9008CF054 /* EventDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C314FB91F84C2A9008CF054 /* EventDetailViewController.swift */; };
 		1C314FBD1F84C819008CF054 /* EventImageViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C314FBB1F84C819008CF054 /* EventImageViewTableViewCell.swift */; };
 		1C314FBE1F84C819008CF054 /* EventImageViewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C314FBC1F84C819008CF054 /* EventImageViewTableViewCell.xib */; };
-		1C314FC21F84CB7C008CF054 /* EventCommonLabelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C314FC01F84CB7C008CF054 /* EventCommonLabelTableViewCell.swift */; };
-		1C314FC31F84CB7C008CF054 /* EventCommonLabelTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C314FC11F84CB7C008CF054 /* EventCommonLabelTableViewCell.xib */; };
 		1C314FCA1F84CD6D008CF054 /* EventDescriptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C314FC81F84CD6D008CF054 /* EventDescriptionTableViewCell.swift */; };
 		1C314FCB1F84CD6D008CF054 /* EventDescriptionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C314FC91F84CD6D008CF054 /* EventDescriptionTableViewCell.xib */; };
 		1C6A1B121F852B6700A1BF29 /* Pods_Sangha_Teacher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C6A1B151F852B6700A1BF29 /* Pods_Sangha_Teacher.framework */; };
@@ -40,6 +38,8 @@
 		1CF8F5501F876BF600C7513A /* EventList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF8F54F1F876BF600C7513A /* EventList.swift */; };
 		1CF8F5511F8790A200C7513A /* FSCalendar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CF8F5521F8790A200C7513A /* FSCalendar.framework */; };
 		1CF8F5531F8790A500C7513A /* SVProgressHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CF8F5541F8790A500C7513A /* SVProgressHUD.framework */; };
+		1CFE63E31F91E84D0057707D /* EventCommonLabelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CFE63E11F91E84D0057707D /* EventCommonLabelTableViewCell.swift */; };
+		1CFE63E41F91E84D0057707D /* EventCommonLabelTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1CFE63E21F91E84D0057707D /* EventCommonLabelTableViewCell.xib */; };
 		8F072B5A1F794E0C00B8BE78 /* EventTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F072B591F794E0C00B8BE78 /* EventTableHeaderView.swift */; };
 		8F072B5C1F794E2B00B8BE78 /* EventTableHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F072B5B1F794E2B00B8BE78 /* EventTableHeaderView.xib */; };
 		8F366FB21F7D040D00DB60DD /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F366FB11F7D040D00DB60DD /* HeaderView.swift */; };
@@ -82,7 +82,18 @@
 		8FBA9A111F728461003A959F /* APIHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FBA9A101F728461003A959F /* APIHandler.swift */; };
 		8FBA9A131F728479003A959F /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FBA9A121F728479003A959F /* API.swift */; };
 		8FBA9A151F7284E9003A959F /* EventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FBA9A141F7284E9003A959F /* EventsViewController.swift */; };
+		DF37FAB51F8D265500723F37 /* ActionItemRsvpHeaderFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF37FAB41F8D265500723F37 /* ActionItemRsvpHeaderFooterView.swift */; };
+		DF37FAB71F8D266E00723F37 /* ActionItemRsvpHeaderFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DF37FAB61F8D266E00723F37 /* ActionItemRsvpHeaderFooterView.xib */; };
+		DF3EE0BA1F8C079000AAD732 /* ActionItemTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF3EE0B91F8C079000AAD732 /* ActionItemTabView.swift */; };
+		DF3EE0BC1F8C08D000AAD732 /* ActionItemTabView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DF3EE0BB1F8C08D000AAD732 /* ActionItemTabView.xib */; };
+		DF3EE0BF1F8C096F00AAD732 /* ActionItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF3EE0BD1F8C096F00AAD732 /* ActionItemCollectionViewCell.swift */; };
+		DF3EE0C01F8C096F00AAD732 /* ActionItemCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DF3EE0BE1F8C096F00AAD732 /* ActionItemCollectionViewCell.xib */; };
 		DFFBA4431F8B889A007CB649 /* ActionItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFFBA4421F8B889A007CB649 /* ActionItemsViewController.swift */; };
+		DFFBA4451F8BB234007CB649 /* RSVPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFFBA4441F8BB234007CB649 /* RSVPViewController.swift */; };
+		DFFBA4471F8BB25F007CB649 /* FormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFFBA4461F8BB25F007CB649 /* FormViewController.swift */; };
+		DFFBA4491F8BB26F007CB649 /* VolunteerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFFBA4481F8BB26F007CB649 /* VolunteerViewController.swift */; };
+		DFFBA44B1F8BB27F007CB649 /* ToBringViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFFBA44A1F8BB27F007CB649 /* ToBringViewController.swift */; };
+		DFFBA44D1F8BB28D007CB649 /* PaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFFBA44C1F8BB28D007CB649 /* PaymentViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -91,8 +102,6 @@
 		1C314FB91F84C2A9008CF054 /* EventDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailViewController.swift; sourceTree = "<group>"; };
 		1C314FBB1F84C819008CF054 /* EventImageViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventImageViewTableViewCell.swift; sourceTree = "<group>"; };
 		1C314FBC1F84C819008CF054 /* EventImageViewTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventImageViewTableViewCell.xib; sourceTree = "<group>"; };
-		1C314FC01F84CB7C008CF054 /* EventCommonLabelTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCommonLabelTableViewCell.swift; sourceTree = "<group>"; };
-		1C314FC11F84CB7C008CF054 /* EventCommonLabelTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventCommonLabelTableViewCell.xib; sourceTree = "<group>"; };
 		1C314FC81F84CD6D008CF054 /* EventDescriptionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDescriptionTableViewCell.swift; sourceTree = "<group>"; };
 		1C314FC91F84CD6D008CF054 /* EventDescriptionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventDescriptionTableViewCell.xib; sourceTree = "<group>"; };
 		1C6A1B0E1F852B5200A1BF29 /* FSCalendar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FSCalendar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -127,6 +136,8 @@
 		1CF8F54F1F876BF600C7513A /* EventList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventList.swift; sourceTree = "<group>"; };
 		1CF8F5521F8790A200C7513A /* FSCalendar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FSCalendar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1CF8F5541F8790A500C7513A /* SVProgressHUD.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SVProgressHUD.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1CFE63E11F91E84D0057707D /* EventCommonLabelTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventCommonLabelTableViewCell.swift; sourceTree = "<group>"; };
+		1CFE63E21F91E84D0057707D /* EventCommonLabelTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventCommonLabelTableViewCell.xib; sourceTree = "<group>"; };
 		3EC29D575624891BBEDA21BC /* Pods_Sangha_Teacher.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sangha_Teacher.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F072B591F794E0C00B8BE78 /* EventTableHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventTableHeaderView.swift; sourceTree = "<group>"; };
 		8F072B5B1F794E2B00B8BE78 /* EventTableHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventTableHeaderView.xib; sourceTree = "<group>"; };
@@ -173,7 +184,18 @@
 		8FBA9A121F728479003A959F /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		8FBA9A141F7284E9003A959F /* EventsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsViewController.swift; sourceTree = "<group>"; };
 		D58B5B47AE9752BA4D793D0D /* Pods-Sangha Teacher.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sangha Teacher.release.xcconfig"; path = "Pods/Target Support Files/Pods-Sangha Teacher/Pods-Sangha Teacher.release.xcconfig"; sourceTree = "<group>"; };
+		DF37FAB41F8D265500723F37 /* ActionItemRsvpHeaderFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionItemRsvpHeaderFooterView.swift; sourceTree = "<group>"; };
+		DF37FAB61F8D266E00723F37 /* ActionItemRsvpHeaderFooterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ActionItemRsvpHeaderFooterView.xib; sourceTree = "<group>"; };
+		DF3EE0B91F8C079000AAD732 /* ActionItemTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionItemTabView.swift; sourceTree = "<group>"; };
+		DF3EE0BB1F8C08D000AAD732 /* ActionItemTabView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ActionItemTabView.xib; sourceTree = "<group>"; };
+		DF3EE0BD1F8C096F00AAD732 /* ActionItemCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionItemCollectionViewCell.swift; sourceTree = "<group>"; };
+		DF3EE0BE1F8C096F00AAD732 /* ActionItemCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ActionItemCollectionViewCell.xib; sourceTree = "<group>"; };
 		DFFBA4421F8B889A007CB649 /* ActionItemsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionItemsViewController.swift; sourceTree = "<group>"; };
+		DFFBA4441F8BB234007CB649 /* RSVPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSVPViewController.swift; sourceTree = "<group>"; };
+		DFFBA4461F8BB25F007CB649 /* FormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormViewController.swift; sourceTree = "<group>"; };
+		DFFBA4481F8BB26F007CB649 /* VolunteerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolunteerViewController.swift; sourceTree = "<group>"; };
+		DFFBA44A1F8BB27F007CB649 /* ToBringViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToBringViewController.swift; sourceTree = "<group>"; };
+		DFFBA44C1F8BB28D007CB649 /* PaymentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -196,8 +218,8 @@
 		1C314FBF1F84C9F8008CF054 /* Event Detail  */ = {
 			isa = PBXGroup;
 			children = (
-				1C314FC01F84CB7C008CF054 /* EventCommonLabelTableViewCell.swift */,
-				1C314FC11F84CB7C008CF054 /* EventCommonLabelTableViewCell.xib */,
+				1CFE63E11F91E84D0057707D /* EventCommonLabelTableViewCell.swift */,
+				1CFE63E21F91E84D0057707D /* EventCommonLabelTableViewCell.xib */,
 				1C314FBB1F84C819008CF054 /* EventImageViewTableViewCell.swift */,
 				1C314FBC1F84C819008CF054 /* EventImageViewTableViewCell.xib */,
 				1C314FC81F84CD6D008CF054 /* EventDescriptionTableViewCell.swift */,
@@ -307,6 +329,12 @@
 				8F75A45C1F8257F800BEB9BF /* AutoAlertViewController.swift */,
 				8F75A45E1F8258E700BEB9BF /* SettingsViewController.swift */,
 				DFFBA4421F8B889A007CB649 /* ActionItemsViewController.swift */,
+				DFFBA4441F8BB234007CB649 /* RSVPViewController.swift */,
+				DFFBA4461F8BB25F007CB649 /* FormViewController.swift */,
+				DFFBA4481F8BB26F007CB649 /* VolunteerViewController.swift */,
+				DFFBA44A1F8BB27F007CB649 /* ToBringViewController.swift */,
+				DFFBA44C1F8BB28D007CB649 /* PaymentViewController.swift */,
+				DF3EE0B91F8C079000AAD732 /* ActionItemTabView.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -333,8 +361,13 @@
 				8F75A4611F825FB500BEB9BF /* ClassesTableViewCell.xib */,
 				8F072B591F794E0C00B8BE78 /* EventTableHeaderView.swift */,
 				8F072B5B1F794E2B00B8BE78 /* EventTableHeaderView.xib */,
+				DF3EE0BD1F8C096F00AAD732 /* ActionItemCollectionViewCell.swift */,
+				DF3EE0BE1F8C096F00AAD732 /* ActionItemCollectionViewCell.xib */,
 				8F366FB11F7D040D00DB60DD /* HeaderView.swift */,
 				8F366FB31F7D0A3800DB60DD /* HeaderView.xib */,
+				DF37FAB41F8D265500723F37 /* ActionItemRsvpHeaderFooterView.swift */,
+				DF37FAB61F8D266E00723F37 /* ActionItemRsvpHeaderFooterView.xib */,
+				DF3EE0BB1F8C08D000AAD732 /* ActionItemTabView.xib */,
 			);
 			name = xib;
 			sourceTree = "<group>";
@@ -464,6 +497,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8F366FC71F7D10DC00DB60DD /* ProximaNova-Black.otf in Resources */,
+				DF3EE0C01F8C096F00AAD732 /* ActionItemCollectionViewCell.xib in Resources */,
 				8F366FC81F7D10DC00DB60DD /* ProximaNova-Bold.otf in Resources */,
 				8F366FC91F7D10DC00DB60DD /* ProximaNova-BoldIt.otf in Resources */,
 				8F366FCA1F7D10DC00DB60DD /* ProximaNova-Extrabold.otf in Resources */,
@@ -477,6 +511,7 @@
 				8F366FD11F7D10DC00DB60DD /* ProximaNova-SemiboldItalic.otf in Resources */,
 				8F366FD21F7D10DC00DB60DD /* ProximaNovaCond-Light.otf in Resources */,
 				8F366FD31F7D10DC00DB60DD /* ProximaNovaCond-LightIt.otf in Resources */,
+				DF3EE0BC1F8C08D000AAD732 /* ActionItemTabView.xib in Resources */,
 				8F366FD41F7D10DC00DB60DD /* ProximaNovaCond-Regular.otf in Resources */,
 				1CE31FE41F88C31B0033BEE3 /* StatusCollectionViewCell.xib in Resources */,
 				8F366FD51F7D10DC00DB60DD /* ProximaNovaCond-RegularIt.otf in Resources */,
@@ -485,12 +520,13 @@
 				1CDAA62A1F8CB6B60024A0AB /* StudentTableViewCell.xib in Resources */,
 				8F072B5C1F794E2B00B8BE78 /* EventTableHeaderView.xib in Resources */,
 				1CE31FE01F88C2130033BEE3 /* EventStatusTableViewCell.xib in Resources */,
+				1CFE63E41F91E84D0057707D /* EventCommonLabelTableViewCell.xib in Resources */,
+				DF37FAB71F8D266E00723F37 /* ActionItemRsvpHeaderFooterView.xib in Resources */,
 				8F75A4631F825FB500BEB9BF /* ClassesTableViewCell.xib in Resources */,
 				1C314FBE1F84C819008CF054 /* EventImageViewTableViewCell.xib in Resources */,
 				1CDAA6261F8CB5B60024A0AB /* ClassStudentsListCollectionViewCell.xib in Resources */,
 				1C314FCB1F84CD6D008CF054 /* EventDescriptionTableViewCell.xib in Resources */,
 				8F9FCDA21F752F21000BD163 /* EventTableViewCell.xib in Resources */,
-				1C314FC31F84CB7C008CF054 /* EventCommonLabelTableViewCell.xib in Resources */,
 				1CF612351F8FBD72006BFEF9 /* EventActionItemCollectionViewCell.xib in Resources */,
 				8FBA9A031F7281A5003A959F /* LaunchScreen.storyboard in Resources */,
 				8F366FB41F7D0A3800DB60DD /* HeaderView.xib in Resources */,
@@ -571,21 +607,26 @@
 				8FBA9A111F728461003A959F /* APIHandler.swift in Sources */,
 				8F072B5A1F794E0C00B8BE78 /* EventTableHeaderView.swift in Sources */,
 				1CDAA61D1F8CAD2C0024A0AB /* ClassDetailViewController.swift in Sources */,
+				DF37FAB51F8D265500723F37 /* ActionItemRsvpHeaderFooterView.swift in Sources */,
 				8F49FAAB1F7BC1F40018A9C4 /* LeftSideMenuViewController.swift in Sources */,
 				8F75A4591F824C3D00BEB9BF /* ClassesViewController.swift in Sources */,
 				8F75A45D1F8257F800BEB9BF /* AutoAlertViewController.swift in Sources */,
 				8FBA9A0D1F728220003A959F /* Extensions.swift in Sources */,
 				8FBA9A0F1F72827D003A959F /* Reachability.swift in Sources */,
+				DFFBA44D1F8BB28D007CB649 /* PaymentViewController.swift in Sources */,
 				1C314FCA1F84CD6D008CF054 /* EventDescriptionTableViewCell.swift in Sources */,
 				1CDAA6211F8CB3630024A0AB /* ClassCategoryCollectionViewCell.swift in Sources */,
 				8F9FCDA11F752F21000BD163 /* EventTableViewCell.swift in Sources */,
 				1CDAA6291F8CB6B60024A0AB /* StudentTableViewCell.swift in Sources */,
-				1C314FC21F84CB7C008CF054 /* EventCommonLabelTableViewCell.swift in Sources */,
 				1C912D431F8CFD0800D648EB /* ClassDetail.swift in Sources */,
 				8FBA99F71F7281A4003A959F /* AppDelegate.swift in Sources */,
 				1CF612341F8FBD72006BFEF9 /* EventActionItemCollectionViewCell.swift in Sources */,
 				1CDAA6251F8CB5B60024A0AB /* ClassStudentsListCollectionViewCell.swift in Sources */,
+				DFFBA4491F8BB26F007CB649 /* VolunteerViewController.swift in Sources */,
+				DF3EE0BF1F8C096F00AAD732 /* ActionItemCollectionViewCell.swift in Sources */,
 				DFFBA4431F8B889A007CB649 /* ActionItemsViewController.swift in Sources */,
+				DFFBA44B1F8BB27F007CB649 /* ToBringViewController.swift in Sources */,
+				DFFBA4471F8BB25F007CB649 /* FormViewController.swift in Sources */,
 				8FA0EC451F73F4E800B72943 /* LoginViewController.swift in Sources */,
 				1CF8F54E1F876A2700C7513A /* ClassList.swift in Sources */,
 				1CE31FD91F88B5B20033BEE3 /* UIButton+Badge.m in Sources */,
@@ -600,9 +641,12 @@
 				8FBA9A0B1F7281FC003A959F /* Constants.swift in Sources */,
 				8F75A45B1F82548900BEB9BF /* NotificationsViewController.swift in Sources */,
 				1CE31FDC1F88C0C60033BEE3 /* MTCircularSlider.swift in Sources */,
+				1CFE63E31F91E84D0057707D /* EventCommonLabelTableViewCell.swift in Sources */,
 				8F75A4621F825FB500BEB9BF /* ClassesTableViewCell.swift in Sources */,
 				8FBA9A151F7284E9003A959F /* EventsViewController.swift in Sources */,
 				1CE31FDF1F88C2130033BEE3 /* EventStatusTableViewCell.swift in Sources */,
+				DF3EE0BA1F8C079000AAD732 /* ActionItemTabView.swift in Sources */,
+				DFFBA4451F8BB234007CB649 /* RSVPViewController.swift in Sources */,
 				8F75A45F1F8258E700BEB9BF /* SettingsViewController.swift in Sources */,
 				1CE31FE31F88C31B0033BEE3 /* StatusCollectionViewCell.swift in Sources */,
 			);

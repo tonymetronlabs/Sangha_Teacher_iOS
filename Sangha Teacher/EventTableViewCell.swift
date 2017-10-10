@@ -101,7 +101,7 @@ class EventTableViewCell: UITableViewCell {
 
             for aisObj in event.ais! {
 
-                let type = AiType(rawValue: aisObj.aiType!)!
+                let type = aisObj.aiType!
 
                 let acceptCount = aisObj.acceptCount!
                 let totalCount = aisObj.total!
@@ -129,6 +129,9 @@ class EventTableViewCell: UITableViewCell {
                     self.volunteerLabel.text = "V:\(acceptCount)/\(totalCount)"
 
                 case .ptm:
+                    break
+                
+                case .none:
                     break
                 }
             }
@@ -198,7 +201,7 @@ extension EventTableViewCell : UICollectionViewDataSource,UICollectionViewDelega
 
         let aisObj = actionItems[indexPath.row]
 
-        guard let aiTypeStr = aisObj.aiType, let aiType = AiType(rawValue: aiTypeStr) else {
+        guard let aiType = aisObj.aiType else {
             return UICollectionViewCell()
         }
 

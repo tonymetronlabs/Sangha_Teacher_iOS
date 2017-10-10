@@ -153,7 +153,24 @@ extension EventDetailViewController : UITableViewDataSource,UITableViewDelegate 
 
 extension EventDetailViewController : SelectAisTypeDelegate {
 
-    func didSelect(aisType: AiType, eventObj: Event) {
+    func didSelect(aisType: AiType, eventObj: Event)
+    {
         print(aisType.rawValue + " --- " + eventObj.title)
+        
+        let actionItemVC = self.storyboard?.instantiateViewController(withIdentifier: "ActionItemsViewController") as? ActionItemsViewController
+        
+        let actionItemNavigationCont = UINavigationController(rootViewController: actionItemVC!)
+        
+        actionItemVC?.selectedActionItem = aisType
+        
+        let aiTypeArray =  eventObj.ais?.map{ $0.aiType! }
+        
+        guard let aiTypes = aiTypeArray else { return }
+        
+        actionItemVC?.actionItemsArray = aiTypes
+    
+        actionItemNavigationCont.navigationBar.transparentBackground()
+        
+        self.present(actionItemNavigationCont, animated: true, completion: nil)
     }
 }

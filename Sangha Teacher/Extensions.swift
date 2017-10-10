@@ -37,6 +37,18 @@ extension UIViewController {
         UIApplication.shared.keyWindow?.rootViewController?.present(alert, animated: true, completion: nil)
     }
     
+    private struct AssociatedKeys {
+        static var id : Int?
+    }
+    
+    var pageId: Int {
+        get {
+            return objc_getAssociatedObject(self, &AssociatedKeys.id) as! Int
+        } set {
+            objc_setAssociatedObject(self, &AssociatedKeys.id, newValue as Int, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+        }
+    }
+    
 }
 
 //MARK: - String Extension
@@ -53,6 +65,12 @@ extension String {
         
         return NSPredicate(format: "SELF MATCHES %@", emailRegex).evaluate(with: self)
         
+    }
+    
+    func widthOfString(usingFont font: UIFont) -> CGFloat {
+        let fontAttributes = [NSFontAttributeName: font]
+        let size = self.size(attributes: fontAttributes)
+        return size.width
     }
     
     func toDateFromString(dateFormat:String) -> Date
@@ -158,6 +176,7 @@ extension UIView {
         
         self.layer.add(animation, forKey: nil)
     }
+    
 }
 
 

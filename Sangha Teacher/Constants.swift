@@ -103,8 +103,9 @@ enum EventType : String{
 }
 
 
-enum AiType : String {
+enum AiType : String,Decodable {
     
+    case none = ""
     case form = "approval"
     case rsvp = "rsvp"
     case toBring = "stb"
@@ -115,6 +116,8 @@ enum AiType : String {
     var title : String {
 
         switch self {
+        case .none:
+            return ""
         case .form:
             return "FORM"
         case .rsvp:
@@ -135,6 +138,8 @@ enum AiType : String {
     var placeholderImageView : UIImage {
 
         switch self {
+        case .none:
+            return UIImage()
         case .rsvp:
             return #imageLiteral(resourceName: "students")
         case .form:
@@ -205,7 +210,6 @@ enum ClassListCells : Int {
             return UINib(nibName: "StudentTableViewCell", bundle: nil)
         }
     }
-
 }
 
 enum EventListCells : Int {
@@ -251,5 +255,43 @@ enum EventListCells : Int {
             return nil
         }
     }
-
 }
+
+enum AIResponceEnum:Int {
+    case none = 0,
+    accepted,
+    rejected,
+    noResponce
+
+    var image:UIImage {
+        switch self {
+        case .none:
+            return UIImage()
+        case .accepted:
+            return #imageLiteral(resourceName: "login_logo")
+        case .rejected:
+            return #imageLiteral(resourceName: "close")
+        case .noResponce:
+            return #imageLiteral(resourceName: "question")
+        default:
+            return UIImage()
+        }
+    }
+
+    var title:String {
+
+        switch self {
+        case .none:
+            return ""
+        case .accepted:
+            return "ACCEPTED"
+        case .rejected:
+            return "REJECTED"
+        case .noResponce:
+            return "NO RESPONCE"
+        default:
+            return ""
+        }
+    }
+}
+

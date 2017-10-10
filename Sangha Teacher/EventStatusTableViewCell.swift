@@ -66,22 +66,23 @@ extension EventStatusTableViewCell : UICollectionViewDataSource, UICollectionVie
             cell.circularSlider.tintColor = UIColor.init(hex: 0x3BE8BF, alpha: 1.0)
         }
 
-        let ais = AiType(rawValue: aisObj.aiType!)
-        cell.categoryImageView.image = ais?.placeholderImageView
+//        let ais = aisObj.aiType!
+        cell.categoryImageView.image = aisObj.aiType?.placeholderImageView
         cell.circularSlider.valueMaximum = Float(maxValue)
         cell.circularSlider.valueMinimum = 0
         cell.circularSlider.value = Float(currentValue)
-        cell.categoryNameLabel.text = ais?.title
+        cell.categoryNameLabel.text = aisObj.aiType?.title
         cell.categoryStatusCountLabel.text = "\(currentValue)/\(maxValue)"
 
         return cell
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard self.eventObj?.ais != nil, let ais = self.eventObj?.ais?[indexPath.row], let aisType = AiType(rawValue: ais.aiType!) else{
+        guard self.eventObj?.ais != nil, let ais = self.eventObj?.ais?[indexPath.row] else{//
             return
         }
-        self.delegate?.didSelect(aisType: aisType, eventObj: self.eventObj!)
+        
+        self.delegate?.didSelect(aisType: ais.aiType!, eventObj: self.eventObj!)
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
