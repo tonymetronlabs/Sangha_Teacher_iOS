@@ -13,7 +13,8 @@ class ActionItemsViewController: UIViewController {
     var actionItemPageViewController = UIPageViewController()
     var actionItemsArray:[AiType] = []
     var selectedActionItem:AiType = .none
-
+    var eventsObj:Event?
+    
     @IBOutlet var actionItemView: ActionItemTabView!
     
     @IBOutlet var actionItemsView: UIView!
@@ -78,7 +79,6 @@ class ActionItemsViewController: UIViewController {
         actionItemView.updateAiType(aiTyes: actionItemsArray, selectedType: selectedActionItem)
         actionItemView.delegate = self
         setUpPageviewController()
-        
     }
 
     
@@ -124,12 +124,18 @@ class ActionItemsViewController: UIViewController {
         case .none:
             return UIViewController()
         case .rsvp:
+                    rsvpViewController.eventsObj = eventsObj
                     rsvpViewController.pageId = index
             return rsvpViewController
         case .form:
+            
+                    formViewController.eventsObj = eventsObj
                     formViewController.pageId = index
             return formViewController
+            
         case .volunteer:
+            
+                    volunteerViewController.eventsObj = eventsObj
                     volunteerViewController.pageId = index
             return volunteerViewController
         case .toBring:

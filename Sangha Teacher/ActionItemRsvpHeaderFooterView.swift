@@ -21,29 +21,25 @@ class ActionItemRsvpHeaderFooterView: UITableViewHeaderFooterView {
     @IBOutlet var legendImageView: UIImageView!
     var indexPath:IndexPath?
     var delegate:ActionItemRsvpHeaderFooterViewDelegate?
-    var isCollapsed:Bool = false
+    var headerObj:AIHeaderViewModel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
         self.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didTapHeader)))
+        
+        self.contentView.layerDrawForView(position: .LAYER_TOP, color: .gray, layerThickness: 1.0)
+        self.contentView.layerDrawForView(position: .LAYER_BOTTOM, color: .gray, layerThickness: 1.0)
+        
     }
     
     func didTapHeader()
     {
-        
         guard let selectedIndexPath = indexPath else {
             return
         }
         
-        self.setCollapsed(collapsed: !isCollapsed)
-        
         self.delegate?.didTapHeaderView(indexpath: selectedIndexPath)
-    }
-    
-    func setCollapsed(collapsed: Bool)
-    {
-        self.dropDownButton?.rotate(collapsed ? 0.0 : .pi)
     }
    
     func updateUI(responceCount:String,aiHeaderViewObj:AIHeaderViewModel)
@@ -51,8 +47,8 @@ class ActionItemRsvpHeaderFooterView: UITableViewHeaderFooterView {
         self.titleLabel.text = aiHeaderViewObj.responceEnum.title
         self.legendImageView.image = aiHeaderViewObj.responceEnum.image
         self.responceCountLabel.text = responceCount
-        self.isCollapsed = aiHeaderViewObj.isCollapsed
-        self.setCollapsed(collapsed: self.isCollapsed)
+        self.dropDownButton.setImage(aiHeaderViewObj.isCollapsed ? #imageLiteral(resourceName: "down-arrow") : #imageLiteral(resourceName: "up_arrow"), for: .normal)
+        headerObj = aiHeaderViewObj
     }
     
     static var nib:UINib {

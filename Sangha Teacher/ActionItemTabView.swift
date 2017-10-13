@@ -116,9 +116,9 @@ extension ActionItemTabView : UICollectionViewDataSource,UICollectionViewDelegat
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int
     {
-        if actionItemArray.count > 2 {
-            return  1000 * actionItemArray.count
-        }
+//        if actionItemArray.count > 2 {
+//            return  actionItemArray.count//1000 *
+//        }
         
         return actionItemArray.count
     }
@@ -127,7 +127,7 @@ extension ActionItemTabView : UICollectionViewDataSource,UICollectionViewDelegat
         
         let actionItemCell = collectionView.dequeueReusableCell(withReuseIdentifier: ActionItemCollectionViewCell.identifier, for: indexPath) as! ActionItemCollectionViewCell
         
-        actionItemCell.updateUI(aiTypeModel: actionItemArray[indexPath.item % actionItemArray.count])
+        actionItemCell.updateUI(aiTypeModel: actionItemArray[indexPath.item])// % actionItemArray.count
         
         return actionItemCell
     }
@@ -136,7 +136,7 @@ extension ActionItemTabView : UICollectionViewDataSource,UICollectionViewDelegat
     {
         for (index,obj) in actionItemArray.enumerated() {
             
-            if indexPath.item % actionItemArray.count == index
+            if indexPath.item  == index // % actionItemArray.count
             {
                 obj.isSelected = true
             }
@@ -157,14 +157,14 @@ extension ActionItemTabView : UICollectionViewDataSource,UICollectionViewDelegat
         deselectPreviousIndexAndSelectCurrentIndex(indexPath)
         
         if self.delegate != nil {
-            self.delegate?.didSelectItem(aiTypeModel: actionItemArray[indexPath.item % actionItemArray.count])
+            self.delegate?.didSelectItem(aiTypeModel: actionItemArray[indexPath.item ])//% actionItemArray.count
         }
         
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize
     {
-        let actionObj = actionItemArray[indexPath.item % actionItemArray.count]
+        let actionObj = actionItemArray[indexPath.item] //% actionItemArray.count
         
         let widthFloat = actionObj.aiType.title.widthOfString(usingFont: UIFont(name:AppFont.appFontRegular , size: 25)!)
         

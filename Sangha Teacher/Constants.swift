@@ -273,8 +273,6 @@ enum AIResponceEnum:Int {
             return #imageLiteral(resourceName: "close")
         case .noResponce:
             return #imageLiteral(resourceName: "question")
-        default:
-            return UIImage()
         }
     }
 
@@ -295,3 +293,19 @@ enum AIResponceEnum:Int {
     }
 }
 
+enum LAYER_SIDES: Int {
+    case LAYER_TOP = 1,
+    LAYER_BOTTOM,
+    LAYER_LEFT,
+    LAYER_RIGHT,
+    LAYER_ALL
+}
+
+enum ToDateFormat: String {
+    case ActionItemDateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+}
+
+enum ToStringDateFormat: String {
+    case ActionItemStringFormat = "dd/MM/yyyy"
+    case ActionStudentResponsesStringFormat = "dd/MM/yy hh:mm a"
+}

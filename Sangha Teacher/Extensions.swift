@@ -177,6 +177,51 @@ extension UIView {
         self.layer.add(animation, forKey: nil)
     }
     
+    func layerDrawForView(position:LAYER_SIDES,color:UIColor,layerThickness:CGFloat) -> Void {
+        
+        let border = CALayer()
+        
+        border.backgroundColor = color.cgColor
+        
+        switch position
+        {
+            
+        case .LAYER_TOP:
+            
+            border.frame = CGRect(x: 0, y:0, width: self.frame.width, height: layerThickness)
+            
+            break
+            
+        case .LAYER_RIGHT:
+            
+            border.frame = CGRect(x: self.frame.size.width - layerThickness, y:0, width: layerThickness, height: self.frame.size.height)
+            
+            break
+            
+        case .LAYER_BOTTOM:
+            
+            border.frame = CGRect(x: 0, y:self.frame.size.height - layerThickness, width: self.frame.width, height: layerThickness)
+            
+            break
+            
+        case .LAYER_LEFT:
+            
+            border.frame = CGRect(x: 0, y:0, width: layerThickness, height: self.frame.size.height)
+            
+            break
+            
+        case .LAYER_ALL:
+            
+            border.frame = self.frame
+            
+            break
+            
+        }
+        
+        self.layer.addSublayer(border)
+        
+    }
+    
 }
 
 

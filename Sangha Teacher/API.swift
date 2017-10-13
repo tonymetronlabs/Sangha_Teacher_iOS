@@ -94,4 +94,52 @@ class API: NSObject {
             URL = (urlComponents.url?.absoluteString)!
         }
     }
+    
+    internal struct GetRsvpLists
+    {
+        var URL:String = ""
+        var APIMethod : API_METHOD = .GET
+        var param:[String:Any]?
+    
+        init(eventId:String,actionItemId:String)
+        {
+            var urlComponents = URLComponents(string: kServerURL + "tapp/event/\(eventId)/ai/\(actionItemId)")!
+    
+            urlComponents.queryItems = [URLQueryItem(name: "access_token", value: API.accessToken)]
+    
+            URL = (urlComponents.url?.absoluteString)!
+        }
+    }
+    
+    internal struct GetFormLists
+    {
+        var URL:String = ""
+        var APIMethod : API_METHOD = .GET
+        var param:[String:Any]?
+        
+        init(eventId:String,actionItemId:String)
+        {
+            var urlComponents = URLComponents(string: kServerURL + "tapp/event/\(eventId)/ai/\(actionItemId)")!
+            
+            urlComponents.queryItems = [URLQueryItem(name: "access_token", value: API.accessToken)]
+            
+            URL = (urlComponents.url?.absoluteString)!
+        }
+    }
+    
+    internal struct GetVolunteerLists
+    {
+        var URL:String = ""
+        var APIMethod : API_METHOD = .GET
+        var param:[String:Any]?
+        
+        init(eventId:String,actionItemId:String)
+        {
+            var urlComponents = URLComponents(string: kServerURL + "tapp/event/\(eventId)/ai/\(actionItemId)")!
+            
+            urlComponents.queryItems = [URLQueryItem(name: "access_token", value: API.accessToken)]
+            
+            URL = (urlComponents.url?.absoluteString)!
+        }
+    }
 }

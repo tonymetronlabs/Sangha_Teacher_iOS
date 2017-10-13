@@ -168,7 +168,7 @@ extension EventDetailViewController : SelectAisTypeDelegate {
         guard let aiTypes = aiTypeArray else { return }
         
         actionItemVC?.actionItemsArray = aiTypes
-    
+        actionItemVC?.eventsObj = eventObj
         actionItemNavigationCont.navigationBar.transparentBackground()
         
         self.present(actionItemNavigationCont, animated: true, completion: nil)

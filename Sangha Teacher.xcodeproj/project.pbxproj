@@ -84,10 +84,20 @@
 		8FBA9A151F7284E9003A959F /* EventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FBA9A141F7284E9003A959F /* EventsViewController.swift */; };
 		DF37FAB51F8D265500723F37 /* ActionItemRsvpHeaderFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF37FAB41F8D265500723F37 /* ActionItemRsvpHeaderFooterView.swift */; };
 		DF37FAB71F8D266E00723F37 /* ActionItemRsvpHeaderFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DF37FAB61F8D266E00723F37 /* ActionItemRsvpHeaderFooterView.xib */; };
+		DF37FABA1F8E509800723F37 /* StudentResponceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF37FAB81F8E509800723F37 /* StudentResponceTableViewCell.swift */; };
+		DF37FABB1F8E509800723F37 /* StudentResponceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DF37FAB91F8E509800723F37 /* StudentResponceTableViewCell.xib */; };
+		DF37FABD1F8E5B4B00723F37 /* RSVPListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF37FABC1F8E5B4B00723F37 /* RSVPListModel.swift */; };
 		DF3EE0BA1F8C079000AAD732 /* ActionItemTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF3EE0B91F8C079000AAD732 /* ActionItemTabView.swift */; };
 		DF3EE0BC1F8C08D000AAD732 /* ActionItemTabView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DF3EE0BB1F8C08D000AAD732 /* ActionItemTabView.xib */; };
 		DF3EE0BF1F8C096F00AAD732 /* ActionItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF3EE0BD1F8C096F00AAD732 /* ActionItemCollectionViewCell.swift */; };
 		DF3EE0C01F8C096F00AAD732 /* ActionItemCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DF3EE0BE1F8C096F00AAD732 /* ActionItemCollectionViewCell.xib */; };
+		DF5CE2261F90152C006BEC8D /* PaymentListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF5CE2251F90152C006BEC8D /* PaymentListModel.swift */; };
+		DFC5208C1F8F8CE000AEA6F0 /* StudentNameAndImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFC5208A1F8F8CE000AEA6F0 /* StudentNameAndImageTableViewCell.swift */; };
+		DFC5208D1F8F8CE000AEA6F0 /* StudentNameAndImageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DFC5208B1F8F8CE000AEA6F0 /* StudentNameAndImageTableViewCell.xib */; };
+		DFC5208F1F8FA18200AEA6F0 /* FormListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFC5208E1F8FA18200AEA6F0 /* FormListModel.swift */; };
+		DFC520911F8FAE7500AEA6F0 /* ActionItemVolunteerHeaderFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFC520901F8FAE7500AEA6F0 /* ActionItemVolunteerHeaderFooterView.swift */; };
+		DFC520931F8FAF2300AEA6F0 /* ActionItemVolunteerHeaderFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DFC520921F8FAF2300AEA6F0 /* ActionItemVolunteerHeaderFooterView.xib */; };
+		DFC520951F8FBACE00AEA6F0 /* VolunteerListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFC520941F8FBACE00AEA6F0 /* VolunteerListModel.swift */; };
 		DFFBA4431F8B889A007CB649 /* ActionItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFFBA4421F8B889A007CB649 /* ActionItemsViewController.swift */; };
 		DFFBA4451F8BB234007CB649 /* RSVPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFFBA4441F8BB234007CB649 /* RSVPViewController.swift */; };
 		DFFBA4471F8BB25F007CB649 /* FormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFFBA4461F8BB25F007CB649 /* FormViewController.swift */; };
@@ -186,10 +196,20 @@
 		D58B5B47AE9752BA4D793D0D /* Pods-Sangha Teacher.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sangha Teacher.release.xcconfig"; path = "Pods/Target Support Files/Pods-Sangha Teacher/Pods-Sangha Teacher.release.xcconfig"; sourceTree = "<group>"; };
 		DF37FAB41F8D265500723F37 /* ActionItemRsvpHeaderFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionItemRsvpHeaderFooterView.swift; sourceTree = "<group>"; };
 		DF37FAB61F8D266E00723F37 /* ActionItemRsvpHeaderFooterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ActionItemRsvpHeaderFooterView.xib; sourceTree = "<group>"; };
+		DF37FAB81F8E509800723F37 /* StudentResponceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentResponceTableViewCell.swift; sourceTree = "<group>"; };
+		DF37FAB91F8E509800723F37 /* StudentResponceTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StudentResponceTableViewCell.xib; sourceTree = "<group>"; };
+		DF37FABC1F8E5B4B00723F37 /* RSVPListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSVPListModel.swift; sourceTree = "<group>"; };
 		DF3EE0B91F8C079000AAD732 /* ActionItemTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionItemTabView.swift; sourceTree = "<group>"; };
 		DF3EE0BB1F8C08D000AAD732 /* ActionItemTabView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ActionItemTabView.xib; sourceTree = "<group>"; };
 		DF3EE0BD1F8C096F00AAD732 /* ActionItemCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionItemCollectionViewCell.swift; sourceTree = "<group>"; };
 		DF3EE0BE1F8C096F00AAD732 /* ActionItemCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ActionItemCollectionViewCell.xib; sourceTree = "<group>"; };
+		DF5CE2251F90152C006BEC8D /* PaymentListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentListModel.swift; sourceTree = "<group>"; };
+		DFC5208A1F8F8CE000AEA6F0 /* StudentNameAndImageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentNameAndImageTableViewCell.swift; sourceTree = "<group>"; };
+		DFC5208B1F8F8CE000AEA6F0 /* StudentNameAndImageTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StudentNameAndImageTableViewCell.xib; sourceTree = "<group>"; };
+		DFC5208E1F8FA18200AEA6F0 /* FormListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormListModel.swift; sourceTree = "<group>"; };
+		DFC520901F8FAE7500AEA6F0 /* ActionItemVolunteerHeaderFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionItemVolunteerHeaderFooterView.swift; sourceTree = "<group>"; };
+		DFC520921F8FAF2300AEA6F0 /* ActionItemVolunteerHeaderFooterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ActionItemVolunteerHeaderFooterView.xib; sourceTree = "<group>"; };
+		DFC520941F8FBACE00AEA6F0 /* VolunteerListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolunteerListModel.swift; sourceTree = "<group>"; };
 		DFFBA4421F8B889A007CB649 /* ActionItemsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionItemsViewController.swift; sourceTree = "<group>"; };
 		DFFBA4441F8BB234007CB649 /* RSVPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSVPViewController.swift; sourceTree = "<group>"; };
 		DFFBA4461F8BB25F007CB649 /* FormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormViewController.swift; sourceTree = "<group>"; };
@@ -367,6 +387,12 @@
 				8F366FB31F7D0A3800DB60DD /* HeaderView.xib */,
 				DF37FAB41F8D265500723F37 /* ActionItemRsvpHeaderFooterView.swift */,
 				DF37FAB61F8D266E00723F37 /* ActionItemRsvpHeaderFooterView.xib */,
+				DFC520901F8FAE7500AEA6F0 /* ActionItemVolunteerHeaderFooterView.swift */,
+				DFC520921F8FAF2300AEA6F0 /* ActionItemVolunteerHeaderFooterView.xib */,
+				DF37FAB81F8E509800723F37 /* StudentResponceTableViewCell.swift */,
+				DF37FAB91F8E509800723F37 /* StudentResponceTableViewCell.xib */,
+				DFC5208A1F8F8CE000AEA6F0 /* StudentNameAndImageTableViewCell.swift */,
+				DFC5208B1F8F8CE000AEA6F0 /* StudentNameAndImageTableViewCell.xib */,
 				DF3EE0BB1F8C08D000AAD732 /* ActionItemTabView.xib */,
 			);
 			name = xib;
@@ -377,7 +403,10 @@
 			children = (
 				1CF8F54D1F876A2700C7513A /* ClassList.swift */,
 				1CF8F54F1F876BF600C7513A /* EventList.swift */,
-				1C912D421F8CFD0800D648EB /* ClassDetail.swift */,
+				DF37FABC1F8E5B4B00723F37 /* RSVPListModel.swift */,
+				DFC5208E1F8FA18200AEA6F0 /* FormListModel.swift */,
+				DFC520941F8FBACE00AEA6F0 /* VolunteerListModel.swift */,
+				DF5CE2251F90152C006BEC8D /* PaymentListModel.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -496,9 +525,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DFC520931F8FAF2300AEA6F0 /* ActionItemVolunteerHeaderFooterView.xib in Resources */,
 				8F366FC71F7D10DC00DB60DD /* ProximaNova-Black.otf in Resources */,
 				DF3EE0C01F8C096F00AAD732 /* ActionItemCollectionViewCell.xib in Resources */,
 				8F366FC81F7D10DC00DB60DD /* ProximaNova-Bold.otf in Resources */,
+				DF37FABB1F8E509800723F37 /* StudentResponceTableViewCell.xib in Resources */,
 				8F366FC91F7D10DC00DB60DD /* ProximaNova-BoldIt.otf in Resources */,
 				8F366FCA1F7D10DC00DB60DD /* ProximaNova-Extrabold.otf in Resources */,
 				8F366FCB1F7D10DC00DB60DD /* ProximaNova-Light.otf in Resources */,
@@ -508,6 +539,7 @@
 				8F366FCF1F7D10DC00DB60DD /* ProximaNova-RegularItalic.otf in Resources */,
 				1CDAA6221F8CB3630024A0AB /* ClassCategoryCollectionViewCell.xib in Resources */,
 				8F366FD01F7D10DC00DB60DD /* ProximaNova-Semibold.otf in Resources */,
+				DFC5208D1F8F8CE000AEA6F0 /* StudentNameAndImageTableViewCell.xib in Resources */,
 				8F366FD11F7D10DC00DB60DD /* ProximaNova-SemiboldItalic.otf in Resources */,
 				8F366FD21F7D10DC00DB60DD /* ProximaNovaCond-Light.otf in Resources */,
 				8F366FD31F7D10DC00DB60DD /* ProximaNovaCond-LightIt.otf in Resources */,
@@ -613,6 +645,7 @@
 				8F75A45D1F8257F800BEB9BF /* AutoAlertViewController.swift in Sources */,
 				8FBA9A0D1F728220003A959F /* Extensions.swift in Sources */,
 				8FBA9A0F1F72827D003A959F /* Reachability.swift in Sources */,
+				DFC520911F8FAE7500AEA6F0 /* ActionItemVolunteerHeaderFooterView.swift in Sources */,
 				DFFBA44D1F8BB28D007CB649 /* PaymentViewController.swift in Sources */,
 				1C314FCA1F84CD6D008CF054 /* EventDescriptionTableViewCell.swift in Sources */,
 				1CDAA6211F8CB3630024A0AB /* ClassCategoryCollectionViewCell.swift in Sources */,
@@ -623,10 +656,14 @@
 				1CF612341F8FBD72006BFEF9 /* EventActionItemCollectionViewCell.swift in Sources */,
 				1CDAA6251F8CB5B60024A0AB /* ClassStudentsListCollectionViewCell.swift in Sources */,
 				DFFBA4491F8BB26F007CB649 /* VolunteerViewController.swift in Sources */,
+
+				DF37FABA1F8E509800723F37 /* StudentResponceTableViewCell.swift in Sources */,
 				DF3EE0BF1F8C096F00AAD732 /* ActionItemCollectionViewCell.swift in Sources */,
+				DF37FABD1F8E5B4B00723F37 /* RSVPListModel.swift in Sources */,
 				DFFBA4431F8B889A007CB649 /* ActionItemsViewController.swift in Sources */,
 				DFFBA44B1F8BB27F007CB649 /* ToBringViewController.swift in Sources */,
 				DFFBA4471F8BB25F007CB649 /* FormViewController.swift in Sources */,
+				DFC5208C1F8F8CE000AEA6F0 /* StudentNameAndImageTableViewCell.swift in Sources */,
 				8FA0EC451F73F4E800B72943 /* LoginViewController.swift in Sources */,
 				1CF8F54E1F876A2700C7513A /* ClassList.swift in Sources */,
 				1CE31FD91F88B5B20033BEE3 /* UIButton+Badge.m in Sources */,
@@ -634,6 +671,7 @@
 				8F47E1621F7A82C100CDC544 /* SlideMenuController.swift in Sources */,
 				1C314FBD1F84C819008CF054 /* EventImageViewTableViewCell.swift in Sources */,
 				1C314FBA1F84C2A9008CF054 /* EventDetailViewController.swift in Sources */,
+				DFC520951F8FBACE00AEA6F0 /* VolunteerListModel.swift in Sources */,
 				1C128AC01F8B3E72008F4D62 /* Utilities.swift in Sources */,
 				8F366FB21F7D040D00DB60DD /* HeaderView.swift in Sources */,
 				8FBA9A131F728479003A959F /* API.swift in Sources */,
@@ -643,7 +681,9 @@
 				1CE31FDC1F88C0C60033BEE3 /* MTCircularSlider.swift in Sources */,
 				1CFE63E31F91E84D0057707D /* EventCommonLabelTableViewCell.swift in Sources */,
 				8F75A4621F825FB500BEB9BF /* ClassesTableViewCell.swift in Sources */,
+				DFC5208F1F8FA18200AEA6F0 /* FormListModel.swift in Sources */,
 				8FBA9A151F7284E9003A959F /* EventsViewController.swift in Sources */,
+				DF5CE2261F90152C006BEC8D /* PaymentListModel.swift in Sources */,
 				1CE31FDF1F88C2130033BEE3 /* EventStatusTableViewCell.swift in Sources */,
 				DF3EE0BA1F8C079000AAD732 /* ActionItemTabView.swift in Sources */,
 				DFFBA4451F8BB234007CB649 /* RSVPViewController.swift in Sources */,

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="ProximaNova-Regular.otf">
+            <string>ProximaNova-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="ActionItemVolunteerHeaderFooterView" customModule="Sangha_Teacher" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1gO-12-Cca">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="So2-19-GFP">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="0.010295758929999999" green="0.48074776790000001" blue="1" alpha="0.1034353596" colorSpace="calibratedRGB"/>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gb1-fK-cvx">
+                    <rect key="frame" x="20" y="10" width="309" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="08f-FA-5mS"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ciD-2H-dSz">
+                    <rect key="frame" x="20" y="30" width="335" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="Kt2-M1-BSN"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="12"/>
+                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WI1-tn-EYT">
+                    <rect key="frame" x="335" y="10" width="20" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="4UO-wR-Z07"/>
+                        <constraint firstAttribute="width" constant="20" id="ElD-IM-5Wc"/>
+                    </constraints>
+                    <state key="normal" image="down-arrow"/>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="Gb1-fK-cvx" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="2xD-rR-yyU"/>
+                <constraint firstItem="Gb1-fK-cvx" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="10" id="554-oK-UHV"/>
+                <constraint firstItem="ciD-2H-dSz" firstAttribute="top" secondItem="Gb1-fK-cvx" secondAttribute="bottom" id="HRG-tl-8pE"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="WI1-tn-EYT" secondAttribute="trailing" constant="20" id="bbv-Tt-i0Z"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="ciD-2H-dSz" secondAttribute="trailing" constant="20" id="bdN-bL-3Hb"/>
+                <constraint firstItem="WI1-tn-EYT" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="10" id="dlW-c8-8XR"/>
+                <constraint firstItem="ciD-2H-dSz" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="oEf-lc-xrj"/>
+                <constraint firstItem="WI1-tn-EYT" firstAttribute="leading" secondItem="Gb1-fK-cvx" secondAttribute="trailing" constant="6" id="uTb-6n-ZoB"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="ciD-2H-dSz" secondAttribute="bottom" constant="10" id="xlY-s1-4tv"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="detailLabel" destination="ciD-2H-dSz" id="AHh-El-ziL"/>
+                <outlet property="dropDownButton" destination="WI1-tn-EYT" id="1hu-o7-InJ"/>
+                <outlet property="titleLabel" destination="Gb1-fK-cvx" id="U5t-Li-60G"/>
+            </connections>
+            <point key="canvasLocation" x="79.5" y="54"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="down-arrow" width="384" height="384"/>
+    </resources>
+</document>
