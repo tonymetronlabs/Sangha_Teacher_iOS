@@ -30,8 +30,8 @@ class paymentAi: Decodable
 }
 
 class paymentResponses : Decodable {
-    var accepts:PaymentAcceptsResponses?
-    var pending:PendingResponses?
+    var accepts:[PaymentAcceptsResponses?]?
+    var pending:[PendingResponses?]?
 }
 
 class PaymentAcceptsResponses:Decodable

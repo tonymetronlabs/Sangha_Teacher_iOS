@@ -12,9 +12,10 @@ class PaymentViewController: UIViewController {
 
     
     
+    @IBOutlet var detailLbl: UILabel!
+    @IBOutlet var titleLbl: UILabel!
     @IBOutlet var paymentTableView: UITableView!
-    @IBOutlet var maxGuestsPerStudentLabel: UILabel!
-    @IBOutlet var paymentFeeAndTitleDateLabel: UILabel!
+
     var aiHeaderModelArray:[AIHeaderViewModel] = []
     var eventsObj:Event?
     var paymentListModel:PaymentListModel?
@@ -38,12 +39,12 @@ class PaymentViewController: UIViewController {
                 self.paymentListModel = paymentLists
                 
                 self.paymentTableView.reloadData()
+
+                guard let currency = self.paymentListModel?.ai?.currency!, let amount = self.paymentListModel?.ai?.amount!, let title = self.paymentListModel?.ai?.title! , let detail = self.paymentListModel?.ai?.desc! else { return }
                 
-                self.maxGuestsPerStudentLabel.text = "Max guests/student: \(self.paymentListModel?.ai?.maxpr ?? 0)"
-                
-                self.deadLineDateLabel.text = self.paymentListModel?.ai?.deadline?.toDateFromString(dateFormat: ToDateFormat.ActionItemDateFormat.rawValue).toString(dateFormat: ToStringDateFormat.ActionItemStringFormat.rawValue)
-                
-                self.capacityLabel.text = "Capacity: \(self.paymentListModel?.ai?.capacity ?? 0)"
+                self.titleLbl.text = "\(currency) \(amount) \(title)"
+            
+                self.detailLbl.text =  detail
             }
         }
         
@@ -94,7 +95,8 @@ extension PaymentViewController: UITableViewDelegate,UITableViewDataSource
         switch section {
         case 0:
             
-            guard let studentCount = paymentListModel?.ai?.responses?.accepts?.amount else { return 0 }
+            guard let studentCount = paymentListModel?.ai?.responses?.accepts?.count
+                else { return 0 }
             
             let height:CGFloat =  (studentCount > 0) ? 0.0 : 10.0
             
@@ -102,7 +104,7 @@ extension PaymentViewController: UITableViewDelegate,UITableViewDataSource
             
         case 1:
             
-            guard let studentCount = paymentListModel?.ai?.responses?.pending else { return 0 }
+            guard let studentCount = paymentListModel?.ai?.responses?.pending?.count else { return 0 }
             
             let height:CGFloat =  (studentCount > 0) ? 0.0 : 10.0
             
@@ -130,10 +132,6 @@ extension PaymentViewController: UITableViewDelegate,UITableViewDataSource
         case 1:
             return StudentNameAndImageTableViewCell.cellSize
             
-        case 2:
-            
-            return StudentNameAndImageTableViewCell.cellSize
-            
         default :
             return 0
         }
@@ -152,20 +150,11 @@ extension PaymentViewController: UITableViewDelegate,UITableViewDataSource
             switch headerObj.responceEnum
             {
             case .accepted:
-                //TODO:-
-                if let intArray = paymentListModel?.ai?.responses?.accepts?.map({ $0?.guestsCount })
-                {
-                    
-                    var addedInt:Int = 0
-                    for i in intArray
-                    {
-                        addedInt = addedInt + i!
-                    }
-                    
+                
                     guard let studentCount = paymentListModel?.ai?.responses?.accepts?.count else { return UIView() }
                     
-                    headerView.updateUI(responceCount: "\(studentCount) Student (\(addedInt) Parents)", aiHeaderViewObj: headerObj)
-                }
+                    headerView.updateUI(responceCount: "\(studentCount) Student", aiHeaderViewObj: headerObj)
+                
          
             case .noResponce:
                 
@@ -209,22 +198,11 @@ extension PaymentViewController: UITableViewDelegate,UITableViewDataSource
             }
             else
             {
-                guard let count = self.paymentListModel?.ai?.responses?.rejects?.count else { return 0}
+                guard let count = self.paymentListModel?.ai?.responses?.pending?.count else { return 0}
                 
                 return count
             }
-        case 1:
-            
-            if headerObj.isCollapsed
-            {
-                return 0
-            }
-            else
-            {
-                guard let count = self.paymentListModel?.ai?.responses?.pending?.count else { return 0 }
-                
-                return count
-            }
+       
             
         default:
             return 0
@@ -326,14 +304,14 @@ extension PaymentViewController{
                         return
                     }
                     
-                    let paymentListModel = try JSONDecoder().decode(PaymentListModel.self, from: data)
+                    let paymentListObj = try JSONDecoder().decode(PaymentListModel.self, from: data)
                     
-                    switch paymentListModel.status
+                    switch paymentListObj.status
                     {
                     case 200?:
-                        print(paymentListModel.ai?.responses?.accepts?.count ?? "Result nil")
+                        print(paymentListObj.ai?.responses?.accepts?.count ?? "Result nil")
                         
-                        completionHandler(true,paymentListModel)
+                        completionHandler(true,paymentListObj)
                         
                         break
                         

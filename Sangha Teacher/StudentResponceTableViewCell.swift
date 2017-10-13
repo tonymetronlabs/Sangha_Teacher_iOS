@@ -83,6 +83,31 @@ class StudentResponceTableViewCell: UITableViewCell {
         
     }
     
+    func updateUI(acceptsObj:PaymentAcceptsResponses)
+    {
+        
+        self.onDateLbl.text = "0n " + (acceptsObj.luTime?.toDateFromString(dateFormat: "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'").toString(dateFormat: "dd/MM/yy hh:mm a"))!
+        
+        self.studentNameLbl.text = acceptsObj.studentName
+        
+        guard let studentNameArray = acceptsObj.studentName?.components(separatedBy: " ") else { return }
+        
+        if studentNameArray.count > 0
+        {
+            guard let firstLetter = studentNameArray.first?.characters.first, let secondLetter = studentNameArray[1].characters.first else { return }
+            
+            self.profileImageButton.setTitle("\(firstLetter)\(secondLetter)", for: .normal)
+            
+        }else
+        {
+            guard let firstLetter = studentNameArray.first?.characters.first else { return }
+            
+            self.profileImageButton.setTitle("\(firstLetter)", for: .normal)
+            
+        }
+        
+        
+    }
     
     static var nib:UINib {
         return UINib(nibName: identifier, bundle: nil)

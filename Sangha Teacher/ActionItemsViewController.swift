@@ -139,9 +139,11 @@ class ActionItemsViewController: UIViewController {
                     volunteerViewController.pageId = index
             return volunteerViewController
         case .toBring:
-                    toBringViewController.pageId = index
+            
+                   toBringViewController.pageId = index
             return toBringViewController
         case .payment:
+                    paymentViewController.eventsObj = eventsObj
                     paymentViewController.pageId = index
             return paymentViewController
         case .ptm:
