@@ -63,7 +63,6 @@ class EventsViewController: UIViewController {
         
         self.calendarView.appearance.titleFont = UIFont(name: AppFont.appFontBold, size: 12)
         
-        
         self.eventsListTableView.register(EventTableViewCell.nib, forCellReuseIdentifier: EventTableViewCell.identifier)
         
         self.eventsListTableView.register(EventTableHeaderView.nib, forHeaderFooterViewReuseIdentifier: EventTableHeaderView.identifier)
@@ -74,7 +73,6 @@ class EventsViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -280,12 +278,24 @@ extension EventsViewController: UITableViewDataSource, UITableViewDelegate{
             dateEvent = self.dateAndEventDictionary[keyDate]?[indexPath.row]
         }
         
-        let event = dateEvent?.event
+        guard let event = dateEvent?.event else {return cell}
+
+        guard let eventDocType = event.docSubType else {return cell}
+
+        guard let type = EventType(rawValue: eventDocType) else {return cell}
+
+        if type == .fieldTrip {
+            cell.eventStatusCollectionView.dataSource = cell
+            cell.eventStatusCollectionView.delegate = cell
+        }
+        else {
+            cell.eventStatusCollectionView.dataSource = nil
+            cell.eventStatusCollectionView.delegate = nil
+        }
         
-        cell.updateUI(with: event!,selectedDate: self.selectedDate)
-        
+        cell.updateUI(with: event,selectedDate: self.selectedDate)
+
         return cell
-        
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -331,7 +341,6 @@ extension EventsViewController: FSCalendarDataSource, FSCalendarDelegate, FSCale
     func calendar(_ calendar: FSCalendar, boundingRectWillChange bounds: CGRect, animated: Bool) {
         
         self.calendarViewHeightConstraint.constant = bounds.height
-        
     }
     
     func calendar(_ calendar: FSCalendar, numberOfEventsFor date: Date) -> Int {
@@ -344,9 +353,7 @@ extension EventsViewController: FSCalendarDataSource, FSCalendarDelegate, FSCale
                     
                     return value.count
                 }
-                
             }
-            
         }
         return 0
     }

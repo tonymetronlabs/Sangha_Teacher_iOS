@@ -25,19 +25,20 @@ class EventDetailViewController: UIViewController {
 
         self.headerView.headerLabel.text = self.eventObj?.title
 
+        self.tableView.register(EventListCells.EventClassesTableViewCell.nib, forCellReuseIdentifier: EventListCells.EventClassesTableViewCell.cellIdentifier)
         self.tableView.register(EventListCells.EventImageTableViewCell.nib, forCellReuseIdentifier: EventListCells.EventImageTableViewCell.cellIdentifier)
-        self.tableView.register(EventListCells.EventStatusTableViewCell.nib, forCellReuseIdentifier: EventListCells.EventStatusTableViewCell.cellIdentifier)
-        self.tableView.register(EventListCells.EventDescriptionTableViewCell.nib, forCellReuseIdentifier: EventListCells.EventDescriptionTableViewCell.cellIdentifier)
+        self.tableView.register(EventListCells.EventActionItemTableViewCell.nib, forCellReuseIdentifier: EventListCells.EventActionItemTableViewCell.cellIdentifier)
+        self.tableView.register(EventListCells.EventDescTableViewCell.nib, forCellReuseIdentifier: EventListCells.EventDescTableViewCell.cellIdentifier)
 
         if let attachmentObj = self.eventObj?.attachments?.first, let _ = attachmentObj.url {
             cellArray.append(EventListCells.EventImageTableViewCell)
         }
 
-        if self.eventObj?.klasses != nil, (self.eventObj?.klasses?.count)! > 0 {
+        if self.eventObj?.klasses != nil {
             cellArray.append(EventListCells.EventClassesTableViewCell)
         }
 
-        if self.eventObj?.stime != nil {
+        if self.eventObj?.startTime != nil {
             cellArray.append(EventListCells.EventDateTimeTableViewCell)
         }
 
@@ -46,11 +47,11 @@ class EventDetailViewController: UIViewController {
         }
 
         if self.eventObj?.desc != nil {
-            cellArray.append(EventListCells.EventDescriptionTableViewCell)
+            cellArray.append(EventListCells.EventDescTableViewCell)
         }
 
         if self.eventObj?.ais != nil {
-            cellArray.append(EventListCells.EventStatusTableViewCell)
+            cellArray.append(EventListCells.EventActionItemTableViewCell)
         }
     }
 
@@ -82,24 +83,26 @@ extension EventDetailViewController : UITableViewDataSource,UITableViewDelegate 
 
         switch cellType {
         case .EventImageTableViewCell:
-            (cell as? EventImageViewTableViewCell)?.loadContentView(event: self.eventObj!)
+            (cell as! EventImageViewTableViewCell).loadContentView(event: self.eventObj!)
             break
         case .EventClassesTableViewCell:
-            cell.textLabel?.text = "\((self.eventObj?.ais?.count)!) Classes"
+            guard let classes = self.eventObj?.klasses else {
+                return UITableViewCell()}
+            cell.textLabel?.text = classes.count > 0 ? "\(classes.count) Classes" : "All Classes"
             cell.imageView?.image = #imageLiteral(resourceName: "multi_profile")
             break
         case .EventDateTimeTableViewCell:
-            cell.textLabel?.text = self.eventObj?.stime.toDateFromString(dateFormat: DateFormat.computedScheduleDate.rawValue).toString(dateFormat: DateFormat.eventDetailDate.rawValue)
+            cell.textLabel?.text = self.eventObj?.startTime.toDateFromString(dateFormat: DateFormat.computedScheduleDate.rawValue).toString(dateFormat: DateFormat.eventDetailDate.rawValue)
             cell.imageView?.image = #imageLiteral(resourceName: "calender")
             break
         case .EventLocationTableViewCell:
             cell.imageView?.image = #imageLiteral(resourceName: "loc")
             cell.textLabel?.text = self.eventObj?.location != nil ? self.eventObj?.location?.address : ""
             break
-        case .EventDescriptionTableViewCell:
+        case .EventDescTableViewCell:
             (cell as! EventDescriptionTableViewCell).loadContentView(event: self.eventObj!)
             break
-        case .EventStatusTableViewCell:
+        case .EventActionItemTableViewCell:
             (cell as! EventStatusTableViewCell).loadContentView(event: self.eventObj!)
             (cell as! EventStatusTableViewCell).delegate = self
             break
@@ -135,7 +138,7 @@ extension EventDetailViewController : UITableViewDataSource,UITableViewDelegate 
                 return 0
             }
             return 200
-        case .EventStatusTableViewCell:
+        case .EventActionItemTableViewCell:
             guard (self.eventObj?.ais) != nil else {
                 return 0
             }

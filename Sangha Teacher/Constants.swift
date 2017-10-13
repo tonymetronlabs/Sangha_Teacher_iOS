@@ -196,11 +196,13 @@ enum ClassListCells : Int {
     var nib : UINib {
         switch self {
         case .CategoryHeaderCollectionViewCell:
-            return UINib(nibName: String(describing: ClassCategoryCollectionViewCell.self), bundle: nil)
+            return UINib(nibName: "ClassCategoryCollectionViewCell", bundle: nil)
+//            return UINib(nibName: String(describing: ClassCategoryCollectionViewCell.self), bundle: nil)
         case .CategoryListCollectionViewCell:
-            return UINib(nibName: String(describing: ClassStudentsListCollectionViewCell.self), bundle: nil)
+            return UINib(nibName: "ClassStudentsListCollectionViewCell", bundle: nil)
+//            return UINib(nibName: String(describing: ClassStudentsListCollectionViewCell.self), bundle: nil)
         default:
-            return UINib(nibName: String(describing: StudentTableViewCell.self), bundle: nil)
+            return UINib(nibName: "StudentTableViewCell", bundle: nil)
         }
     }
 
@@ -211,8 +213,8 @@ enum EventListCells : Int {
     EventClassesTableViewCell,
     EventDateTimeTableViewCell,
     EventLocationTableViewCell,
-    EventDescriptionTableViewCell,
-    EventStatusTableViewCell
+    EventDescTableViewCell,
+    EventActionItemTableViewCell
 
     func cell(tableView : UITableView) -> UITableViewCell {
         return tableView.dequeueReusableCell(withIdentifier: self.cellIdentifier)!
@@ -222,13 +224,13 @@ enum EventListCells : Int {
 
         switch self {
         case .EventImageTableViewCell:
-            return "eventDetailImageViewCell"
+            return EventImageViewTableViewCell.identifier
     case .EventClassesTableViewCell,.EventDateTimeTableViewCell,.EventLocationTableViewCell:
-            return "cell"
-        case .EventDescriptionTableViewCell:
-            return "eventDetailDescriptionCell"
-        case .EventStatusTableViewCell:
-            return "eventStatusTableViewCell"
+        return EventCommonLabelTableViewCell.identifier
+        case .EventDescTableViewCell:
+            return EventDescriptionTableViewCell.identifier
+        case .EventActionItemTableViewCell:
+            return EventStatusTableViewCell.identifier
         default:
             return ""
         }
@@ -237,12 +239,14 @@ enum EventListCells : Int {
     var nib : UINib? {
 
         switch self {
+        case .EventClassesTableViewCell,.EventDateTimeTableViewCell,.EventLocationTableViewCell:
+            return EventCommonLabelTableViewCell.nib
         case .EventImageTableViewCell:
-            return UINib(nibName: "EventImageViewTableViewCell", bundle: nil)
-        case .EventDescriptionTableViewCell:
-            return UINib(nibName: "EventDescriptionTableViewCell", bundle: nil)
-        case .EventStatusTableViewCell:
-            return UINib(nibName: "EventStatusTableViewCell", bundle: nil)
+            return EventImageViewTableViewCell.nib
+        case .EventDescTableViewCell:
+            return EventDescriptionTableViewCell.nib
+        case .EventActionItemTableViewCell:
+            return EventStatusTableViewCell.nib
         default:
             return nil
         }

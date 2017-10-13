@@ -89,7 +89,7 @@ class API: NSObject {
         let param : [String:Any]? = nil
 
         init(classID : String) {
-            var urlComponents = URLComponents(string: kServerURL + "tapp/classes?\(classID)")!
+            var urlComponents = URLComponents(string: kServerURL + "tapp/classes/\(classID)?")!
             urlComponents.queryItems = [URLQueryItem(name: "access_token", value: API.accessToken)]
             URL = (urlComponents.url?.absoluteString)!
         }

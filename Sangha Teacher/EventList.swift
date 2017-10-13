@@ -19,15 +19,15 @@ class EventList : Decodable {
 // MARK: - Event Struct
 
 class Event: Decodable {
-        var _id: String = ""
+        var id: String = ""
         var title: String = ""
         var desc: String = ""
         var owner: String = ""
-        var stime: String = ""
-        var etime: String = ""
+        var startTime: String = ""
+        var endTime: String = ""
         var organizationId: String = ""
         var organizationName: String = ""
-        var docSubType: String = ""
+        var docSubType: String? = ""
         var actionItems : [String] = []
 
         var location : Location?
@@ -38,8 +38,8 @@ class Event: Decodable {
         var members : [Member]?
         var klasses : [Klasses]?
 
-        private enum Codingkey : String, CodingKey {
-            case id = "_id" 
+        private enum CodingKeys : String, CodingKey {
+            case id = "_id", title, desc, owner, startTime = "stime", endTime = "etime", organizationId, organizationName, docSubType, actionItems, location, schedule, ais, computedSchedule, attachments, members, klasses
     }
 }
 
@@ -62,7 +62,7 @@ struct Attachment : Decodable {
     public var awsInfo : AwsInfo?
 
     private enum keys : String, CodingKey {
-        case contentType = "content-type"
+        case contentType = "content-type", name, size, url, resizeUrl, lastUpdateTime, awsInfo
     }
 }
 
@@ -87,8 +87,8 @@ struct Klasses : Decodable {
     public var owner : String?
     public var organizationId : String?
 
-    private enum ChangeOfKeys : String, CodingKey {
-        case id = "_id"
+    private enum CodingKeys : String, CodingKey {
+        case id = "_id", title, desc, owner, organizationId
     }
 }
 
@@ -100,8 +100,8 @@ struct Ais : Decodable {
     public var total : Int?
     public var acceptCount : Int?
 
-    private enum codingKey : String, CodingKey {
-        case id = "_id"
+    private enum CodingKeys : String, CodingKey {
+        case id = "_id", eid, aiType, createdBy, total, acceptCount
     }
 }
 
@@ -150,7 +150,7 @@ struct ConnectedAccounts : Decodable {
     var displayName : String?
     var stripeEmail : String?
 
-    private enum keys : String,CodingKey {
-        case id = "_id"
+    private enum CodingKeys : String,CodingKey {
+        case id = "_id", organizationId, classId, stripeAccountId, businessName, displayName, stripeEmail
     }
  }

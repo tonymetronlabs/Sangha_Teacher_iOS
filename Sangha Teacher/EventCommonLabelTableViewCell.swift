@@ -8,10 +8,8 @@
 
 import UIKit
 
-class EventTitleTableViewCell: UITableViewCell {
+class EventCommonLabelTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var titleLabel: UILabel!
-    
     override func awakeFromNib() {
         super.awakeFromNib()
     }
@@ -19,8 +17,12 @@ class EventTitleTableViewCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
+    
+    static var nib:UINib {
+        return UINib(nibName: identifier, bundle: nil)
+    }
 
-    func loadContentView(event : Event) {
-        self.titleLabel.text = event.title
+    static var identifier: String {
+        return String(describing: self)
     }
 }

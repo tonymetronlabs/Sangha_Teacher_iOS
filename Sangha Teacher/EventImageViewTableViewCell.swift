@@ -21,6 +21,14 @@ class EventImageViewTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
 
+    static var nib:UINib {
+        return UINib(nibName: identifier, bundle: nil)
+    }
+
+    static var identifier: String {
+        return String(describing: self)
+    }
+
     func loadContentView(event : Event) {
         guard let attachmentObj = event.attachments?.first, let imageURL = attachmentObj.url else {
             self.imgVw.image = nil

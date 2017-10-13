@@ -18,4 +18,13 @@ class StatusCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
     }
+
+    static var nib:UINib {
+        return UINib(nibName: identifier, bundle: nil)
+    }
+
+    static var identifier: String {
+        return String(describing: self)
+    }
+
 }

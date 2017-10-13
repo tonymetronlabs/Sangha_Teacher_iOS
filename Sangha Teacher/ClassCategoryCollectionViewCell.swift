@@ -16,7 +16,17 @@ class ClassCategoryCollectionViewCell: UICollectionViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
+    func loadContentView(channelObj : Channel?) {
+        if channelObj == nil {
+            self.countLabel.text = "All"
+            self.countLabel.textAlignment = .center
+            self.categoryImageView.isHidden = true
+        }
+        else {
+            self.countLabel.text = "\((channelObj?.parentsCount)!)"
+            self.categoryImageView.image = channelObj?.channel?.image
+        }
+    }
 }

@@ -13,8 +13,8 @@ class ClassDetail: Decodable {
     var status : Int?
     var classObj : Classes?
 
-    private enum CodingKee : String, CodingKey {
-        case classObj = "class"
+    private enum CodingKeys : String, CodingKey {
+        case classObj = "class", status
     }
 }
 
@@ -22,37 +22,55 @@ struct Student : Decodable {
     var id : String = ""
     var firstName : String = ""
     var lastName : String = ""
-
     var parents : [Parent]?
 
-    private enum CodingKeyss : String, CodingKey {
-        case firstName = "fname",
-        lastName = "lname",
-        id = "_id"
+    private enum CodingKeys : String, CodingKey {
+        case firstName = "fname", lastName = "lname", id = "_id", parents
     }
 }
 
 struct Parent : Decodable {
-    var id : String = ""
-    var email : String = ""
-    var firstName : String = ""
-    var lastName : String = ""
-    var image : String = ""
-    var channel : String = ""
-    var mobile : String = ""
-    private enum CodingKeyss : String, CodingKey {
-        case firstName = "fname",
-        lastName = "lname",
-        id = "_id"
+    var id : String?
+    var firstName : String?
+    var lastName : String?
+    var email : String?
+    var channel : ChannelType?
+    var image : String?
+    var mobile : String?
+
+    private enum CodingKeys : String, CodingKey {
+        case firstName = "fname",lastName = "lname",id = "_id", email, channel, image, mobile
     }
 }
 
 struct Summary : Decodable {
-    var count : [Channel]?
+    var counts : [Channel]?
 }
 
 struct Channel : Decodable {
-    var channel : String = ""
+    var channel : ChannelType?
     var parentsCount : Int = 0
     var studentsCount : Int = 0
+}
+
+enum ChannelType : String, Decodable {
+    case mobile = "mobile"
+    case app = "app"
+    case landline = "landline"
+    case email = "email"
+
+    var image : UIImage {
+        switch self {
+        case .mobile:
+            return #imageLiteral(resourceName: "mobile")
+        case .app:
+            return #imageLiteral(resourceName: "chat-1")
+        case .email:
+            return #imageLiteral(resourceName: "mail")
+        case .landline:
+            return #imageLiteral(resourceName: "call")
+        default:
+            return #imageLiteral(resourceName: "logo")
+        }
+    }
 }

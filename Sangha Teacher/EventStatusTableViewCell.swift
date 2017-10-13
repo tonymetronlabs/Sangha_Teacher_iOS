@@ -26,6 +26,14 @@ class EventStatusTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
 
+    static var nib:UINib {
+        return UINib(nibName: identifier, bundle: nil)
+    }
+
+    static var identifier: String {
+        return String(describing: self)
+    }
+
     func loadContentView(event : Event) {
         self.eventObj = event
         self.categoryCollectionView.reloadData()

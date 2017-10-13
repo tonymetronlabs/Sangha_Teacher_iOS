@@ -17,41 +17,41 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="classCategoryCollectionViewCell" id="gTV-IL-0wX" customClass="ClassCategoryCollectionViewCell" customModule="Sangha_Teacher" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="136" height="53"/>
-            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <rect key="frame" x="0.0" y="0.0" width="200" height="65"/>
+            <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="136" height="53"/>
+                <rect key="frame" x="0.0" y="0.0" width="200" height="65"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <stackView opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="YLo-Xr-VIs">
-                        <rect key="frame" x="0.0" y="0.0" width="136" height="110"/>
+                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="hfG-xW-q0i">
+                        <rect key="frame" x="0.0" y="0.0" width="200" height="65"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iz7-RJ-ZuU">
-                                <rect key="frame" x="0.0" y="0.0" width="63" height="43"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iz7-RJ-ZuU">
+                                <rect key="frame" x="0.0" y="0.0" width="95" height="65"/>
                                 <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" image="profile" translatesAutoresizingMaskIntoConstraints="NO" id="MYI-tt-WUR">
-                                <rect key="frame" x="63" y="0.0" width="63" height="43"/>
+                            <imageView userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile" translatesAutoresizingMaskIntoConstraints="NO" id="MYI-tt-WUR">
+                                <rect key="frame" x="105" y="0.0" width="95" height="65"/>
                             </imageView>
                         </subviews>
                     </stackView>
                 </subviews>
             </view>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="YLo-Xr-VIs" secondAttribute="bottom" constant="5" id="1Vt-ev-6kf"/>
-                <constraint firstItem="YLo-Xr-VIs" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="UQj-Tf-hw6"/>
-                <constraint firstAttribute="trailing" secondItem="YLo-Xr-VIs" secondAttribute="trailing" constant="5" id="d1L-Wg-BnV"/>
-                <constraint firstItem="YLo-Xr-VIs" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="5" id="pd6-pV-Yez"/>
+                <constraint firstItem="hfG-xW-q0i" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="5BQ-hT-yaP"/>
+                <constraint firstItem="hfG-xW-q0i" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="CNs-CD-iJc"/>
+                <constraint firstAttribute="trailing" secondItem="hfG-xW-q0i" secondAttribute="trailing" id="HB1-4L-gm3"/>
+                <constraint firstAttribute="bottom" secondItem="hfG-xW-q0i" secondAttribute="bottom" id="t8f-cd-2BQ"/>
             </constraints>
-            <size key="customSize" width="136" height="53"/>
+            <size key="customSize" width="165" height="53"/>
             <connections>
                 <outlet property="categoryImageView" destination="MYI-tt-WUR" id="f5r-rA-69w"/>
-                <outlet property="categoryStackView" destination="YLo-Xr-VIs" id="lzU-Yj-08q"/>
+                <outlet property="categoryStackView" destination="hfG-xW-q0i" id="CBT-k4-qXD"/>
                 <outlet property="countLabel" destination="Iz7-RJ-ZuU" id="BnV-i5-PLg"/>
             </connections>
-            <point key="canvasLocation" x="5" y="55.5"/>
+            <point key="canvasLocation" x="19.5" y="54.5"/>
         </collectionViewCell>
     </objects>
     <resources>

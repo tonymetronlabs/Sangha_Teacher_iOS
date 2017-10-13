@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="ProximaNova-Regular.otf">
+            <string>ProximaNova-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="" id="gTV-IL-0wX" customClass="EventActionItemCollectionViewCell" customModule="Sangha_Teacher" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="170" height="98"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="170" height="98"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="suC-fG-hga">
+                        <rect key="frame" x="0.0" y="0.0" width="170" height="98"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xKs-zc-S3a">
+                                <rect key="frame" x="0.0" y="0.0" width="85" height="98"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fLE-o3-YgJ">
+                                <rect key="frame" x="85" y="0.0" width="85" height="98"/>
+                                <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="fLE-o3-YgJ" firstAttribute="leading" secondItem="xKs-zc-S3a" secondAttribute="trailing" id="1dy-5V-fYe"/>
+                            <constraint firstAttribute="trailing" secondItem="fLE-o3-YgJ" secondAttribute="trailing" id="JPt-UR-i41"/>
+                            <constraint firstItem="fLE-o3-YgJ" firstAttribute="top" secondItem="suC-fG-hga" secondAttribute="top" id="PGv-eH-sQ7"/>
+                            <constraint firstItem="xKs-zc-S3a" firstAttribute="top" secondItem="suC-fG-hga" secondAttribute="top" id="bEN-NT-hN6"/>
+                            <constraint firstAttribute="bottom" secondItem="fLE-o3-YgJ" secondAttribute="bottom" id="fB3-oU-tZX"/>
+                            <constraint firstAttribute="bottom" secondItem="xKs-zc-S3a" secondAttribute="bottom" id="kXI-l0-gFW"/>
+                            <constraint firstItem="xKs-zc-S3a" firstAttribute="leading" secondItem="suC-fG-hga" secondAttribute="leading" id="lmI-bK-9dR"/>
+                            <constraint firstItem="fLE-o3-YgJ" firstAttribute="leading" secondItem="xKs-zc-S3a" secondAttribute="trailing" id="muO-eA-8ff"/>
+                        </constraints>
+                    </stackView>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="suC-fG-hga" secondAttribute="bottom" id="0ng-cw-jzQ"/>
+                <constraint firstAttribute="trailing" secondItem="suC-fG-hga" secondAttribute="trailing" id="782-s4-oMI"/>
+                <constraint firstItem="suC-fG-hga" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="laz-dt-f3D"/>
+                <constraint firstItem="suC-fG-hga" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="rK4-lO-mLF"/>
+            </constraints>
+            <size key="customSize" width="170" height="98"/>
+            <connections>
+                <outlet property="actionItemCountLabel" destination="fLE-o3-YgJ" id="Kh7-nv-5Lu"/>
+                <outlet property="actionItemImageView" destination="xKs-zc-S3a" id="f57-1a-kZ6"/>
+                <outlet property="actionItemStackView" destination="suC-fG-hga" id="VFk-Pg-PQS"/>
+            </connections>
+            <point key="canvasLocation" x="97" y="89"/>
+        </collectionViewCell>
+    </objects>
+</document>
