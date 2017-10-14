@@ -277,9 +277,9 @@ extension FormViewController{
         
         let actionItem = eventsObj?.ais?.filter{ $0.aiType == AiType.form }.first
         
-        guard let actionId = actionItem?._id else { return }
+        guard let actionId = actionItem?.id else { return }
         
-        guard let eventId = eventsObj?._id else { return }
+        guard let eventId = eventsObj?.id else { return }
         
         let formListApi = API.GetFormLists.init(eventId: eventId, actionItemId: actionId)
         

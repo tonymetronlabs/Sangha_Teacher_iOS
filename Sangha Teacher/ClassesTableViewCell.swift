@@ -10,6 +10,7 @@ import UIKit
 
 class ClassesTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var classImageView: UIImageView!
     @IBOutlet weak var classNameLabel: UILabel!
     @IBOutlet weak var studentsCountLabel: UILabel!
     

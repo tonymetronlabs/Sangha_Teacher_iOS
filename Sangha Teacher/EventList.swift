@@ -93,7 +93,7 @@ struct Klasses : Decodable {
 }
 
 struct Ais : Decodable {
-    public var _id : String?
+    public var id : String?
     public var eid : String?
     public var aiType : AiType?
     public var createdBy : String?

@@ -27,12 +27,18 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="99.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sangha_logo" translatesAutoresizingMaskIntoConstraints="NO" id="nsL-ue-CFT">
+                    <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nsL-ue-CFT">
                         <rect key="frame" x="15" y="22" width="55" height="55"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="55" id="9lj-ZR-jGr"/>
                             <constraint firstAttribute="width" constant="55" id="l0w-HL-k1f"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="27.5"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ugv-04-urz">
                         <rect key="frame" x="85" y="24" width="220" height="25"/>
@@ -54,8 +60,7 @@
                     <constraint firstItem="ugv-04-urz" firstAttribute="leading" secondItem="nsL-ue-CFT" secondAttribute="trailing" constant="15" id="43O-xx-vHM"/>
                     <constraint firstAttribute="trailingMargin" secondItem="ugv-04-urz" secondAttribute="trailing" constant="7" id="Gp6-6T-mnO"/>
                     <constraint firstItem="ugv-04-urz" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="16" id="IxY-CL-O7A"/>
-                    <constraint firstItem="nsL-ue-CFT" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="22" id="SSA-gN-eEZ"/>
-                    <constraint firstAttribute="bottom" secondItem="nsL-ue-CFT" secondAttribute="bottom" constant="22.5" id="bGh-a9-ahf"/>
+                    <constraint firstItem="nsL-ue-CFT" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="SJU-af-LzM"/>
                     <constraint firstItem="nsL-ue-CFT" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="cUM-NG-be9"/>
                     <constraint firstItem="ugv-04-urz" firstAttribute="trailing" secondItem="ek5-Mh-5fg" secondAttribute="trailing" id="ohX-1g-h1m"/>
                     <constraint firstAttribute="bottomMargin" secondItem="ek5-Mh-5fg" secondAttribute="bottom" constant="16.5" id="sl5-Qa-gUD"/>
@@ -64,13 +69,11 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="classImageView" destination="nsL-ue-CFT" id="wLP-er-yJE"/>
                 <outlet property="classNameLabel" destination="ugv-04-urz" id="kGj-mc-SQM"/>
                 <outlet property="studentsCountLabel" destination="ek5-Mh-5fg" id="c8y-Hy-eVK"/>
             </connections>
             <point key="canvasLocation" x="34" y="81"/>
         </tableViewCell>
     </objects>
-    <resources>
-        <image name="sangha_logo" width="300" height="300"/>
-    </resources>
 </document>

@@ -40,6 +40,7 @@
 		1CF8F5531F8790A500C7513A /* SVProgressHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CF8F5541F8790A500C7513A /* SVProgressHUD.framework */; };
 		1CFE63E31F91E84D0057707D /* EventCommonLabelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CFE63E11F91E84D0057707D /* EventCommonLabelTableViewCell.swift */; };
 		1CFE63E41F91E84D0057707D /* EventCommonLabelTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1CFE63E21F91E84D0057707D /* EventCommonLabelTableViewCell.xib */; };
+		1CFE63E91F91EBDE0057707D /* ClassDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CFE63E81F91EBDE0057707D /* ClassDetail.swift */; };
 		8F072B5A1F794E0C00B8BE78 /* EventTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F072B591F794E0C00B8BE78 /* EventTableHeaderView.swift */; };
 		8F072B5C1F794E2B00B8BE78 /* EventTableHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F072B5B1F794E2B00B8BE78 /* EventTableHeaderView.xib */; };
 		8F366FB21F7D040D00DB60DD /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F366FB11F7D040D00DB60DD /* HeaderView.swift */; };
@@ -148,6 +149,7 @@
 		1CF8F5541F8790A500C7513A /* SVProgressHUD.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SVProgressHUD.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1CFE63E11F91E84D0057707D /* EventCommonLabelTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventCommonLabelTableViewCell.swift; sourceTree = "<group>"; };
 		1CFE63E21F91E84D0057707D /* EventCommonLabelTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventCommonLabelTableViewCell.xib; sourceTree = "<group>"; };
+		1CFE63E81F91EBDE0057707D /* ClassDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassDetail.swift; sourceTree = "<group>"; };
 		3EC29D575624891BBEDA21BC /* Pods_Sangha_Teacher.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sangha_Teacher.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F072B591F794E0C00B8BE78 /* EventTableHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventTableHeaderView.swift; sourceTree = "<group>"; };
 		8F072B5B1F794E2B00B8BE78 /* EventTableHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventTableHeaderView.xib; sourceTree = "<group>"; };
@@ -277,6 +279,14 @@
 			name = Resources;
 			sourceTree = "<group>";
 		};
+		1CFE63E51F91EA420057707D /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				1C912D421F8CFD0800D648EB /* ClassDetail.swift */,
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
 		5E32F3A5FD8BABF4F74141FF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -401,6 +411,7 @@
 		8FAD83D31F75761400C287A8 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				1CFE63E81F91EBDE0057707D /* ClassDetail.swift */,
 				1CF8F54D1F876A2700C7513A /* ClassList.swift */,
 				1CF8F54F1F876BF600C7513A /* EventList.swift */,
 				DF37FABC1F8E5B4B00723F37 /* RSVPListModel.swift */,
@@ -418,6 +429,7 @@
 				8FBA99F41F7281A4003A959F /* Products */,
 				CFC656F4AA7E2C73F67BDC6C /* Pods */,
 				5E32F3A5FD8BABF4F74141FF /* Frameworks */,
+				1CFE63E51F91EA420057707D /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -651,12 +663,10 @@
 				1CDAA6211F8CB3630024A0AB /* ClassCategoryCollectionViewCell.swift in Sources */,
 				8F9FCDA11F752F21000BD163 /* EventTableViewCell.swift in Sources */,
 				1CDAA6291F8CB6B60024A0AB /* StudentTableViewCell.swift in Sources */,
-				1C912D431F8CFD0800D648EB /* ClassDetail.swift in Sources */,
 				8FBA99F71F7281A4003A959F /* AppDelegate.swift in Sources */,
 				1CF612341F8FBD72006BFEF9 /* EventActionItemCollectionViewCell.swift in Sources */,
 				1CDAA6251F8CB5B60024A0AB /* ClassStudentsListCollectionViewCell.swift in Sources */,
 				DFFBA4491F8BB26F007CB649 /* VolunteerViewController.swift in Sources */,
-
 				DF37FABA1F8E509800723F37 /* StudentResponceTableViewCell.swift in Sources */,
 				DF3EE0BF1F8C096F00AAD732 /* ActionItemCollectionViewCell.swift in Sources */,
 				DF37FABD1F8E5B4B00723F37 /* RSVPListModel.swift in Sources */,
@@ -664,6 +674,7 @@
 				DFFBA44B1F8BB27F007CB649 /* ToBringViewController.swift in Sources */,
 				DFFBA4471F8BB25F007CB649 /* FormViewController.swift in Sources */,
 				DFC5208C1F8F8CE000AEA6F0 /* StudentNameAndImageTableViewCell.swift in Sources */,
+				1CFE63E91F91EBDE0057707D /* ClassDetail.swift in Sources */,
 				8FA0EC451F73F4E800B72943 /* LoginViewController.swift in Sources */,
 				1CF8F54E1F876A2700C7513A /* ClassList.swift in Sources */,
 				1CE31FD91F88B5B20033BEE3 /* UIButton+Badge.m in Sources */,

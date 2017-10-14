@@ -33,7 +33,6 @@ class ClassStudentsListCollectionViewCell: UICollectionViewCell {
         else {
             guard let channelsArray = classObj.summary?.counts, channelsArray.count > 0 else {return}
             channelObj = channelsArray[currentIndex! - 1]
-//            channelObj = channel
 
             let studentChannelArr = classObj.students?.map({ (studentObj) -> Student? in
 
@@ -83,6 +82,10 @@ extension ClassStudentsListCollectionViewCell : UITableViewDataSource,UITableVie
         }
 
         cell.profileButton.setTitle("\(firstLetter)\(secondLetter)", for: .normal)
+        cell.chatImageView.isHidden = true
+        cell.mailImageView.isHidden = true
+        cell.callImageView.isHidden = true
+        cell.mobileImageView.isHidden = true
 
         if currentIndex == 0 {
             guard let channelsSet = self.getAllParentChannels(studentObj: studentObj) else {
@@ -90,6 +93,7 @@ extension ClassStudentsListCollectionViewCell : UITableViewDataSource,UITableVie
                 cell.layoutIfNeeded()
                 return cell
             }
+            cell.categorySlackViewWidthConstr.constant = CGFloat(channelsSet.count * 20)
 
             for channel in channelsSet {
 
@@ -108,7 +112,6 @@ extension ClassStudentsListCollectionViewCell : UITableViewDataSource,UITableVie
                     break
                 }
             }
-            cell.categorySlackViewWidthConstr.constant = CGFloat(channelsSet.count * 20)
         }
         else {
             cell.categorySlackViewWidthConstr.constant = 0

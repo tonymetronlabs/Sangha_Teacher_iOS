@@ -15,6 +15,8 @@ class ClassDetailViewController: UIViewController {
     @IBOutlet weak var bottomLineView: UIView!
     @IBOutlet weak var listCollectionView: UICollectionView!
 
+    var classColor : UIColor?
+    var classImage : UIImage?
     var classObj : Classes?
     var classDetailObj : Classes = Classes()
     var selectedIndex : Int = 0
@@ -26,16 +28,7 @@ class ClassDetailViewController: UIViewController {
         self.updateBottomLineView()
         self.fetchClassDetailAPI()
 
-        let titleTextField = UITextField(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 40))
-        titleTextField.text = self.classObj?.title
-        titleTextField.isUserInteractionEnabled = false
-        titleTextField.textAlignment = .center
-        titleTextField.sizeToFit()
-        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 25, height: 25))
-        imageView.image = #imageLiteral(resourceName: "add")
-        titleTextField.leftView = imageView
-        titleTextField.leftViewMode = .always
-        self.navigationItem.titleView = titleTextField
+        self.setNavigationTitleView()
     }
 
     override func didReceiveMemoryWarning() {
@@ -45,6 +38,29 @@ class ClassDetailViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.topItem?.title = ""
+    }
+
+    func setNavigationTitleView() {
+        let titleTextField = UITextField(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 40))
+        titleTextField.text = self.classObj?.title
+        titleTextField.isUserInteractionEnabled = false
+        titleTextField.textAlignment = .center
+        titleTextField.sizeToFit()
+
+        let contentView = UIView(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
+        contentView.backgroundColor = classColor
+        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 15, height: 15))
+        imageView.center = contentView.center
+        imageView.image = classImage
+        imageView.backgroundColor = .clear
+        contentView.layer.cornerRadius = contentView.frame.size.width/2
+        contentView.layer.masksToBounds = true
+        contentView.addSubview(imageView)
+
+        titleTextField.leftView = contentView
+        titleTextField.leftViewMode = .always
+
+        self.navigationItem.titleView = titleTextField
     }
 
     func updateBottomLineView() {

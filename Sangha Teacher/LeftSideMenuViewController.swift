@@ -14,7 +14,6 @@ class LeftSideMenuViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         self.menuTableView.tableFooterView = UIView()
     }
 
@@ -39,7 +38,6 @@ extension LeftSideMenuViewController: UITableViewDataSource, UITableViewDelegate
         let menuItem = MenuItem.menuArray[indexPath.row]
         
         let titleLabel = cell?.viewWithTag(1) as! UILabel
-        
         titleLabel.text = menuItem.menuTitle
         
         return cell!

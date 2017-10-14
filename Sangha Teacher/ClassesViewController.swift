@@ -12,6 +12,8 @@ class ClassesViewController: UIViewController {
 
     @IBOutlet weak var classesListTableView: UITableView!
 
+    var animalsImagesArray : [UIImage] = [#imageLiteral(resourceName: "Bear"),#imageLiteral(resourceName: "Bird"),#imageLiteral(resourceName: "Camel"),#imageLiteral(resourceName: "Cat"),#imageLiteral(resourceName: "Crocodile"),#imageLiteral(resourceName: "Fish"),#imageLiteral(resourceName: "Dog"),#imageLiteral(resourceName: "Dolphin"),#imageLiteral(resourceName: "Duck"),#imageLiteral(resourceName: "Star"),#imageLiteral(resourceName: "Dove")]
+    var animalsBGColors : [UInt32] = [0x26A95D, 0x7BC0BF, 0xD9BB41, 0xD88F78, 0x45ACA4, 0xD06A4D]
     var classListModel : ClassList = ClassList()
 
     override func viewDidLoad() {
@@ -66,8 +68,10 @@ extension ClassesViewController: UITableViewDataSource, UITableViewDelegate{
 
         let classObj : Classes = self.classListModel.classes[indexPath.row]
 
+        cell.classImageView.backgroundColor = UIColor.init(hex: animalsBGColors[indexPath.row%animalsBGColors.count])
+        cell.classImageView.image = animalsImagesArray[indexPath.row%animalsImagesArray.count]
         cell.classNameLabel.text = classObj.title
-        cell.studentsCountLabel.text = "\(classObj.studentsCount) Students"
+        cell.studentsCountLabel.text = "\(classObj.studentsCount) \(classObj.studentsCount > 1 ? "Students" : "Student")"
 
         tableView.tableFooterView = UIView()
 
@@ -77,8 +81,13 @@ extension ClassesViewController: UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
 
+        let selectedClassColor = UIColor.init(hex: animalsBGColors[indexPath.row%animalsBGColors.count])
+        let selectedClassImage = animalsImagesArray[indexPath.row%animalsImagesArray.count]
+
         let classObj = self.classListModel.classes[indexPath.row] as Classes
         let classDetailVC = self.storyboard?.instantiateViewController(withIdentifier: "SBClassDetail") as! ClassDetailViewController
+        classDetailVC.classColor = selectedClassColor
+        classDetailVC.classImage = selectedClassImage
         classDetailVC.classObj = classObj
         self.navigationController?.pushViewController(classDetailVC, animated: true)
     }

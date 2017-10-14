@@ -79,7 +79,7 @@ extension EventDetailViewController : UITableViewDataSource,UITableViewDelegate 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         let cellType = cellArray[indexPath.row]
-        var cell : UITableViewCell = cellType.cell(tableView: tableView)
+        let cell : UITableViewCell = cellType.cell(tableView: tableView)
 
         switch cellType {
         case .EventImageTableViewCell:

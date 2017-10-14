@@ -363,9 +363,9 @@ extension RSVPViewController{
         
         let actionItem = eventsObj?.ais?.filter{ $0.aiType == AiType.rsvp }.first
         
-        guard let actionId = actionItem?._id else { return }
+        guard let actionId = actionItem?.id else { return }
         
-        guard let eventId = eventsObj?._id else { return }
+        guard let eventId = eventsObj?.id else { return }
         
         let rsvpListApi = API.GetRsvpLists.init(eventId: eventId, actionItemId: actionId)
         
